@@ -1,0 +1,33 @@
+---
+pagination:
+  data: collections.newsCategoryPages
+  size: 1
+  alias: category
+  addAllPagesToCollections: true
+permalink: "{{ category.permalink }}"
+layout: "layouts/base.html"
+---
+
+<h1>{{ category.title }}</h1>
+
+<hr data-function="spacer">
+
+<div class="layout" data-layout="sbrinz">
+
+<div data-content="posts">
+{% set categoryPosts = collections.news | filterNewsByCategory(category.category) %}
+{% set postListItems = categoryPosts %}
+{% include "partials/post-list.html" %}
+</div><!-- one -->
+
+<div>
+<h3>All categories</h3>
+
+<ul class="alt-">
+{% for cat in collections.postCategories %}
+<li><a href="/news/category/{{ cat | slug }}/">{{ cat }}</a></li>
+{% endfor %}
+</ul>
+</div><!-- two -->
+
+</div><!-- layout -->

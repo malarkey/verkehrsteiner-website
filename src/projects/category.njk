@@ -1,0 +1,12 @@
+---
+pagination:
+  data: collections.projectCategoryPages
+  size: 1
+  alias: categoryPage
+  addAllPagesToCollections: true
+permalink: "{{ categoryPage.permalink }}"
+layout: "layouts/projects.html"
+eleventyComputed:
+  title: "{{ categoryPage.title }}"
+  category: "{{ categoryPage.category }}"
+---

@@ -1,0 +1,350 @@
+{% extends "layouts/base-reversed.html" %}
+
+{% set serviceName = name or title %}
+{% set relatedProjects = collections.projects | filterProjectsByService(serviceName) %}
+{% set serviceFaqs = collections.faqs | filterFaqsByService(serviceName) %}
+
+{% block content %}
+
+<div class="layout" data-layout="schabziger">
+
+<div class="figure-container">
+
+<button
+type="button"
+class="js-anim-toggle"
+title="Animations ON"
+aria-label="Animations ON"
+aria-pressed="true">
+<span class="js-anim-icon-on" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" viewBox="0 0 32 32">
+<g fill="none" fill-rule="evenodd"><path fill="#fff" d="M16 32a16 16 0 1 0 0-32 16 16 0 0 0 0 32"/><path fill="#16599c" d="M25 16 11 8v16z"/></g></svg></span>
+<span class="js-anim-icon-off" aria-hidden="true" hidden><svg xmlns="http://www.w3.org/2000/svg" width="32" viewBox="0 0 32 32">
+<g fill="none" fill-rule="evenodd"><path fill="#fff" d="M16 32a16 16 0 1 0 0-32 16 16 0 0 0 0 32"/><path fill="#16599c" d="M8 8h6.4v16H8zm9.8 0H24v16h-6.2z"/></g></svg></span>
+<span class="visually-hidden js-anim-text">Animations ON</span>
+</button>
+
+{% if image %}
+<figure>
+{% if ".svg" in image %}
+{% include "svgs/" ~ image %}
+{% else %}
+<img src="/images/{{ image }}" alt="{{ name or title }}">
+{% endif %}
+</figure>
+{% endif %}
+
+</div><!-- one -->
+
+<div>
+<h1>{{ name or title }}</h1>
+
+{% if lede %}
+{{ lede | safe }}
+{% endif %}
+
+{{ content | safe }}
+</div><!-- two -->
+
+</div><!-- layout -->
+
+{% if relatedProjects.length %}
+
+<hr>
+
+<div class="layout" data-layout="fribourgeois">
+{% for item in relatedProjects %}
+{% if loop.index <= 3 %}
+<div>
+{% set projectItem = item %}
+{% include "partials/project-list.html" %}
+</div>
+{% endif %}
+{% endfor %}
+</div><!-- layout -->
+{% endif %}
+
+{% if serviceFaqs.length %}
+
+<hr>
+
+<div class="layout" data-layout="emmentaler">
+
+<div>
+<h2>FAQs</h2>
+
+{% for faqItem in serviceFaqs %}
+<details>
+<summary>{{ faqItem.data.question }}</summary>
+<p>{{ faqItem.data.answer }}</p>
+</details>
+{% endfor %}
+{% endif %}
+</div><!-- one -->
+
+<div>
+{% if blockquote %}
+<blockquote>
+<svg xmlns="http://www.w3.org/2000/svg" width="65" viewBox="0 0 65 64"><g fill="none" fill-rule="evenodd"><path class="logo-mark" fill="#16599c" d="M57.8 12.7A32 32 0 0 0 36.6.3a32.1 32.1 0 0 0-30.1 51 32 32 0 0 0 21.2 12.4 32 32 0 0 0 30.1-51"/><path fill="#fff" d="m26.8 56.5 6.7-5-4-5.2a14 14 0 0 1-2.7-11 13 13 0 0 1 4.9-8l4.3-3.2 3.3 7.2q.5.8 1.2.8 1 0 1.3-.9l6.4-19.7q.1-.7-.2-1.2t-1.2-.6L25.7 11a1 1 0 0 0-1 .6q-.2.7.4 1.3l6 5.2-4.4 3.4a21 21 0 0 0-8 19.3q.8 6 4.4 11z"/></g></svg>
+{{ blockquote | safe }}
+</blockquote>
+{% endif %}
+</div><!-- two -->
+
+</div><!-- layout -->
+
+<script>
+(() => {
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const toggleButton = document.querySelector(".js-anim-toggle");
+const iconOn = toggleButton ? toggleButton.querySelector(".js-anim-icon-on") : null;
+const iconOff = toggleButton ? toggleButton.querySelector(".js-anim-icon-off") : null;
+const buttonText = toggleButton ? toggleButton.querySelector(".js-anim-text") : null;
+
+const setToggleUi = (isRunning) => {
+if (!toggleButton) {
+return;
+}
+
+const label = isRunning ? "Animations ON" : "Animations OFF";
+toggleButton.title = label;
+toggleButton.setAttribute("aria-label", label);
+toggleButton.setAttribute("aria-pressed", isRunning ? "true" : "false");
+
+if (buttonText) {
+buttonText.textContent = label;
+}
+
+if (iconOn) {
+iconOn.hidden = !isRunning;
+}
+
+if (iconOff) {
+iconOff.hidden = isRunning;
+}
+};
+
+if (prefersReducedMotion.matches) {
+if (toggleButton) {
+toggleButton.disabled = true;
+toggleButton.title = "Animations OFF (reduced motion preference)";
+toggleButton.setAttribute("aria-label", "Animations OFF (reduced motion preference)");
+toggleButton.setAttribute("aria-pressed", "false");
+}
+return;
+}
+
+const zurichSvg = document.querySelector(".banner-zurich");
+
+if (!zurichSvg) {
+if (toggleButton) {
+toggleButton.disabled = true;
+toggleButton.title = "Animations unavailable";
+toggleButton.setAttribute("aria-label", "Animations unavailable");
+toggleButton.setAttribute("aria-pressed", "false");
+}
+return;
+}
+
+const lineGroups = Array.from(zurichSvg.querySelectorAll('g[class^="banner-lines-"]'));
+
+if (!lineGroups.length) {
+if (toggleButton) {
+toggleButton.disabled = true;
+toggleButton.title = "Animations unavailable";
+toggleButton.setAttribute("aria-label", "Animations unavailable");
+toggleButton.setAttribute("aria-pressed", "false");
+}
+return;
+}
+
+const profiles = {
+green: {
+minOpacity: 0.5,
+maxOpacity: 1,
+trailRatio: 0.28,
+paddingRatio: 0.7,
+speed: 5.6,
+speedVariance: 0.08,
+phaseStep: 0.35,
+fadeMs: 165
+},
+grey: {
+minOpacity: 0.5,
+maxOpacity: 1,
+trailRatio: 0.38,
+paddingRatio: 1,
+speed: 3.6,
+speedVariance: 0.1,
+phaseStep: 0.55,
+fadeMs: 235
+},
+default: {
+minOpacity: 0.5,
+maxOpacity: 1,
+trailRatio: 0.34,
+paddingRatio: 0.8,
+speed: 4.2,
+speedVariance: 0.08,
+phaseStep: 0.45,
+fadeMs: 200
+}
+};
+
+const typeCounts = { green: 0, grey: 0, default: 0 };
+
+const animations = lineGroups.map(group => {
+const type = group.classList.contains("banner-lines-green")
+? "green"
+: group.classList.contains("banner-lines-grey")
+? "grey"
+: "default";
+
+const typeIndex = typeCounts[type]++;
+const profile = profiles[type];
+const paths = Array.from(group.querySelectorAll("path"));
+
+if (!paths.length) {
+return null;
+}
+
+const orderedPaths = paths
+.map(path => {
+try {
+const box = path.getBBox();
+return {
+path,
+midX: box.x + (box.width / 2),
+midY: box.y + (box.height / 2)
+};
+} catch {
+return {
+path,
+midX: 0,
+midY: 0
+};
+}
+})
+.sort((a, b) => (a.midX - b.midX) || (a.midY - b.midY))
+.map(item => item.path);
+
+group.classList.add("is-zurich-running");
+group.style.setProperty("--zurich-fade-ms", `${profile.fadeMs}ms`);
+
+const trailLength = Math.max(8, Math.round(orderedPaths.length * profile.trailRatio));
+const cyclePadding = Math.max(4, Math.round(trailLength * profile.paddingRatio));
+
+return {
+orderedPaths,
+trailLength,
+cycleLength: orderedPaths.length + cyclePadding,
+minOpacity: profile.minOpacity,
+maxOpacity: profile.maxOpacity,
+speed: profile.speed * (1 + (typeIndex * profile.speedVariance)),
+phaseOffset: typeIndex * profile.phaseStep
+};
+}).filter(Boolean);
+
+if (!animations.length) {
+if (toggleButton) {
+toggleButton.disabled = true;
+toggleButton.title = "Animations unavailable";
+toggleButton.setAttribute("aria-label", "Animations unavailable");
+toggleButton.setAttribute("aria-pressed", "false");
+}
+return;
+}
+
+let isRunning = true;
+let rafId = null;
+
+const resetPaths = () => {
+for (const animation of animations) {
+for (const path of animation.orderedPaths) {
+path.style.opacity = "1";
+}
+}
+};
+
+const tick = (now) => {
+if (!isRunning) {
+return;
+}
+
+const seconds = now / 1000;
+
+for (const animation of animations) {
+const {
+orderedPaths,
+trailLength,
+cycleLength,
+minOpacity,
+maxOpacity,
+speed,
+phaseOffset
+} = animation;
+
+const head = ((seconds + phaseOffset) * speed) % cycleLength;
+
+for (let i = 0; i < orderedPaths.length; i++) {
+let distance = head - i;
+
+if (distance < 0) {
+distance += cycleLength;
+}
+
+let opacity = minOpacity;
+
+if (distance >= 0 && distance <= trailLength) {
+const strength = 1 - (distance / trailLength);
+opacity = minOpacity + ((maxOpacity - minOpacity) * strength);
+}
+
+orderedPaths[i].style.opacity = opacity.toFixed(3);
+}
+}
+
+rafId = window.requestAnimationFrame(tick);
+};
+
+const startAnimation = () => {
+if (isRunning) {
+return;
+}
+
+isRunning = true;
+setToggleUi(true);
+rafId = window.requestAnimationFrame(tick);
+};
+
+const stopAnimation = () => {
+if (!isRunning) {
+return;
+}
+
+isRunning = false;
+setToggleUi(false);
+
+if (rafId !== null) {
+window.cancelAnimationFrame(rafId);
+rafId = null;
+}
+
+resetPaths();
+};
+
+if (toggleButton) {
+setToggleUi(true);
+toggleButton.addEventListener("click", () => {
+if (isRunning) {
+stopAnimation();
+} else {
+startAnimation();
+}
+});
+}
+
+rafId = window.requestAnimationFrame(tick);
+})();
+</script>
+
+{% endblock %}

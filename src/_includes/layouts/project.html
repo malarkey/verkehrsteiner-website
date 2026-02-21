@@ -1,0 +1,74 @@
+{% extends "layouts/base.html" %}
+
+{% set relatedProjects = helpers.getSiblingContent(collections.projects, page, 3) %}
+{% set projectTags = tags | asTagArray %}
+{% set activityItems = activities | asTagArray %}
+
+{% block content %}
+
+<div class="layout" data-layout="sbrinz">
+
+<div>
+
+{% if image %}
+<figure>
+<img src="{{ image }}" alt="{{ title }}" />
+</figure>
+{% endif %}
+
+<h1>{{ title }}</h1>
+
+<ul class="alt-inline">
+{% if category %}<li>{{ category }}</li>{% endif %}
+{% if location %}<li>{{ location }}</li>{% endif %}
+{% if date %}<li>{{ date | dateFilter }}</li>{% endif %}
+</ul>
+
+{% if summary %}
+<p>{{ summary }}</p>
+{% endif %}
+
+{{ content | safe }}
+
+</div><!-- one -->
+
+<div>
+<p data-align-h="end"><a href="/projects" class="btn" data-variant="s">&#8592; All projects</a></p>
+
+
+<small>{% if projectTags.length %}
+{% for tagItem in projectTags %}
+<span class="alt-tag">{{ tagItem }}</span>
+{% endfor %}
+{% endif %}</small>
+
+{% if activityItems.length %}
+<h3>Auftraggeber*in</h3>
+
+<ul>
+{% for activityItem in activityItems %}
+<li data-size="s">{{ activityItem }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{{ aside | safe }}
+
+</div><!-- two -->
+
+</div><!-- layout -->
+
+<hr>
+
+{% if relatedProjects %}
+<div class="layout" data-layout="fribourgeois">
+
+{% for item in relatedProjects %}
+{% set projectItem = item %}
+{% include "partials/project-list.html" %}
+{% endfor %}
+
+</div><!-- layout -->
+{% endif %}
+
+{% endblock %}

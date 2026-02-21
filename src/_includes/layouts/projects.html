@@ -1,0 +1,191 @@
+{% extends "layouts/base.html" %}
+
+{% set projectListItems = collections.projects %}
+
+{% if category %}
+{% set projectListItems = collections.projects | filterProjectsByCategory(category) %}
+{% set pageHeaderTitle = category %}
+{% elif tag %}
+{% set projectListItems = collections.projects | filterProjectsByTag(tag) %}
+{% set pageHeaderTitle = tag %}
+{% else %}
+{% set pageHeaderTitle = title %}
+{% endif %}
+
+{% block content %}
+
+<h1>{{ pageHeaderTitle }}</h1>
+
+<ul class="alt-inline">
+<li>Projects</li>
+
+<li>{% if category %}<a href="/projects/">All</a>{% else %}
+<span aria-current="page">All</span>{% endif %}</li>
+
+{% for projectCategory in collections.projectCategories %}
+<li{% if category == projectCategory %} class="active"{% endif %}>{% if category == projectCategory %}<span class="alt-category active" aria-current="page">{{ projectCategory }}</span>{% else %}
+<a href="/projects/category/{{ projectCategory | lower | replace(" ", "-") }}/" class="alt-category">{{ projectCategory }}</a>{% endif %}</li>{% endfor %}
+</ul>
+
+{{ lede | safe }}
+{{ content | safe }}
+
+<div class="layout" data-layout="tomme-vaudoise">
+
+<figure data-direction="reversed">
+<a href="#projects-map-modal" class="alt-map-trigger" aria-haspopup="dialog" aria-controls="projects-map-modal">
+<img src="/images/tmp-projects-map.webp" alt="Open project map">
+</a>
+<figcaption>Explore projects map</figcaption>
+</figure>
+
+<div class="alt-featured">
+{% set projectItem = projectListItems[0] %}
+
+{% if projectItem %}
+<article class="item-project">
+
+{% if projectItem.data.image %}
+<figure>
+<a href="{{ projectItem.url }}"><img src="{{ projectItem.data.thumbnail }}" class="alt-graded" alt="{{ projectItem.data.title }}" /></a>
+</figure>
+{% endif %}
+
+<div>
+<small class="item-meta">{{ projectItem.data.location }}{% if projectItem.data.date %} • {{ projectItem.data.date | dateFilter }}{% endif %}</small>
+
+<h2 data-size="2xl"><a href="{{ projectItem.url }}">{{ projectItem.data.title }}</a></h2>
+
+{% if projectItem.data.summary %}<p>{{ projectItem.data.summary }}</p>{% endif %}
+
+{% set projectTags = projectItem.data.tags | asTagArray %}
+{% if projectTags.length %}
+<small>Tagged with:
+{% for itemTag in projectTags %}
+<a href="/projects/tag/{{ itemTag | lower | replace(" ", "-") }}/" class="alt-tag">{{ itemTag }}</a>{% if not loop.last %} • {% endif %}
+{% endfor %}
+</small>
+{% endif %}
+</div>
+
+</article>
+{% endif %}
+
+
+</div><!-- two -->
+
+<div>
+{% set projectItem = projectListItems[1] %}
+{% include "partials/project-list.html" %}
+</div><!-- three -->
+
+</div><!-- layout -->
+
+
+
+<div class="layout" data-layout="belper-knolle">
+
+<div>
+{% set projectItem = projectListItems[2] %}
+{% include "partials/project-list.html" %}
+</div><!-- one -->
+
+<div>
+{% set projectItem = projectListItems[3] %}
+{% include "partials/project-list.html" %}
+</div><!-- two -->
+
+</div><!-- layout -->
+
+
+
+<div class="layout" data-layout="fribourgeois">
+
+{% for item in projectListItems %}
+{% if loop.index > 4 %}
+<div>
+{% set projectItem = item %}
+{% include "partials/project-list.html" %}
+</div><!-- item -->
+{% endif %}
+{% endfor %}
+
+</div><!-- layout -->
+
+<div id="projects-map-modal" class="alt-map-modal" role="dialog" aria-modal="true" aria-labelledby="projects-map-modal-title">
+
+<a href="#" class="alt-map-close" aria-label="Close map modal">&times;</a>
+
+<div class="alt-map-modal__inner">
+<div id="projects-map" class="alt-map-canvas" hidden></div>
+<iframe
+id="projects-map-fallback"
+src="https://www.google.com/maps?q=Switzerland&output=embed"
+title="Google Map"
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade"
+allowfullscreen>
+</iframe>
+</div>
+</div>
+
+{% if site.googleMapsApiKey %}
+<script>
+(function () {
+const mapContainer = document.getElementById("projects-map");
+const mapFallback = document.getElementById("projects-map-fallback");
+
+if (!mapContainer || !mapFallback) {
+return;
+}
+
+window.initProjectsMap = function initProjectsMap() {
+const blueMonochromeStyles = [
+{ elementType: "geometry", stylers: [{ color: "#d9e5f1" }] },
+{ elementType: "labels.text.fill", stylers: [{ color: "#2e5f90" }] },
+{ elementType: "labels.text.stroke", stylers: [{ color: "#eaf1f8" }] },
+{ featureType: "administrative", elementType: "geometry.stroke", stylers: [{ color: "#5e89b2" }, { weight: 1.2 }] },
+{ featureType: "poi", stylers: [{ visibility: "off" }] },
+{ featureType: "road", elementType: "geometry", stylers: [{ color: "#c4d6e8" }] },
+{ featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#8eb0cf" }] },
+{ featureType: "road.highway", elementType: "geometry", stylers: [{ color: "#b6cde2" }] },
+{ featureType: "road.highway", elementType: "geometry.stroke", stylers: [{ color: "#6f97bf" }] },
+{ featureType: "transit", stylers: [{ visibility: "off" }] },
+{ featureType: "water", elementType: "geometry", stylers: [{ color: "#bfd5ea" }] }
+];
+
+const mapOptions = {
+center: { lat: 46.8182, lng: 8.2275 },
+disableDefaultUI: true,
+fullscreenControl: false,
+gestureHandling: "greedy",
+mapTypeControl: false,
+streetViewControl: false,
+zoom: 8,
+zoomControl: true
+};
+
+{% if site.googleMapsMapId %}
+mapOptions.mapId = "{{ site.googleMapsMapId }}";
+{% else %}
+mapOptions.styles = blueMonochromeStyles;
+{% endif %}
+
+new google.maps.Map(mapContainer, mapOptions);
+mapContainer.hidden = false;
+mapFallback.hidden = true;
+};
+
+const script = document.createElement("script");
+script.src = "https://maps.googleapis.com/maps/api/js?key={{ site.googleMapsApiKey }}&callback=initProjectsMap";
+script.async = true;
+script.defer = true;
+script.onerror = function () {
+console.warn("Google Maps API failed to load. Falling back to iframe.");
+};
+document.head.appendChild(script);
+})();
+</script>
+{% endif %}
+
+{% endblock %}

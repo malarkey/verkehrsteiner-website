@@ -1,0 +1,49 @@
+{% extends "layouts/base.html" %}
+
+{% set pageHeaderTitle = title %}
+
+{% block content %}
+
+<div class="layout" data-layout="raclette">
+
+<div>
+<h1>{{ title }}</h1>
+
+{{ lede | safe }}
+{{ main | safe }}
+{{ content | safe }}
+</div><!-- one -->
+
+</div><!-- layout -->
+
+
+
+<hr data-function="spacer">
+
+
+
+<div class="layout" data-layout="belper-knolle" id="section-team">
+
+<div>
+<h2>Our team</h2>
+</div><!-- one -->
+
+<div>
+{{ aside | safe }}
+</div><!-- two -->
+
+</div><!-- layout -->
+
+
+
+<div class="layout" data-layout="tilsit">
+
+{% if collections.team.length %}
+{% for member in collections.team %}
+{% include "partials/member-list.html" %}
+{% endfor %}
+{% endif %}
+
+</div><!-- layout -->
+
+{% endblock %}

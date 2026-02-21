@@ -1,0 +1,33 @@
+---
+pagination:
+  data: collections.newsTagPages
+  size: 1
+  alias: tag
+  addAllPagesToCollections: true
+permalink: "{{ tag.permalink }}"
+layout: "layouts/base.html"
+---
+
+<h1>{{ tag.title }}</h1>
+
+<hr data-function="spacer">
+
+<div class="layout" data-layout="sbrinz">
+
+<div data-content="posts">
+{% set tagPosts = collections.news | filterNewsByTag(tag.tag) %}
+{% set postListItems = tagPosts %}
+{% include "partials/post-list.html" %}
+</div><!-- one -->
+
+<div>
+<h3>All Tags</h3>
+
+<ul class="alt-">
+{% for tag in collections.postTags %}
+<li><a href="/news/tag/{{ tag | slug }}/">{{ tag }}</a></li>
+{% endfor %}
+</ul>
+</div><!-- two -->
+
+</div><!-- layout -->

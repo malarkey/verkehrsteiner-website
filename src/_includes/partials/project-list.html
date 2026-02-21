@@ -1,0 +1,24 @@
+{% if projectItem %}
+<article class="item-project">
+
+{% if projectItem.data.image %}<figure>
+<a href="{{ projectItem.url }}"><img src="{{ projectItem.data.thumbnail }}" alt="{{ projectItem.data.title }}" class="alt-graded" /></a>
+</figure>{% endif %}
+
+<small class="item-meta">{{ projectItem.data.location }}{% if projectItem.data.date %} • {{ projectItem.data.date | dateFilter }}{% endif %}</small>
+
+<h2><a href="{{ projectItem.url }}">{{ projectItem.data.title }}</a></h2>
+
+{% if projectItem.data.summary %}<p data-size="s">{{ projectItem.data.summary }}</p>{% endif %}
+
+{% set projectTags = projectItem.data.tags | asTagArray %}
+{% if projectTags.length %}
+<small>Tagged with:
+{% for itemTag in projectTags %}
+<a href="/projects/tag/{{ itemTag | lower | replace(" ", "-") }}/" class="alt-tag">{{ itemTag }}</a>
+{% endfor %}
+</small>
+{% endif %}
+
+</article>
+{% endif %}

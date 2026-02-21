@@ -1,0 +1,44 @@
+{% extends "layouts/base.html" %}
+
+{% set recommendedPosts = helpers.getSiblingContent(collections.news, page, 2) %}
+
+{% block content %}
+
+{% if image %}
+{% set postImageSrc = image %}
+{% if image[0] != "/" %}
+{% set postImageSrc = "/images/" + image %}
+{% endif %}
+<figure><img src="{{ postImageSrc }}" alt="{{ title }}"></figure>
+{% endif %}
+
+<div class="layout" data-layout="raclette">
+
+<div>
+
+<small class="item-meta">{{ page.date | dateFilter }}</small>
+<h1>{{ title }}</h1>
+<p>{{ postSummary }}</p>
+
+{{ content | safe }}
+
+<small>{{ postAuthor }} •
+{% for tag in postTags %}
+<span class="tag">{{ tag }}</span>{% if not loop.last %} • {% endif %}
+{% endfor %}
+</small>
+
+</div><!-- one -->
+</div><!-- layout -->
+
+<hr>
+
+{% if recommendedPosts %}
+{% set postListItems = recommendedPosts %}
+<h2>More posts</h2>
+<div data-content="posts">
+{% include "partials/post-list.html" %}
+</div>
+{% endif %}
+
+{% endblock %}

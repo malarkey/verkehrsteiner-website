@@ -1,0 +1,14 @@
+{% for item in postListItems %}
+<article class="item-post">
+<small class="alt-bordered alt-uppercase"><span>{{ item.data.postAuthor }} • {{ item.data.postDate | dateFilter }}</span></small>
+
+<h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+
+<p data-size="s">{{ item.data.postSummary }}</p>
+
+<small>Tagged with: {% for tag in item.data.postTags %}
+<a href="/news/tag/{{ tag | slug }}/" class="alt-tag">{{ tag }}</a>
+{% endfor %}
+</small>
+</article>
+{% endfor %}

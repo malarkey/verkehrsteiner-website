@@ -1,0 +1,12 @@
+---
+pagination:
+  data: collections.projectTagPages
+  size: 1
+  alias: tagPage
+  addAllPagesToCollections: true
+permalink: "{{ tagPage.permalink }}"
+layout: "layouts/projects.html"
+eleventyComputed:
+  title: "{{ tagPage.title }}"
+  tag: "{{ tagPage.tag }}"
+---
