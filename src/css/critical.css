@@ -631,6 +631,10 @@ max-inline-size: 100%; }
 
 img { border-width: 0; }
 
+.alt-decorative {
+text-align: center;
+margin-block: var(--spacing-l); }
+
 .alt-graded {
 filter: url(#duotone-blue); }
 
@@ -903,7 +907,6 @@ display: block; }
 #banner-animations {
 margin-block-end: var(--spacing-r); }
 
-
 .banner-ecg .banner-lines path {
 opacity: .2;
 will-change: opacity; }
@@ -939,7 +942,7 @@ transition: opacity 120ms linear; }
 opacity: 1; }
 
 .banner-zurich [class^="banner-lines-"] path {
-opacity: .16;
+opacity: .5;
 will-change: opacity; }
 
 .banner-zurich [class^="banner-lines-"].is-zurich-running path {

@@ -43,6 +43,18 @@ aria-pressed="true">
 {% endif %}
 
 {{ content | safe }}
+
+<div class="alt-decorative" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" width="80" viewBox="0 0 80 64">
+<g fill="none" fill-rule="evenodd">
+<path fill="#143657" d="M64 0h16v16H64z"/>
+<path fill="#165493" d="M48 16h16v16H48z"/>
+<path fill="#13202f" d="M0 48h16v16H0z"/>
+<path fill="#143657" d="M16 16h16v16H16z"/>
+</g>
+</svg>
+</div><!-- decorative -->
+
 </div><!-- two -->
 
 </div><!-- layout -->
@@ -95,67 +107,44 @@ aria-pressed="true">
 <script>
 (() => {
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const createToggle = window.Verkehrsteiner && window.Verkehrsteiner.createAnimationToggle;
 const toggleButton = document.querySelector(".js-anim-toggle");
-const iconOn = toggleButton ? toggleButton.querySelector(".js-anim-icon-on") : null;
-const iconOff = toggleButton ? toggleButton.querySelector(".js-anim-icon-off") : null;
-const buttonText = toggleButton ? toggleButton.querySelector(".js-anim-text") : null;
+const zurichSvg = document.querySelector(".banner-zurich");
 
-const setToggleUi = (isRunning) => {
-if (!toggleButton) {
+const createDisabledToggle = (label) => {
+if (createToggle) {
+const control = createToggle({
+button: toggleButton,
+autoStart: false,
+initiallyRunning: false
+});
+control.disable(label);
 return;
 }
 
-const label = isRunning ? "Animations ON" : "Animations OFF";
+if (toggleButton) {
+toggleButton.disabled = true;
 toggleButton.title = label;
 toggleButton.setAttribute("aria-label", label);
-toggleButton.setAttribute("aria-pressed", isRunning ? "true" : "false");
-
-if (buttonText) {
-buttonText.textContent = label;
-}
-
-if (iconOn) {
-iconOn.hidden = !isRunning;
-}
-
-if (iconOff) {
-iconOff.hidden = isRunning;
+toggleButton.setAttribute("aria-pressed", "false");
 }
 };
 
-if (prefersReducedMotion.matches) {
-if (toggleButton) {
-toggleButton.disabled = true;
-toggleButton.title = "Animations OFF (reduced motion preference)";
-toggleButton.setAttribute("aria-label", "Animations OFF (reduced motion preference)");
-toggleButton.setAttribute("aria-pressed", "false");
-}
-return;
-}
-
-const zurichSvg = document.querySelector(".banner-zurich");
-
 if (!zurichSvg) {
-if (toggleButton) {
-toggleButton.disabled = true;
-toggleButton.title = "Animations unavailable";
-toggleButton.setAttribute("aria-label", "Animations unavailable");
-toggleButton.setAttribute("aria-pressed", "false");
-}
+createDisabledToggle("Animations unavailable");
 return;
 }
 
 const lineGroups = Array.from(zurichSvg.querySelectorAll('g[class^="banner-lines-"]'));
+const heatGroup = zurichSvg.querySelector(".banner-heat");
+const heatPaths = heatGroup ? Array.from(heatGroup.querySelectorAll("path")) : [];
 
-if (!lineGroups.length) {
-if (toggleButton) {
-toggleButton.disabled = true;
-toggleButton.title = "Animations unavailable";
-toggleButton.setAttribute("aria-label", "Animations unavailable");
-toggleButton.setAttribute("aria-pressed", "false");
-}
+if (!lineGroups.length && !heatPaths.length) {
+createDisabledToggle("Animations unavailable");
 return;
 }
+
+const randomBetween = (min, max) => min + (Math.random() * (max - min));
 
 const profiles = {
 green: {
@@ -192,7 +181,7 @@ fadeMs: 200
 
 const typeCounts = { green: 0, grey: 0, default: 0 };
 
-const animations = lineGroups.map(group => {
+const lineAnimations = lineGroups.map(group => {
 const type = group.classList.contains("banner-lines-green")
 ? "green"
 : group.classList.contains("banner-lines-grey")
@@ -244,24 +233,65 @@ phaseOffset: typeIndex * profile.phaseStep
 };
 }).filter(Boolean);
 
-if (!animations.length) {
-if (toggleButton) {
-toggleButton.disabled = true;
-toggleButton.title = "Animations unavailable";
-toggleButton.setAttribute("aria-label", "Animations unavailable");
-toggleButton.setAttribute("aria-pressed", "false");
-}
-return;
+const heatStates = heatPaths.map((path, index) => ({
+path,
+index,
+fromOpacity: 1,
+toOpacity: 1,
+startAt: 0,
+duration: 0,
+nextAt: 0
+}));
+
+for (const path of heatPaths) {
+path.style.willChange = "opacity";
 }
 
-let isRunning = true;
+const primeHeatState = (now) => {
+for (const state of heatStates) {
+const initialOpacity = randomBetween(0.35, 1);
+const startOffset = randomBetween(0, 1200) + ((state.index % 11) * 24);
+
+state.path.style.opacity = initialOpacity.toFixed(3);
+state.fromOpacity = initialOpacity;
+state.toOpacity = initialOpacity;
+state.startAt = now + startOffset;
+state.duration = randomBetween(480, 1500);
+state.nextAt = now + startOffset;
+}
+};
+
+const scheduleHeatFade = (state, now) => {
+state.fromOpacity = Number.parseFloat(state.path.style.opacity) || 0.35;
+state.toOpacity = randomBetween(0.35, 1);
+
+if (Math.abs(state.toOpacity - state.fromOpacity) < 0.08) {
+state.toOpacity = state.toOpacity > 0.65 ? 0.4 : 0.95;
+}
+
+state.startAt = now;
+state.duration = randomBetween(480, 1500);
+state.nextAt = now + state.duration + randomBetween(120, 900);
+};
+
+const easeInOut = (t) => (
+t < 0.5
+? 2 * t * t
+: 1 - ((-2 * t + 2) ** 2) / 2
+);
+
+let isRunning = false;
 let rafId = null;
 
 const resetPaths = () => {
-for (const animation of animations) {
+for (const animation of lineAnimations) {
 for (const path of animation.orderedPaths) {
 path.style.opacity = "1";
 }
+}
+
+for (const path of heatPaths) {
+path.style.opacity = "1";
 }
 };
 
@@ -272,7 +302,7 @@ return;
 
 const seconds = now / 1000;
 
-for (const animation of animations) {
+for (const animation of lineAnimations) {
 const {
 orderedPaths,
 trailLength,
@@ -303,16 +333,33 @@ orderedPaths[i].style.opacity = opacity.toFixed(3);
 }
 }
 
+for (const state of heatStates) {
+if (now >= state.nextAt) {
+scheduleHeatFade(state, now);
+}
+
+if (now < state.startAt) {
+continue;
+}
+
+const elapsed = now - state.startAt;
+const progress = Math.min(1, elapsed / state.duration);
+const eased = easeInOut(progress);
+const opacity = state.fromOpacity + ((state.toOpacity - state.fromOpacity) * eased);
+
+state.path.style.opacity = opacity.toFixed(3);
+}
+
 rafId = window.requestAnimationFrame(tick);
 };
 
 const startAnimation = () => {
-if (isRunning) {
+if (isRunning || prefersReducedMotion.matches) {
 return;
 }
 
 isRunning = true;
-setToggleUi(true);
+primeHeatState(performance.now());
 rafId = window.requestAnimationFrame(tick);
 };
 
@@ -322,7 +369,6 @@ return;
 }
 
 isRunning = false;
-setToggleUi(false);
 
 if (rafId !== null) {
 window.cancelAnimationFrame(rafId);
@@ -332,18 +378,23 @@ rafId = null;
 resetPaths();
 };
 
-if (toggleButton) {
-setToggleUi(true);
-toggleButton.addEventListener("click", () => {
-if (isRunning) {
-stopAnimation();
-} else {
-startAnimation();
-}
-});
+if (prefersReducedMotion.matches) {
+resetPaths();
+createDisabledToggle("Animations OFF (reduced motion preference)");
+return;
 }
 
-rafId = window.requestAnimationFrame(tick);
+if (createToggle) {
+createToggle({
+button: toggleButton,
+initiallyRunning: true,
+onStart: startAnimation,
+onStop: stopAnimation
+});
+return;
+}
+
+startAnimation();
 })();
 </script>
 

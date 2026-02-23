@@ -1,31 +1,3 @@
-{% extends "layouts/base.html" %}
-
-{% set postListItems = pagination.items %}
-
-{% if tag %}
-{% set postListItems = collections[tag] %}
-{% set pageHeaderTitle = 'News posts filed under “' + tag + '”' %}
-{% else %}
-{% set pageHeaderTitle = title %}
-{% endif %}
-
-{% block content %}
-
-<div id="banner-animations">
-<div class="figure-container">
-
-<button type="button"
-class="js-anim-toggle"
-title="Animations ON"
-aria-label="Animations ON"
-aria-pressed="true">
-<span class="js-anim-icon-on" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" viewBox="0 0 32 32">
-<g fill="none" fill-rule="evenodd"><path fill="#fff" d="M16 32a16 16 0 1 0 0-32 16 16 0 0 0 0 32"/><path fill="#16599c" d="M25 16 11 8v16z"/></g></svg></span>
-<span class="js-anim-icon-off" aria-hidden="true" hidden><svg xmlns="http://www.w3.org/2000/svg" width="32" viewBox="0 0 32 32">
-<g fill="none" fill-rule="evenodd"><path fill="#fff" d="M16 32a16 16 0 1 0 0-32 16 16 0 0 0 0 32"/><path fill="#16599c" d="M8 8h6.4v16H8zm9.8 0H24v16h-6.2z"/></g></svg></span>
-<span class="visually-hidden js-anim-text">Animations ON</span>
-</button>
-
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2015 881">
 
 <g fill="none" fill-rule="evenodd">
@@ -1002,706 +974,304 @@ aria-pressed="true">
 </g>
 
 <g fill="#1fab7c" class="banner-dots-default">
-<circle cx="10" cy="451" r="10"/>
-<circle cx="52" cy="451" r="10"/>
-<circle cx="52" cy="493" r="10"/>
-<circle cx="73" cy="451" r="10"/>
-<circle cx="73" cy="472" r="10"/>
-<circle cx="73" cy="871" r="10"/>
-<circle cx="31" cy="871" r="10"/>
-<circle cx="31" cy="829" r="10"/>
-<circle cx="10" cy="871" r="10"/>
-<circle cx="10" cy="850" r="10"/>
-<circle cx="115" cy="472" r="10"/>
-<circle cx="94" cy="493" r="10"/>
-<circle cx="115" cy="430" r="10"/>
-<circle cx="157" cy="451" r="10"/>
-<circle cx="157" cy="430" r="10"/>
-<circle cx="220" cy="409" r="10"/>
-<circle cx="220" cy="472" r="10"/>
-<circle cx="304" cy="451" r="10"/>
-<circle cx="262" cy="409" r="10"/>
-<circle cx="283" cy="430" r="10"/>
-<circle cx="304" cy="409" r="10"/>
-<circle cx="598" cy="430" r="10"/>
-<circle cx="556" cy="430" r="10"/>
-<circle cx="535" cy="451" r="10"/>
-<circle cx="514" cy="430" r="10"/>
-<circle cx="493" cy="451" r="10"/>
-<circle cx="472" cy="472" r="10"/>
-<circle cx="451" cy="430" r="10"/>
-<circle cx="430" cy="451" r="10"/>
-<circle cx="451" cy="472" r="10"/>
-<circle cx="367" cy="703" r="10"/>
-<circle cx="346" cy="661" r="10"/>
-<circle cx="346" cy="598" r="10"/>
-<circle cx="325" cy="577" r="10"/>
-<circle cx="283" cy="598" r="10"/>
-<circle cx="325" cy="682" r="10"/>
-<circle cx="346" cy="703" r="10"/>
-<circle cx="388" cy="577" r="10"/>
-<circle cx="304" cy="766" r="10"/>
-<circle cx="325" cy="745" r="10"/>
-<circle cx="346" cy="766" r="10"/>
-<circle cx="346" cy="745" r="10"/>
-<circle cx="367" cy="766" r="10"/>
-<circle cx="388" cy="787" r="10"/>
-<circle cx="409" cy="745" r="10"/>
-<circle cx="241" cy="808" r="10"/>
-<circle cx="220" cy="787" r="10"/>
-<circle cx="241" cy="724" r="10"/>
-<circle cx="262" cy="703" r="10"/>
-<circle cx="283.5" cy="661" r="10"/>
-<circle cx="199" cy="808" r="10"/>
-<circle cx="199" cy="787" r="10"/>
-<circle cx="1354" cy="745" r="10"/>
-<circle cx="1333" cy="703" r="10"/>
-<circle cx="1312" cy="724" r="10"/>
-<circle cx="1333" cy="745" r="10"/>
-<circle cx="1291" cy="808" r="10"/>
-<circle cx="1312" cy="787" r="10"/>
-<circle cx="1333" cy="808" r="10"/>
-<circle cx="1333" cy="787" r="10"/>
-<circle cx="1354" cy="808" r="10"/>
-<circle cx="1375" cy="829" r="10"/>
-<circle cx="1396" cy="787" r="10"/>
-<circle cx="1228" cy="850" r="10"/>
-<circle cx="1207" cy="829" r="10"/>
-<circle cx="1228" cy="766" r="10"/>
-<circle cx="1249" cy="745" r="10"/>
-<circle cx="1270.5" cy="703" r="10"/>
-<circle cx="1186" cy="850" r="10"/>
-<circle cx="1186" cy="829" r="10"/>
-<circle cx="409" cy="535" r="10"/>
-<circle cx="430" cy="556" r="10"/>
-<circle cx="472" cy="577" r="10"/>
-<circle cx="451" cy="598" r="10"/>
-<circle cx="472" cy="598" r="10"/>
-<circle cx="472" cy="619" r="10"/>
-<circle cx="493" cy="619" r="10"/>
-<circle cx="514" cy="661" r="10"/>
-<circle cx="535" cy="661" r="10"/>
-<circle cx="619" cy="703" r="10"/>
-<circle cx="598" cy="619" r="10"/>
-<circle cx="619" cy="640" r="10"/>
-<circle cx="598" cy="598" r="10"/>
-<circle cx="556" cy="577" r="10"/>
-<circle cx="493" cy="535" r="10"/>
-<circle cx="535" cy="598" r="10"/>
-<circle cx="556" cy="745" r="10"/>
-<circle cx="577" cy="766" r="10"/>
-<circle cx="178" cy="808" r="10"/>
-<circle cx="157" cy="829" r="10"/>
-<circle cx="136" cy="787" r="10"/>
-<circle cx="73" cy="808" r="10"/>
-<circle cx="94" cy="787" r="10"/>
-<circle cx="115" cy="850" r="10"/>
-<circle cx="598" cy="745" r="10"/>
-<circle cx="640" cy="745" r="10"/>
-<circle cx="661" cy="766" r="10"/>
-<circle cx="724" cy="766" r="10"/>
-<circle cx="703" cy="787" r="10"/>
-<circle cx="745" cy="787" r="10"/>
-<circle cx="745" cy="808" r="10"/>
-<circle cx="724" cy="829" r="10"/>
-<circle cx="766" cy="829" r="10"/>
-<circle cx="640" cy="724" r="10"/>
-<circle cx="745" cy="682" r="10"/>
-<circle cx="766" cy="703" r="10"/>
-<circle cx="787" cy="682" r="10"/>
-<circle cx="787" cy="703" r="10"/>
-<circle cx="808" cy="724" r="10"/>
-<circle cx="514" cy="682" r="10"/>
-<circle cx="1039" cy="850" r="10"/>
-<circle cx="1060" cy="829" r="10"/>
-<circle cx="1039" cy="829" r="10"/>
-<circle cx="1039" cy="808" r="10"/>
-<circle cx="1018" cy="808" r="10"/>
-<circle cx="997" cy="766" r="10"/>
-<circle cx="976" cy="766" r="10"/>
-<circle cx="913" cy="808" r="10"/>
-<circle cx="892" cy="787" r="10"/>
-<circle cx="913" cy="829" r="10"/>
-<circle cx="955" cy="850" r="10"/>
-<circle cx="976" cy="829" r="10"/>
-<circle cx="997" cy="745" r="10"/>
-<circle cx="430.5" cy="493" r="10"/>
-<circle cx="346" cy="493" r="10"/>
-<circle cx="388" cy="472" r="10"/>
-<circle cx="388" cy="409" r="10"/>
-<circle cx="367" cy="430" r="10"/>
-<circle cx="346" cy="451" r="10"/>
-<circle cx="199" cy="430" r="10"/>
-<circle cx="178" cy="472" r="10"/>
-</g>
-<g fill="#1fab7c" class="banner-dots-default">
-<circle cx="1858" cy="556" r="10"/>
-<circle cx="1837" cy="493" r="10"/>
-<circle cx="1942" cy="514" r="10"/>
-<circle cx="1837" cy="577" r="10"/>
-<circle cx="1921" cy="514" r="10"/>
-<circle cx="1963" cy="472" r="10"/>
-<circle cx="1921" cy="577" r="10"/>
-<circle cx="1963" cy="577" r="10"/>
-<circle cx="2005" cy="577" r="10"/>
-<circle cx="1984" cy="535" r="10"/>
-<circle cx="1963" cy="556" r="10"/>
-<circle cx="1942" cy="556" r="10"/>
-<circle cx="1795" cy="514" r="10"/>
-<circle cx="1816" cy="535" r="10"/>
-<circle cx="1753" cy="556" r="10"/>
-<circle cx="1795" cy="556" r="10"/>
-<circle cx="1795" cy="577" r="10"/>
-<circle cx="1879" cy="535" r="10"/>
+<path d="M0 441h20v20H0z"/>
+<path d="M42 441h20v20H42z"/>
+<path d="M42 483h20v20H42z"/>
+<path d="M63 441h20v20H63z"/>
+<path d="M63 462h20v20H63z"/>
+<path d="M83 881H63v-20h20z"/>
+<path d="M41 881H21v-20h20z"/>
+<path d="M41 839H21v-20h20z"/>
+<path d="M20 881H0v-20h20z"/>
+<path d="M20 860H0v-20h20z"/>
+<path d="M105 462h20v20h-20z"/>
+<path d="M84 483h20v20H84z"/>
+<path d="M105 420h20v20h-20z"/>
+<path d="M147 441h20v20h-20z"/>
+<path d="M147 420h20v20h-20z"/>
+<path d="M210 399h20v20h-20z"/>
+<path d="M210 462h20v20h-20z"/>
+<path d="M294 441h20v20h-20z"/>
+<path d="M252 399h20v20h-20z"/>
+<path d="M273 420h20v20h-20z"/>
+<path d="M294 399h20v20h-20z"/>
+<path d="M588 420h20v20h-20z"/>
+<path d="M546 420h20v20h-20z"/>
+<path d="M525 441h20v20h-20z"/>
+<path d="M504 420h20v20h-20z"/>
+<path d="M483 441h20v20h-20z"/>
+<path d="M462 462h20v20h-20z"/>
+<path d="M441 420h20v20h-20z"/>
+<path d="M420 441h20v20h-20z"/>
+<path d="M441 462h20v20h-20z"/>
+<path d="M357 693h20v20h-20z"/>
+<path d="M336 651h20v20h-20z"/>
+<path d="M336 588h20v20h-20z"/>
+<path d="M315 567h20v20h-20z"/>
+<path d="M273 588h20v20h-20z"/>
+<path d="M315 672h20v20h-20z"/>
+<path d="M336 693h20v20h-20z"/>
+<path d="M378 567h20v20h-20z"/>
+<path d="M294 756h20v20h-20z"/>
+<path d="M315 735h20v20h-20z"/>
+<path d="M336 756h20v20h-20z"/>
+<path d="M336 735h20v20h-20z"/>
+<path d="M357 756h20v20h-20z"/>
+<path d="M378 777h20v20h-20z"/>
+<path d="M399 735h20v20h-20z"/>
+<path d="M251 798h-20v20h20z"/>
+<path d="M230 777h-20v20h20z"/>
+<path d="M251 714h-20v20h20z"/>
+<path d="M272 693h-20v20h20z"/>
+<path d="M294 651h-21v20h21z"/>
+<path d="M209 798h-20v20h20z"/>
+<path d="M209 777h-20v20h20z"/>
+<path d="M1344 735h20v20h-20z"/>
+<path d="M1323 693h20v20h-20z"/>
+<path d="M1302 714h20v20h-20z"/>
+<path d="M1323 735h20v20h-20z"/>
+<path d="M1281 798h20v20h-20z"/>
+<path d="M1302 777h20v20h-20z"/>
+<path d="M1323 798h20v20h-20z"/>
+<path d="M1323 777h20v20h-20z"/>
+<path d="M1344 798h20v20h-20z"/>
+<path d="M1365 819h20v20h-20z"/>
+<path d="M1386 777h20v20h-20z"/>
+<path d="M1238 840h-20v20h20z"/>
+<path d="M1217 819h-20v20h20z"/>
+<path d="M1238 756h-20v20h20z"/>
+<path d="M1259 735h-20v20h20z"/>
+<path d="M1281 693h-21v20h21z"/>
+<path d="M1196 840h-20v20h20z"/>
+<path d="M1196 819h-20v20h20z"/>
+<path d="M399 525h20v20h-20z"/>
+<path d="M420 546h20v20h-20z"/>
+<path d="M462 567h20v20h-20z"/>
+<path d="M441 588h20v20h-20z"/>
+<path d="M462 588h20v20h-20z"/>
+<path d="M462 609h20v20h-20z"/>
+<path d="M483 609h20v20h-20z"/>
+<path d="M504 651h20v20h-20z"/>
+<path d="M525 651h20v20h-20z"/>
+<path d="M609 693h20v20h-20z"/>
+<path d="M588 609h20v20h-20z"/>
+<path d="M609 630h20v20h-20z"/>
+<path d="M588 588h20v20h-20z"/>
+<path d="M546 567h20v20h-20z"/>
+<path d="M483 525h20v20h-20z"/>
+<path d="M525 588h20v20h-20z"/>
+<path d="M546 735h20v20h-20z"/>
+<path d="M567 756h20v20h-20z"/>
+<path d="M188 798h-20v20h20z"/>
+<path d="M167 819h-20v20h20z"/>
+<path d="M146 777h-20v20h20z"/>
+<path d="M83 798H63v20h20z"/>
+<path d="M104 777H84v20h20z"/>
+<path d="M125 840h-20v20h20z"/>
+<path d="M588 735h20v20h-20z"/>
+<path d="M630 735h20v20h-20z"/>
+<path d="M651 756h20v20h-20z"/>
+<path d="M714 756h20v20h-20z"/>
+<path d="M693 777h20v20h-20z"/>
+<path d="M735 777h20v20h-20z"/>
+<path d="M735 798h20v20h-20z"/>
+<path d="M714 819h20v20h-20z"/>
+<path d="M756 819h20v20h-20z"/>
+<path d="M630 714h20v20h-20z"/>
+<path d="M735 672h20v20h-20z"/>
+<path d="M756 693h20v20h-20z"/>
+<path d="M777 672h20v20h-20z"/>
+<path d="M777 693h20v20h-20z"/>
+<path d="M798 714h20v20h-20z"/>
+<path d="M504 672h20v20h-20z"/>
+<path d="M1049 860h-20v-20h20z"/>
+<path d="M1070 839h-20v-20h20z"/>
+<path d="M1049 839h-20v-20h20z"/>
+<path d="M1049 818h-20v-20h20z"/>
+<path d="M1028 818h-20v-20h20z"/>
+<path d="M1007 776h-20v-20h20z"/>
+<path d="M986 776h-20v-20h20z"/>
+<path d="M923 818h-20v-20h20z"/>
+<path d="M902 797h-20v-20h20z"/>
+<path d="M923 839h-20v-20h20z"/>
+<path d="M965 860h-20v-20h20z"/>
+<path d="M986 839h-20v-20h20z"/>
+<path d="M1007 755h-20v-20h20z"/>
+<path d="M420 483h21v20h-21z"/>
+<path d="M336 483h20v20h-20z"/>
+<path d="M378 462h20v20h-20z"/>
+<path d="M378 399h20v20h-20z"/>
+<path d="M357 420h20v20h-20z"/>
+<path d="M336 441h20v20h-20z"/>
+<path d="M189 420h20v20h-20z"/>
+<path d="M168 462h20v20h-20z"/>
 </g>
 <g fill="#27d69b" class="banner-dots-default">
-<circle cx="661" cy="472" r="10"/>
-<circle cx="619" cy="472" r="10"/>
-<circle cx="619" cy="514" r="10"/>
-<circle cx="598" cy="472" r="10"/>
-<circle cx="598" cy="493" r="10"/>
-<circle cx="640" cy="850" r="10"/>
-<circle cx="661" cy="871" r="10"/>
-<circle cx="556" cy="493" r="10"/>
-<circle cx="577" cy="514" r="10"/>
-<circle cx="556" cy="451" r="10"/>
-<circle cx="514" cy="472" r="10"/>
-<circle cx="514" cy="451" r="10"/>
-<circle cx="451" cy="430" r="10"/>
-<circle cx="451" cy="493" r="10"/>
-<circle cx="367" cy="472" r="10"/>
-<circle cx="409" cy="430" r="10"/>
-<circle cx="388" cy="451" r="10"/>
-<circle cx="367" cy="430" r="10"/>
-<circle cx="73" cy="451" r="10"/>
-<circle cx="115" cy="451" r="10"/>
-<circle cx="136" cy="472" r="10"/>
-<circle cx="157" cy="451" r="10"/>
-<circle cx="178" cy="472" r="10"/>
-<circle cx="199" cy="493" r="10"/>
-<circle cx="220" cy="451" r="10"/>
-<circle cx="241" cy="472" r="10"/>
-<circle cx="220" cy="493" r="10"/>
-<circle cx="304" cy="724" r="10"/>
-<circle cx="325" cy="682" r="10"/>
-<circle cx="325" cy="619" r="10"/>
-<circle cx="346" cy="598" r="10"/>
-<circle cx="388" cy="619" r="10"/>
-<circle cx="346" cy="703" r="10"/>
-<circle cx="325" cy="724" r="10"/>
-<circle cx="283" cy="598" r="10"/>
-<circle cx="367" cy="787" r="10"/>
-<circle cx="346" cy="766" r="10"/>
-<circle cx="325" cy="787" r="10"/>
-<circle cx="325" cy="766" r="10"/>
-<circle cx="304" cy="787" r="10"/>
-<circle cx="283" cy="808" r="10"/>
-<circle cx="262" cy="766" r="10"/>
-<circle cx="430" cy="829" r="10"/>
-<circle cx="451" cy="808" r="10"/>
-<circle cx="430" cy="745" r="10"/>
-<circle cx="409" cy="724" r="10"/>
-<circle cx="387.5" cy="682" r="10"/>
-<circle cx="472" cy="829" r="10"/>
-<circle cx="472" cy="808" r="10"/>
-<circle cx="262" cy="556" r="10"/>
-<circle cx="241" cy="577" r="10"/>
-<circle cx="199" cy="598" r="10"/>
-<circle cx="220" cy="619" r="10"/>
-<circle cx="199" cy="619" r="10"/>
-<circle cx="199" cy="640" r="10"/>
-<circle cx="178" cy="640" r="10"/>
-<circle cx="157" cy="682" r="10"/>
-<circle cx="136" cy="682" r="10"/>
-<circle cx="52" cy="724" r="10"/>
-<circle cx="73" cy="640" r="10"/>
-<circle cx="52" cy="661" r="10"/>
-<circle cx="73" cy="619" r="10"/>
-<circle cx="115" cy="598" r="10"/>
-<circle cx="178" cy="556" r="10"/>
-<circle cx="136" cy="619" r="10"/>
-<circle cx="115" cy="766" r="10"/>
-<circle cx="94" cy="787" r="10"/>
-<circle cx="493" cy="829" r="10"/>
-<circle cx="514" cy="850" r="10"/>
-<circle cx="535" cy="808" r="10"/>
-<circle cx="598" cy="829" r="10"/>
-<circle cx="577" cy="808" r="10"/>
-<circle cx="556" cy="871" r="10"/>
-<circle cx="73" cy="766" r="10"/>
-<circle cx="31" cy="766" r="10"/>
-<circle cx="10" cy="787" r="10"/>
-<circle cx="31" cy="745" r="10"/>
-<circle cx="157" cy="703" r="10"/>
-<circle cx="240.5" cy="514" r="10"/>
-<circle cx="325" cy="514" r="10"/>
-<circle cx="283" cy="493" r="10"/>
-<circle cx="283" cy="430" r="10"/>
-<circle cx="304" cy="451" r="10"/>
-<circle cx="325" cy="472" r="10"/>
-<circle cx="472" cy="451" r="10"/>
-<circle cx="493" cy="493" r="10"/>
-</g>
-<g fill="#27d69b" class="banner-dots-default">
-<circle cx="1837" cy="535" r="10"/>
-<circle cx="1921" cy="535" r="10"/>
-<circle cx="1963" cy="535" r="10"/>
-<circle cx="2005" cy="514" r="10"/>
-<circle cx="1984" cy="493" r="10"/>
-<circle cx="1900" cy="577" r="10"/>
-<circle cx="1879" cy="514" r="10"/>
-<circle cx="1774" cy="577" r="10"/>
-<circle cx="1754" cy="472" r="10"/>
-<circle cx="1732" cy="577" r="10"/>
+<path d="M671 462h-20v20h20z"/>
+<path d="M629 462h-20v20h20z"/>
+<path d="M629 504h-20v20h20z"/>
+<path d="M608 462h-20v20h20z"/>
+<path d="M608 483h-20v20h20z"/>
+<path d="M630 860h20v-20h-20z"/>
+<path d="M651 881h20v-20h-20z"/>
+<path d="M566 483h-20v20h20z"/>
+<path d="M587 504h-20v20h20z"/>
+<path d="M566 441h-20v20h20z"/>
+<path d="M524 462h-20v20h20z"/>
+<path d="M524 441h-20v20h20z"/>
+<path d="M461 420h-20v20h20z"/>
+<path d="M461 483h-20v20h20z"/>
+<path d="M377 462h-20v20h20z"/>
+<path d="M419 420h-20v20h20z"/>
+<path d="M398 441h-20v20h20z"/>
+<path d="M377 420h-20v20h20z"/>
+<path d="M83 441H63v20h20z"/>
+<path d="M125 441h-20v20h20z"/>
+<path d="M146 462h-20v20h20z"/>
+<path d="M167 441h-20v20h20z"/>
+<path d="M188 462h-20v20h20z"/>
+<path d="M209 483h-20v20h20z"/>
+<path d="M230 441h-20v20h20z"/>
+<path d="M251 462h-20v20h20z"/>
+<path d="M230 483h-20v20h20z"/>
+<path d="M314 714h-20v20h20z"/>
+<path d="M335 672h-20v20h20z"/>
+<path d="M335 609h-20v20h20z"/>
+<path d="M356 588h-20v20h20z"/>
+<path d="M398 609h-20v20h20z"/>
+<path d="M356 693h-20v20h20z"/>
+<path d="M335 714h-20v20h20z"/>
+<path d="M293 588h-20v20h20z"/>
+<path d="M377 777h-20v20h20z"/>
+<path d="M356 756h-20v20h20z"/>
+<path d="M335 777h-20v20h20z"/>
+<path d="M335 756h-20v20h20z"/>
+<path d="M314 777h-20v20h20z"/>
+<path d="M293 798h-20v20h20z"/>
+<path d="M272 756h-20v20h20z"/>
+<path d="M420 819h20v20h-20z"/>
+<path d="M441 798h20v20h-20z"/>
+<path d="M420 735h20v20h-20z"/>
+<path d="M399 714h20v20h-20z"/>
+<path d="M377 672h21v20h-21z"/>
+<path d="M462 819h20v20h-20z"/>
+<path d="M462 798h20v20h-20z"/>
+<path d="M272 546h-20v20h20z"/>
+<path d="M251 567h-20v20h20z"/>
+<path d="M209 588h-20v20h20z"/>
+<path d="M230 609h-20v20h20z"/>
+<path d="M209 609h-20v20h20z"/>
+<path d="M209 630h-20v20h20z"/>
+<path d="M188 630h-20v20h20z"/>
+<path d="M167 672h-20v20h20z"/>
+<path d="M146 672h-20v20h20z"/>
+<path d="M62 714H42v20h20z"/>
+<path d="M83 630H63v20h20z"/>
+<path d="M62 651H42v20h20z"/>
+<path d="M83 609H63v20h20z"/>
+<path d="M125 588h-20v20h20z"/>
+<path d="M188 546h-20v20h20z"/>
+<path d="M146 609h-20v20h20z"/>
+<path d="M125 756h-20v20h20z"/>
+<path d="M104 777H84v20h20z"/>
+<path d="M483 819h20v20h-20z"/>
+<path d="M504 840h20v20h-20z"/>
+<path d="M525 798h20v20h-20z"/>
+<path d="M588 819h20v20h-20z"/>
+<path d="M567 798h20v20h-20z"/>
+<path d="M546 861h20v20h-20z"/>
+<path d="M83 756H63v20h20z"/>
+<path d="M41 756H21v20h20z"/>
+<path d="M20 777H0v20h20z"/>
+<path d="M41 735H21v20h20z"/>
+<path d="M167 693h-20v20h20z"/>
+<path d="M251 504h-21v20h21z"/>
+<path d="M335 504h-20v20h20z"/>
+<path d="M293 483h-20v20h20z"/>
+<path d="M293 420h-20v20h20z"/>
+<path d="M314 441h-20v20h20z"/>
+<path d="M335 462h-20v20h20z"/>
+<path d="M482 441h-20v20h20z"/>
+<path d="M503 483h-20v20h20z"/>
 </g>
 <g fill="#fd9300" class="banner-dots-orange">
-<circle cx="640" cy="430" r="10"/>
-<circle cx="682" cy="430" r="10"/>
-<circle cx="661" cy="430" r="10"/>
-<circle cx="619" cy="451" r="10"/>
-<circle cx="598" cy="472" r="10"/>
-<circle cx="577" cy="493" r="10"/>
-<circle cx="598" cy="514" r="10"/>
-<circle cx="619" cy="535" r="10"/>
-<circle cx="640" cy="556" r="10"/>
-<circle cx="661" cy="556" r="10"/>
-<circle cx="682" cy="556" r="10"/>
-<circle cx="703" cy="557" r="10"/>
-<circle cx="724" cy="557" r="10"/>
-<circle cx="745" cy="557" r="10"/>
-<circle cx="745" cy="578" r="10"/>
-<circle cx="766" cy="578" r="10"/>
-<circle cx="787" cy="578" r="10"/>
-<circle cx="808" cy="578" r="10"/>
-<circle cx="829" cy="578" r="10"/>
-<circle cx="850" cy="578" r="10"/>
-<circle cx="871" cy="598" r="10"/>
-<circle cx="913" cy="598" r="10"/>
-<circle cx="934" cy="598" r="10"/>
-<circle cx="955" cy="598" r="10"/>
-<circle cx="976" cy="598" r="10"/>
-<circle cx="892" cy="598" r="10"/>
-<circle cx="997" cy="619" r="10"/>
-<circle cx="1039" cy="619" r="10"/>
-<circle cx="1060" cy="619" r="10"/>
-<circle cx="1081" cy="619" r="10"/>
-<circle cx="1102" cy="619" r="10"/>
-<circle cx="1018" cy="619" r="10"/>
-<circle cx="1123" cy="640" r="10"/>
-<circle cx="1165" cy="640" r="10"/>
-<circle cx="1186" cy="640" r="10"/>
-<circle cx="1207" cy="640" r="10"/>
-<circle cx="1228" cy="640" r="10"/>
-<circle cx="1144" cy="640" r="10"/>
-<circle cx="1249" cy="661" r="10"/>
-<circle cx="1291" cy="661" r="10"/>
-<circle cx="1312" cy="661" r="10"/>
-<circle cx="1333" cy="661" r="10"/>
-<circle cx="1354" cy="661" r="10"/>
-<circle cx="1270" cy="661" r="10"/>
-<circle cx="1375" cy="682" r="10"/>
-<circle cx="1417" cy="682" r="10"/>
-<circle cx="1438" cy="682" r="10"/>
-<circle cx="1459" cy="682" r="10"/>
-<circle cx="1480" cy="682" r="10"/>
-<circle cx="1396" cy="682" r="10"/>
-<circle cx="1501" cy="703" r="10"/>
-<circle cx="1543" cy="703" r="10"/>
-<circle cx="1564" cy="703" r="10"/>
-<circle cx="1585" cy="703" r="10"/>
-<circle cx="1606" cy="703" r="10"/>
-<circle cx="1522" cy="703" r="10"/>
-<circle cx="1627" cy="724" r="10"/>
-<circle cx="1669" cy="724" r="10"/>
-<circle cx="1690" cy="724" r="10"/>
-<circle cx="1711" cy="724" r="10"/>
-<circle cx="1732" cy="724" r="10"/>
-<circle cx="1648" cy="724" r="10"/>
-<circle cx="1753" cy="703" r="10"/>
-<circle cx="1795" cy="703" r="10"/>
-<circle cx="1816" cy="703" r="10"/>
-<circle cx="1837" cy="703" r="10"/>
-<circle cx="1858" cy="703" r="10"/>
-<circle cx="1774" cy="703" r="10"/>
-<circle cx="1879" cy="682" r="10"/>
-<circle cx="1921" cy="682" r="10"/>
-<circle cx="1942" cy="682" r="10"/>
-<circle cx="1963" cy="682" r="10"/>
-<circle cx="1984" cy="682" r="10"/>
-<circle cx="2005" cy="682" r="10"/>
-<circle cx="1900" cy="682" r="10"/>
-</g>
-<g fill="#fd9300" class="banner-dots-orange">
-<circle cx="682" cy="430" r="10"/>
-<circle cx="661" cy="430" r="10"/>
-<circle cx="640" cy="430" r="10"/>
-<circle cx="619" cy="451" r="10"/>
-<circle cx="598" cy="472" r="10"/>
-<circle cx="619" cy="493" r="10"/>
-<circle cx="640" cy="514" r="10"/>
-<circle cx="661" cy="514" r="10"/>
-<circle cx="682" cy="514" r="10"/>
-<circle cx="703" cy="514" r="10"/>
-<circle cx="724" cy="514" r="10"/>
-<circle cx="745" cy="514" r="10"/>
-<circle cx="766" cy="514" r="10"/>
-<circle cx="766" cy="535" r="10"/>
-<circle cx="787" cy="535" r="10"/>
-<circle cx="808" cy="535" r="10"/>
-<circle cx="829" cy="535" r="10"/>
-<circle cx="850" cy="535" r="10"/>
-<circle cx="871" cy="535" r="10"/>
-<circle cx="871" cy="556" r="10"/>
-<circle cx="892" cy="556" r="10"/>
-<circle cx="913" cy="556" r="10"/>
-<circle cx="934" cy="556" r="10"/>
-<circle cx="955" cy="556" r="10"/>
-<circle cx="976" cy="556" r="10"/>
-<circle cx="997" cy="556" r="10"/>
-<circle cx="997" cy="577" r="10"/>
-<circle cx="1018" cy="577" r="10"/>
-<circle cx="1039" cy="577" r="10"/>
-<circle cx="1060" cy="577" r="10"/>
-<circle cx="1081" cy="577" r="10"/>
-<circle cx="1102" cy="577" r="10"/>
-<circle cx="1123" cy="577" r="10"/>
-<circle cx="1123" cy="598" r="10"/>
-<circle cx="1144" cy="598" r="10"/>
-<circle cx="1165" cy="598" r="10"/>
-<circle cx="1186" cy="598" r="10"/>
-<circle cx="1207" cy="598" r="10"/>
-<circle cx="1228" cy="598" r="10"/>
-<circle cx="1249" cy="598" r="10"/>
-<circle cx="1249" cy="619" r="10"/>
-<circle cx="1270" cy="619" r="10"/>
-<circle cx="1291" cy="619" r="10"/>
-<circle cx="1312" cy="619" r="10"/>
-<circle cx="1333" cy="619" r="10"/>
-<circle cx="1354" cy="619" r="10"/>
-<circle cx="1375" cy="619" r="10"/>
-<circle cx="1375" cy="640" r="10"/>
-<circle cx="1396" cy="640" r="10"/>
-<circle cx="1417" cy="640" r="10"/>
-<circle cx="1438" cy="640" r="10"/>
-<circle cx="1459" cy="640" r="10"/>
-<circle cx="1480" cy="640" r="10"/>
-<circle cx="1501" cy="640" r="10"/>
-<circle cx="1501" cy="661" r="10"/>
-<circle cx="1522" cy="661" r="10"/>
-<circle cx="1543" cy="661" r="10"/>
-<circle cx="1564" cy="661" r="10"/>
-<circle cx="1585" cy="661" r="10"/>
-<circle cx="1606" cy="661" r="10"/>
-<circle cx="1627" cy="661" r="10"/>
-<circle cx="1627" cy="682" r="10"/>
-<circle cx="1648" cy="682" r="10"/>
-<circle cx="1669" cy="682" r="10"/>
-<circle cx="1690" cy="682" r="10"/>
-<circle cx="1711" cy="682" r="10"/>
-<circle cx="1732" cy="682" r="10"/>
-<circle cx="1732" cy="661" r="10"/>
-<circle cx="1753" cy="661" r="10"/>
-<circle cx="1774" cy="661" r="10"/>
-<circle cx="1795" cy="661" r="10"/>
-<circle cx="1816" cy="661" r="10"/>
-<circle cx="1837" cy="661" r="10"/>
-<circle cx="1858" cy="661" r="10"/>
-<circle cx="1858" cy="640" r="10"/>
-<circle cx="1879" cy="640" r="10"/>
-<circle cx="1900" cy="640" r="10"/>
-<circle cx="1921" cy="640" r="10"/>
-<circle cx="1942" cy="640" r="10"/>
-<circle cx="1963" cy="640" r="10"/>
-<circle cx="1984" cy="640" r="10"/>
-<circle cx="2005" cy="640" r="10"/>
+<path d="M630 420h20v20h-20z"/>
+<path d="M672 420h20v20h-20z"/>
+<path d="M651 420h20v20h-20z"/>
+<path d="M609 441h20v20h-20z"/>
+<path d="M588 462h20v20h-20z"/>
+<path d="M567 483h20v20h-20z"/>
+<path d="M588 504h20v20h-20z"/>
+<path d="M609 525h20v20h-20z"/>
+<path d="M630 546h20v20h-20z"/>
+<path d="M651 546h20v20h-20z"/>
+<path d="M672 546h20v20h-20z"/>
+<path d="M693 547h20v20h-20z"/>
+<path d="M714 547h20v20h-20z"/>
+<path d="M735 547h20v20h-20z"/>
+<path d="M735 568h20v20h-20z"/>
+<path d="M756 568h20v20h-20z"/>
+<path d="M777 568h20v20h-20z"/>
+<path d="M798 568h20v20h-20z"/>
+<path d="M819 568h20v20h-20z"/>
+<path d="M840 568h20v20h-20z"/>
+<path d="M861 588h20v20h-20z"/>
+<path d="M903 588h20v20h-20z"/>
+<path d="M924 588h20v20h-20z"/>
+<path d="M945 588h20v20h-20z"/>
+<path d="M966 588h20v20h-20z"/>
+<path d="M882 588h20v20h-20z"/>
+<path d="M987 609h20v20h-20z"/>
+<path d="M1029 609h20v20h-20z"/>
+<path d="M1050 609h20v20h-20z"/>
+<path d="M1071 609h20v20h-20z"/>
+<path d="M1092 609h20v20h-20z"/>
+<path d="M1008 609h20v20h-20z"/>
+<path d="M1113 630h20v20h-20z"/>
+<path d="M1155 630h20v20h-20z"/>
+<path d="M1176 630h20v20h-20z"/>
+<path d="M1197 630h20v20h-20z"/>
+<path d="M1218 630h20v20h-20z"/>
+<path d="M1134 630h20v20h-20z"/>
+<path d="M1239 651h20v20h-20z"/>
+<path d="M1281 651h20v20h-20z"/>
+<path d="M1302 651h20v20h-20z"/>
+<path d="M1323 651h20v20h-20z"/>
+<path d="M1344 651h20v20h-20z"/>
+<path d="M1260 651h20v20h-20z"/>
+<path d="M1365 672h20v20h-20z"/>
+<path d="M1407 672h20v20h-20z"/>
+<path d="M1428 672h20v20h-20z"/>
+<path d="M1449 672h20v20h-20z"/>
+<path d="M1470 672h20v20h-20z"/>
+<path d="M1386 672h20v20h-20z"/>
+<path d="M1491 693h20v20h-20z"/>
+<path d="M1533 693h20v20h-20z"/>
+<path d="M1554 693h20v20h-20z"/>
+<path d="M1575 693h20v20h-20z"/>
+<path d="M1596 693h20v20h-20z"/>
+<path d="M1512 693h20v20h-20z"/>
+<path d="M1617 714h20v20h-20z"/>
+<path d="M1659 714h20v20h-20z"/>
+<path d="M1680 714h20v20h-20z"/>
+<path d="M1701 714h20v20h-20z"/>
+<path d="M1722 714h20v20h-20z"/>
+<path d="M1638 714h20v20h-20z"/>
+<path d="M1743 693h20v20h-20z"/>
+<path d="M1785 693h20v20h-20z"/>
+<path d="M1806 693h20v20h-20z"/>
+<path d="M1827 693h20v20h-20z"/>
+<path d="M1848 693h20v20h-20z"/>
+<path d="M1764 693h20v20h-20z"/>
+<path d="M1869 672h20v20h-20z"/>
+<path d="M1911 672h20v20h-20z"/>
+<path d="M1932 672h20v20h-20z"/>
+<path d="M1953 672h20v20h-20z"/>
+<path d="M1974 672h20v20h-20z"/>
+<path d="M1995 672h20v20h-20z"/>
+<path d="M1890 672h20v20h-20z"/>
 </g>
 
 </g>
 
 </svg>
-</div><!-- animations -->
-</div><!-- figure-container -->
-
-<h1>{{ pageHeaderTitle }}</h1>
-
-<hr data-function="spacer">
-
-{{ lede | safe }}
-{{ content | safe }}
-
-<div class="layout" data-layout="sbrinz">
-
-<div data-content="posts">
-{% include "partials/post-list.html" %}
-</div><!-- one -->
-
-<div>
-<h3>Categories</h3>
-<ul class="alt-">
-{% for category in collections.postCategories %}
-<li><a href="/news/category/{{ category | slug }}/">{{ category }}</a></li>
-{% endfor %}
-</ul>
-
-<hr>
-
-<h3>Tags</h3>
-<ul class="alt-">
-{% for tag in collections.postTags %}
-<li><a href="/news/tag/{{ tag | slug }}/">{{ tag }}</a></li>
-{% endfor %}
-</ul>
-</div><!-- two -->
-
-</div><!-- layout -->
-
-{% if not tag %}
-{% include "partials/pagination.html" %}
-{% endif %}
-
-<script>
-(() => {
-const bannerRoot = document.querySelector("#banner-animations");
-if (!bannerRoot) {
-return;
-}
-
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const createToggle = window.Verkehrsteiner && window.Verkehrsteiner.createAnimationToggle;
-const toggleButton = bannerRoot.querySelector(".js-anim-toggle");
-const bannerSvg = bannerRoot.querySelector(".figure-container > svg");
-
-if (!bannerSvg) {
-return;
-}
-
-const orangeGroups = Array.from(bannerSvg.querySelectorAll(".banner-dots-orange"));
-const defaultGroups = Array.from(bannerSvg.querySelectorAll(".banner-dots-default"));
-const orangePaths = orangeGroups.flatMap(group => Array.from(group.querySelectorAll("path, circle")));
-const defaultPaths = defaultGroups.flatMap(group => Array.from(group.querySelectorAll("path, circle")));
-
-if (!orangePaths.length && !defaultPaths.length) {
-return;
-}
-
-const allAnimatedPaths = [...orangePaths, ...defaultPaths];
-
-const createDisabledToggle = (label) => {
-if (createToggle) {
-const control = createToggle({
-button: toggleButton,
-autoStart: false,
-initiallyRunning: false
-});
-control.disable(label);
-return;
-}
-
-if (toggleButton) {
-toggleButton.disabled = true;
-toggleButton.title = label;
-toggleButton.setAttribute("aria-label", label);
-toggleButton.setAttribute("aria-pressed", "false");
-}
-};
-
-const setStaticVisible = () => {
-for (const path of allAnimatedPaths) {
-path.style.opacity = "1";
-}
-};
-
-if (prefersReducedMotion.matches) {
-setStaticVisible();
-createDisabledToggle("Animations OFF (reduced motion preference)");
-
-return;
-}
-
-const randomBetween = (min, max) => min + (Math.random() * (max - min));
-
-const orangeState = {
-minOpacity: 0.5,
-maxOpacity: 1,
-trailRatio: 0.34,
-paddingRatio: 0.2,
-speed: 10
-};
-
-const orangeAnimations = orangeGroups.map((group, groupIndex) => {
-const orderedPaths = Array.from(group.querySelectorAll("path, circle"))
-.map(path => {
-const box = path.getBBox();
-return {
-path,
-midX: box.x + (box.width / 2),
-midY: box.y + (box.height / 2)
-};
-})
-.sort((a, b) => (a.midX - b.midX) || (a.midY - b.midY))
-.map(item => item.path);
-
-if (!orderedPaths.length) {
-return null;
-}
-
-const trailLength = Math.max(10, Math.round(orderedPaths.length * orangeState.trailRatio));
-const cyclePadding = Math.max(6, Math.round(orderedPaths.length * orangeState.paddingRatio));
-
-return {
-orderedPaths,
-trailLength,
-cyclePadding,
-speed: orangeState.speed * (1 + (groupIndex * 0.08)),
-phaseOffset: groupIndex * 0.4
-};
-}).filter(Boolean);
-
-const defaultStates = defaultPaths.map((path, index) => ({
-path,
-index,
-fromOpacity: 1,
-toOpacity: 1,
-startAt: 0,
-duration: 0,
-nextAt: 0
-}));
-
-for (const path of allAnimatedPaths) {
-path.style.willChange = "opacity";
-}
-
-const primeAnimationState = (now) => {
-for (const animation of orangeAnimations) {
-for (const path of animation.orderedPaths) {
-path.style.opacity = orangeState.minOpacity.toFixed(3);
-}
-}
-
-for (const state of defaultStates) {
-const initialOpacity = randomBetween(0.3, 1);
-const startOffset = randomBetween(0, 1200) + ((state.index % 13) * 28);
-
-state.path.style.opacity = initialOpacity.toFixed(3);
-state.fromOpacity = initialOpacity;
-state.toOpacity = initialOpacity;
-state.startAt = now + startOffset;
-state.duration = randomBetween(420, 1400);
-state.nextAt = now + startOffset;
-}
-};
-
-primeAnimationState(performance.now());
-
-const scheduleDefaultFade = (state, now) => {
-state.fromOpacity = Number.parseFloat(state.path.style.opacity) || 0.3;
-state.toOpacity = randomBetween(0.3, 1);
-
-if (Math.abs(state.toOpacity - state.fromOpacity) < 0.08) {
-state.toOpacity = state.toOpacity > 0.65 ? 0.35 : 0.95;
-}
-
-state.startAt = now;
-state.duration = randomBetween(420, 1400);
-state.nextAt = now + state.duration + randomBetween(120, 900);
-};
-
-const easeInOut = (t) => (
-t < 0.5
-? 2 * t * t
-: 1 - ((-2 * t + 2) ** 2) / 2
-);
-
-let isRunning = false;
-let rafId = null;
-
-const tick = (now) => {
-if (!isRunning) {
-return;
-}
-
-for (const animation of orangeAnimations) {
-const { orderedPaths, trailLength, cyclePadding, speed, phaseOffset } = animation;
-const cycleLength = orderedPaths.length + cyclePadding;
-const head = (((now / 1000) + phaseOffset) * speed) % cycleLength;
-
-for (let i = 0; i < orderedPaths.length; i++) {
-let distance = head - i;
-
-if (distance < 0) {
-distance += cycleLength;
-}
-
-let opacity = orangeState.minOpacity;
-
-if (distance >= 0 && distance <= trailLength) {
-const strength = 1 - (distance / trailLength);
-opacity = orangeState.minOpacity + ((orangeState.maxOpacity - orangeState.minOpacity) * strength);
-}
-
-orderedPaths[i].style.opacity = opacity.toFixed(3);
-}
-}
-
-for (const state of defaultStates) {
-if (now >= state.nextAt) {
-scheduleDefaultFade(state, now);
-}
-
-if (now < state.startAt) {
-continue;
-}
-
-const elapsed = now - state.startAt;
-const progress = Math.min(1, elapsed / state.duration);
-const eased = easeInOut(progress);
-const opacity = state.fromOpacity + ((state.toOpacity - state.fromOpacity) * eased);
-
-state.path.style.opacity = opacity.toFixed(3);
-}
-
-rafId = window.requestAnimationFrame(tick);
-};
-
-const startAnimation = () => {
-if (isRunning) {
-return;
-}
-
-isRunning = true;
-primeAnimationState(performance.now());
-rafId = window.requestAnimationFrame(tick);
-};
-
-const stopAnimation = () => {
-if (!isRunning) {
-return;
-}
-
-isRunning = false;
-
-if (rafId !== null) {
-window.cancelAnimationFrame(rafId);
-rafId = null;
-}
-
-setStaticVisible();
-};
-
-if (createToggle) {
-createToggle({
-button: toggleButton,
-initiallyRunning: true,
-onStart: startAnimation,
-onStop: stopAnimation
-});
-return;
-}
-
-startAnimation();
-})();
-</script>
-
-{% endblock %}
-
-
