@@ -1,0 +1,73 @@
+#ddev-generated
+# If you remove the ddev-generated line above you
+# are responsible for maintaining this file. DDEV will not then
+# update it, for example if you add `additional_hostnames`, etc.
+
+http:
+  routers:
+    verkehrsteiner-website-web-80-http:
+      entrypoints:
+        - http-80
+      rule: HostRegexp(`^verkehrsteiner-website\.ddev\.site$`)
+      
+      service: "verkehrsteiner-website-web-80"
+      tls: false
+      # middlewares:
+      #   - "verkehrsteiner-website-redirectHttps"
+    verkehrsteiner-website-web-8025-http:
+      entrypoints:
+        - http-8025
+      rule: HostRegexp(`^verkehrsteiner-website\.ddev\.site$`)
+      
+      service: "verkehrsteiner-website-web-8025"
+      tls: false
+      # middlewares:
+      #   - "verkehrsteiner-website-redirectHttps"
+    
+    
+    
+    verkehrsteiner-website-web-80-https:
+      entrypoints:
+        - http-443
+      rule: HostRegexp(`^verkehrsteiner-website\.ddev\.site$`)
+      
+      service: "verkehrsteiner-website-web-80"
+      
+      tls: true
+      
+    verkehrsteiner-website-web-8025-https:
+      entrypoints:
+        - http-8026
+      rule: HostRegexp(`^verkehrsteiner-website\.ddev\.site$`)
+      
+      service: "verkehrsteiner-website-web-8025"
+      
+      tls: true
+      
+    
+
+  middlewares:
+    verkehrsteiner-website-redirectHttps:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+  services:
+    verkehrsteiner-website-web-80:
+      loadbalancer:
+        servers:
+          - url: http://ddev-verkehrsteiner-website-web:80
+        
+    verkehrsteiner-website-web-8025:
+      loadbalancer:
+        servers:
+          - url: http://ddev-verkehrsteiner-website-web:8025
+        
+    
+    
+    
+
+tls:
+  certificates:
+    - certFile: /mnt/ddev-global-cache/traefik/certs/verkehrsteiner-website.crt
+      keyFile: /mnt/ddev-global-cache/traefik/certs/verkehrsteiner-website.key
