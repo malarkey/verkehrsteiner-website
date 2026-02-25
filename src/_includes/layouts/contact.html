@@ -8,11 +8,25 @@
 
 <div>
 <h1>{{ title }}</h1>
-
-{{ lede | safe }}
 {{ main | safe }}
 {{ content | safe }}
+
+<hr>
+
 </div><!-- one -->
+
+</div><!-- layout -->
+
+
+
+
+<div class="layout" data-layout="tilsit">
+
+{% if collections.team.length %}
+{% for member in collections.team %}
+{% include "partials/member-list.html" %}
+{% endfor %}
+{% endif %}
 
 </div><!-- layout -->
 

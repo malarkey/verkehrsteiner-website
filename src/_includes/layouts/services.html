@@ -1,0 +1,39 @@
+{% extends "layouts/base-reversed.html" %}
+
+{% block content %}
+
+<div class="layout" data-layout="challerhocker">
+
+<div>
+<h1>{{ title }}</h1>
+
+{% if main %}
+{{ main | safe }}
+{% endif %}
+
+{% if collections.services.length %}
+<hr>
+
+{% for serviceItem in collections.services %}
+<article class="item-service">
+<h2><a href="{{ serviceItem.url }}">{{ serviceItem.data.name or serviceItem.data.title }}</a></h2>
+{% if serviceItem.data.summary %}
+<p>{{ serviceItem.data.summary }}</p>
+{% endif %}
+</article>
+{% endfor %}
+{% endif %}
+
+</div><!-- one -->
+
+<div>
+<figure>
+<img src="/images/tmp-service.webp" alt="">
+</figure>
+</div><!-- two -->
+
+</div><!-- layout -->
+
+{{ content | safe }}
+
+{% endblock %}

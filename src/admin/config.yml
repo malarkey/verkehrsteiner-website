@@ -20,9 +20,8 @@ collections:
           - {label: "SEO Meta Description", name: "metaDesc", widget: "string", required: false}
           - {label: "Featured Image", name: "featureImage", widget: "image", required: false}
           - {label: "Featured Image Caption", name: "featureImageCaption", widget: "string", required: false}
-          - {label: "Lead Intro", name: "lede", widget: "markdown", required: false}
           - {label: "Main Content", name: "main", widget: "markdown", required: false}
-          - {label: "Sidebar Content", name: "aside", widget: "markdown", required: false}
+          - {label: "Quote", name: "quote", widget: "text", required: false}
       - name: "about"
         label: "About"
         file: "src/about.md"
@@ -50,42 +49,6 @@ collections:
           - {label: "Featured Image Caption", name: "featureImageCaption", widget: "string", required: false}
           - {label: "Lead Intro", name: "lede", widget: "markdown", required: false}
           - {label: "Sidebar Content", name: "aside", widget: "markdown", required: false}
-      - name: "partners"
-        label: "Partners"
-        file: "src/partners.md"
-        create: false
-        fields:
-          - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/page.html"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/partners/"}
-          - {label: "SEO Meta Description", name: "metaDesc", widget: "string", required: false}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - name: "privacy"
-        label: "Privacy"
-        file: "src/privacy.md"
-        create: false
-        fields:
-          - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/page.html"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/privacy/"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - name: "terms"
-        label: "Terms"
-        file: "src/terms.md"
-        create: false
-        fields:
-          - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/page.html"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/terms/"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - name: "team"
-        label: "Team Index"
-        file: "src/team.md"
-        create: false
-        fields:
-          - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/team.html"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/team/"}
       - name: "news-index"
         label: "News Index"
         file: "src/news.md"
@@ -104,6 +67,27 @@ collections:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Permalink", name: "permalink", widget: "hidden", default: "/projects/"}
           - {label: "Lead Intro", name: "lede", widget: "markdown", required: false}
+      - name: "services-index"
+        label: "Services Index"
+        file: "src/services.md"
+        create: false
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/services.html"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/services/"}
+          - {label: "Lead Intro", name: "lede", widget: "markdown", required: false}
+          - {label: "Main Content", name: "main", widget: "markdown", required: false}
+          - {label: "Body", name: "body", widget: "markdown", required: false}
+      - name: "process"
+        label: "Process"
+        file: "src/process.md"
+        create: false
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/process.html"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/process/"}
+          - {label: "Lead Intro", name: "lede", widget: "markdown", required: false}
+          - {label: "Main Content", name: "main", widget: "markdown", required: false}
 
   - name: "news"
     label: "News"
@@ -116,6 +100,7 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Author", name: "postAuthor", widget: "string"}
       - {label: "Publish Date", name: "postDate", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: "Image", name: "image", widget: "image", required: false}
       - {label: "Summary", name: "postSummary", widget: "text"}
       - label: "Categories"
         name: "postCategories"
@@ -138,15 +123,42 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Activities", name: "activities", widget: "string", required: false}
       - {label: "Category", name: "category", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: "Client", name: "client", widget: "string", required: false}
+      - {label: "Partners", name: "partners", widget: "string", required: false}
+      - {label: "Service", name: "service", widget: "string", required: false}
+      - {label: "Date / Year", name: "date", widget: "string", required: false}
       - {label: "Image", name: "image", widget: "image", required: false}
       - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/project.html"}
       - {label: "Location", name: "location", widget: "string", required: false}
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
-        allow_add: true
+      - {label: "Tags (comma-separated)", name: "tags", widget: "string", required: false}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false}
       - {label: "Summary", name: "summary", widget: "text", required: false}
+      - {label: "Aside", name: "aside", widget: "markdown", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
+
+  - name: "services"
+    label: "Services"
+    label_singular: "Service"
+    folder: "src/services"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "services/{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Summary", name: "summary", widget: "text", required: false}
+      - {label: "Image", name: "image", widget: "image", required: false}
+      - label: "Eleventy Computed"
+        name: "eleventyComputed"
+        widget: "object"
+        required: false
+        collapsed: true
+        fields:
+          - {label: "Title", name: "title", widget: "string", required: false, default: "{{ name }}"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/service.html"}
+      - {label: "Lead Intro", name: "lede", widget: "markdown", required: false}
+      - {label: "Aside 1", name: "aside1", widget: "markdown", required: false}
+      - {label: "Aside 2", name: "aside2", widget: "markdown", required: false}
+      - {label: "Blockquote", name: "blockquote", widget: "markdown", required: false}
       - {label: "Body", name: "body", widget: "markdown", required: false}
 
   - name: "team-members"

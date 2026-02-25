@@ -50,9 +50,24 @@ return value.split(",").map(item => item.trim()).filter(Boolean);
 return [];
 }
 
+function normalizeServiceText(value) {
+return `${value || ""}`
+.trim()
+.toLowerCase()
+.normalize("NFKD")
+.replace(/\p{M}/gu, "")
+.replace(/&/g, " and ")
+.replace(/\bund\b/g, " and ")
+.replace(/[–—−]/g, "-")
+.replace(/\s*-\s*/g, " - ")
+.replace(/[’']/g, "")
+.replace(/\s+/g, " ")
+.trim();
+}
+
 function matchesService(itemService, targetService) {
-const normalizedTarget = `${targetService || ""}`.trim().toLowerCase();
-const normalizedService = `${itemService || ""}`.trim().toLowerCase();
+const normalizedTarget = normalizeServiceText(targetService);
+const normalizedService = normalizeServiceText(itemService);
 return Boolean(normalizedTarget) && normalizedService === normalizedTarget;
 }
 
@@ -129,6 +144,10 @@ const aDate = a.data.date || a.date;
 const bDate = b.data.date || b.date;
 return new Date(bDate) - new Date(aDate);
 });
+});
+
+eleventyConfig.addCollection("services", (collection) => {
+return collection.getFilteredByGlob("./src/services/*.md");
 });
 
 eleventyConfig.addCollection("faqs", (collection) => {

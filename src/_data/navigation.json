@@ -5,16 +5,16 @@
       "url": "/about/"
     },
     {
+      "text": "Services",
+      "url": "/services/"
+    },
+    {
       "text": "Projects",
       "url": "/projects/"
     },
     {
-      "text": "Process",
-      "url": "/process/"
-    },
-    {
-      "text": "News",
-      "url": "/news/"
+      "text": "Contact",
+      "url": "/contact/"
     }
   ]
 }
