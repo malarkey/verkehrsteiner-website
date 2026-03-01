@@ -1,5 +1,5 @@
 ---
-image: tmp-service.webp
+image: 'img-service-1.svg'
 layout: 'layouts/service.html'
 name: 'Analyse & monitoring – Verkehr verstehen'
 eleventyComputed:

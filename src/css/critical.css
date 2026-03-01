@@ -1,6 +1,21 @@
 :root {
 
 /*
+* HANDOVER NOTES
+* 1. This file mixes global design tokens, utility classes, layout primitives,
+*    and a small number of page-specific exceptions used by the current build.
+* 2. Theme colors are driven from custom properties. Prefer changing tokens in
+*    `:root` or `body[data-theme="reversed"]` instead of editing component rules.
+* 3. The home page currently has two separate SVG animation systems:
+*    `.banner-animation-grid` and `.banner-animation-alt`. Their motion logic
+*    lives in `src/_includes/layouts/home.html`; the rules here only define the
+*    visual states those scripts animate between.
+* 4. `figure-container` deliberately breaks out of the body gutter using
+*    `--page-gutter`. If page padding changes, update the gutter variable, not
+*    the breakout math.
+*/
+
+/*
 * TYPOGRAPHY SYSTEM
 * Uses fluid type scaling for responsive font sizes across viewports
 * Generated via: https://www.fluid-type-scale.com/
@@ -47,21 +62,21 @@
 * Light theme with accent colors for visual hierarchy
 */
 
---color-accent: #27d69b; /* Accent (green) */
---color-brand: #16599c; /* Primary brand colour (blue) */
---color-background-default: #f8f8f8; /* Main background */
---color-background-alt: #132639; /* Alternative background */
---color-base: #ecf2f7; /* Lighter background for contrast */
---color-border: #16599c; /* Border and secondary accent */
---color-text-default: #001011; /* Primary text colour */
---color-text-alt: #fbf8f2; /* Text on dark backgrounds */
+--color-accent: oklch(0.7790 0.1589 163.81); /* Accent (green) */
+--color-brand: oklch(0.4607 0.1264 252.76); /* Primary brand colour (blue) */
+--color-background-default: oklch(0.9791 0 0); /* Main background */
+--color-background-alt: oklch(0.2625 0.0437 249.82); /* Alternative background */
+--color-base: oklch(0.9580 0.0093 242.84); /* Lighter background for contrast */
+--color-border: oklch(0.4607 0.1264 252.76); /* Border and secondary accent */
+--color-text-default: oklch(0.1572 0.0267 199.35); /* Primary text colour */
+--color-text-alt: oklch(0.9798 0.0086 84.57); /* Text on dark backgrounds */
 --color-text-link: var(--color-brand);
 --color-text-link-hover: var(--color-brand);
 --color-text-link-decoration: var(--color-brand);
 --color-button-background: var(--color-brand);
 --color-button-background-hover: var(--color-accent);
---color-button-text: #fff;
---color-button-text-hover: #001011;
+--color-button-text: oklch(1 0 0);
+--color-button-text-hover: oklch(0.1572 0.0267 199.35);
 --color-input-background: transparent;
 
 /*
@@ -123,19 +138,20 @@
 --saturate-down: .85; }
 
 body[data-theme="reversed"] {
---color-brand: #1f7fdf; /* Primary brand colour (blue) */
---color-background-default: #132639; /* Reversed background */
---color-background-alt: #f8f8f8; /* Reversed alternative background */
---color-base: #0d1926; /* Darker background for contrast */
---color-text-default: #fbf8f2; /* Primary text colour */
---color-text-alt: #001011; /* Text on dark backgrounds */
+/* The reversed theme is used by layouts that need light-on-dark defaults. */
+--color-brand: oklch(0.5942 0.1687 253.16); /* Primary brand colour (blue) */
+--color-background-default: oklch(0.2625 0.0437 249.82); /* Reversed background */
+--color-background-alt: oklch(0.9791 0 0); /* Reversed alternative background */
+--color-base: oklch(0.2092 0.0312 251.36); /* Darker background for contrast */
+--color-text-default: oklch(0.9798 0.0086 84.57); /* Primary text colour */
+--color-text-alt: oklch(0.1572 0.0267 199.35); /* Text on dark backgrounds */
 --color-text-link: var(--color-brand);
 --color-text-link-hover: var(--color-brand);
 --color-text-link-decoration: var(--color-brand);
 --color-button-background: var(--color-brand);
 --color-button-background-hover: var(--color-accent);
---color-button-text: #fff;
---color-button-text-hover: #001011;
+--color-button-text: oklch(1 0 0);
+--color-button-text-hover: oklch(0.1572 0.0267 199.35);
 --color-input-background: transparent;
 }
 
@@ -144,9 +160,10 @@ CUSTOM FONT FACE
 ========================================================================== */
 
 /*
-* LUBALIN SANS VARIABLE FONT
+* HAAS RECAST VARIABLE FONT
 * Custom variable font with weight and width axes
 */
+
 @font-face {
 font-display: swap;
 font-family: 'haas-vf';
@@ -168,11 +185,11 @@ UTILITY STYLES
 
 /* Text selection styling */
 ::-moz-selection {
-background-color: #e0e8ef;
+background-color: oklch(0.9270 0.0128 244.26);
 text-shadow: none; }
 
 ::selection {
-background-color: #e0e8ef;
+background-color: oklch(0.9270 0.0128 244.26);
 text-shadow: none; }
 
 /* Custom scrollbar styling */
@@ -224,14 +241,11 @@ text-wrap: balance; /* Balances text for better readability */}
 [data-visibility="small"] { display: block; }
 [data-visibility="large"] { display: none; }
 
+
+
 /* ==========================================================================
 BASE ELEMENT STYLES
 ========================================================================== */
-
-/* HTML base styles */
-/* ================================================
-   REDUCED MOTION — GLOBAL METHODOLOGY
-   ================================================ */
 
 @media (prefers-reduced-motion: reduce) {
 html { scroll-behavior: auto !important; }
@@ -257,6 +271,8 @@ text-size-adjust: none; }
 /* Body base styles */
 body {
 -webkit-font-smoothing: auto;
+/* Single source of truth for page-side padding and breakout media sections. */
+--page-gutter: var(--spacing-r);
 background-color: var(--color-background-default);
 color: var(--color-text-default);
 font-family: var(--font-family-default);
@@ -269,7 +285,7 @@ font-weight: normal;
 line-height: var(--lineheight-r);
 margin: 0;
 margin-trim: block;
-padding-inline: var(--spacing-r); }
+padding-inline: var(--page-gutter); }
 
 /* Enhanced ligature support */
 @supports (font-variant-ligatures: common-ligatures) {
@@ -278,6 +294,8 @@ body {
 font-feature-settings: normal;
 font-variant-ligatures: common-ligatures; }
 }
+
+
 
 /* ==========================================================================
 LINK STYLES
@@ -295,6 +313,7 @@ text-underline-offset: .25em;
 transition: all 100ms var(--animate-function); }
 
 /* Link interaction states */
+
 a:hover,
 a:active,
 a:focus-visible {
@@ -335,6 +354,8 @@ color: var(--color-text-default);
 font-size: var(--font-size-xl);
 font-variation-settings: var(--font-regular-condensed);
 text-decoration: none; }
+
+
 
 /* ==========================================================================
 TYPOGRAPHY COMPONENTS
@@ -387,6 +408,8 @@ h3:has(+ p) { margin-block-end: 0; }
 
 h3 + p { margin-block-start: var(--spacing-s); }
 
+
+
 /* ==========================================================================
 TEXT TREATMENT CLASSES
 ========================================================================== */
@@ -404,6 +427,8 @@ text-transform: uppercase; }
 
 .alt-uppercase {
 text-transform: uppercase; }
+
+
 
 /* ==========================================================================
 QUOTE COMPONENTS
@@ -468,12 +493,12 @@ content: "";
 display: none; }
 
 /* Details list variant */
-
 .alt-details li {
 align-items: center;
 background-color: var(--color-base);
 border-radius: var(--border-radius-l);
 display: inline-flex;
+font-size: var(--font-size-s);
 gap: var(--spacing-xs);
 padding: var(--spacing-xs) var(--spacing-s); }
 
@@ -483,6 +508,8 @@ margin-inline-end: var(--spacing-r); }
 /* Inline list variant */
 .alt-inline li { display: inline-block; }
 .alt-inline li:not(:last-child) { margin-inline-end: var(--spacing-r); }
+
+
 
 /* ==========================================================================
 TEXT-LEVEL SEMANTICS
@@ -513,6 +540,8 @@ display: block;
 font-size: var(--font-size-r);
 margin-block-end: 0;
 text-transform: uppercase; }
+
+
 
 /* ==========================================================================
 DETAILS/SUMMARY COMPONENT
@@ -569,6 +598,8 @@ transform-origin: 50%; }
 
 details[open] summary::after { transform: rotate(0deg); }
 
+
+
 /* ==========================================================================
 HORIZONTAL RULES
 ========================================================================== */
@@ -593,6 +624,8 @@ border-block-start: 0;
 grid-column: 1 / -1;
 margin-block: var(--spacing-m);
 margin-inline: 0; }
+
+
 
 /* ==========================================================================
 MEDIA COMPONENTS
@@ -628,6 +661,10 @@ figure[data-direction="reversed"] img {
 margin-block-end: 0; }
 
 .figure-container {
+/* Full-bleed media wrapper: escapes body padding while keeping internal content aligned. */
+inline-size: calc(100% + (var(--page-gutter) * 2));
+margin-inline: calc(var(--page-gutter) * -1);
+max-inline-size: none;
 position: relative; }
 
 .figure-container .js-anim-toggle {
@@ -637,6 +674,45 @@ inset-inline-end: 10px;
 padding: 0;
 position: absolute;
 z-index: 2; }
+
+.figure-container .banner-switcher {
+align-items: center;
+background-color: color-mix(in oklch, var(--color-background-default) 78%, transparent);
+backdrop-filter: blur(10px);
+border: 1px solid color-mix(in oklch, var(--color-brand) 20%, transparent);
+border-radius: 999px;
+display: inline-flex;
+gap: .125rem;
+inset-block-end: 10px;
+inset-inline-start: 10px;
+padding: .25rem;
+position: absolute;
+z-index: 2; }
+
+.figure-container .banner-switcher__button {
+background-color: transparent;
+border-radius: 999px;
+color: color-mix(in oklch, var(--color-text-default) 72%, transparent);
+font-size: var(--font-size-xs);
+letter-spacing: .04em;
+line-height: 1;
+padding: .55rem .8rem;
+text-transform: uppercase;
+transition:
+background-color var(--animate-duration-faster) var(--animate-function),
+color var(--animate-duration-faster) var(--animate-function); }
+
+.figure-container .banner-switcher__button[aria-selected="true"] {
+background-color: color-mix(in oklch, var(--color-brand) 24%, transparent);
+color: var(--color-text-default); }
+
+.figure-container .banner-switcher__button:focus-visible,
+.figure-container .banner-switcher__button:hover {
+background-color: color-mix(in oklch, var(--color-accent) 18%, transparent);
+color: var(--color-text-default); }
+
+.figure-container .js-banner-panel[hidden] {
+display: none; }
 
 /* Responsive media elements */
 :is(img, video) {
@@ -708,6 +784,8 @@ transition: opacity var(--animate-duration-faster) var(--animate-function);  }
 .icon-social:hover .logo-mark {
 opacity: .8; }
 
+
+
 /* ==========================================================================
 FORM COMPONENTS
 ========================================================================== */
@@ -775,6 +853,8 @@ input:focus::placeholder {
 opacity: 0;
 transition: opacity .5s .25s ease !important; }
 
+
+
 /* ==========================================================================
 BUTTON COMPONENTS
 ========================================================================== */
@@ -832,6 +912,8 @@ button[data-variant="s"] {
 padding-block: 7px;
 padding-inline: var(--spacing-s); }
 
+
+
 /* ==========================================================================
 FONT SIZE UTILITIES
 ========================================================================== */
@@ -849,6 +931,8 @@ FONT SIZE UTILITIES
 [data-size="3xl"] {
 font-size: var(--font-size-3xl); }
 
+
+
 /* ==========================================================================
 TEXT COLUMN LAYOUT
 ========================================================================== */
@@ -862,6 +946,8 @@ margin-trim: block; /* Trims margin at block boundaries */}
 .alt-columns p {
 font-size: var(--font-size-s);
 margin-block-start: 0; }
+
+
 
 /* ==========================================================================
 NAVIGATION COMPONENTS
@@ -908,6 +994,8 @@ nav a:not(.btn):hover {
 color: var(--color-text-default); }
 }
 
+
+
 /* ============= BANNER COMPONENT ========== */
 
 #banner-logo {
@@ -917,66 +1005,10 @@ max-inline-size: 440px; }
 #banner-logo a {
 display: block; }
 
-/* Home banner animation and SVG links */
-
 #banner-animations {
 margin-block-end: var(--spacing-r); }
 
-.banner-ecg .banner-lines path {
-opacity: .2;
-will-change: opacity; }
 
-.banner-ecg .banner-lines.is-ecg-running path {
-transition: opacity 90ms linear; }
-
-.banner-ecg .banner-link {
-opacity: 0;
-transition: opacity 120ms linear; }
-
-.banner-ecg .banner-link:hover,
-.banner-ecg .banner-link:focus-within {
-opacity: 1; }
-
-.banner-ecg .banner-link-anchor {
-cursor: pointer; }
-
-.banner-ecg .banner-link-anchor:focus-visible {
-outline: 2px solid var(--color-accent);
-outline-offset: 4px; }
-
-.banner-ecg .banner-link-mask {
-opacity: 0 !important;
-pointer-events: all; }
-
-.banner-ecg .banner-link-text {
-opacity: 0;
-transition: opacity 120ms linear; }
-
-.banner-ecg .banner-link-anchor:hover .banner-link-text,
-.banner-ecg .banner-link-anchor:focus-visible .banner-link-text {
-opacity: 1; }
-
-.banner-zurich [class^="banner-lines-"] path {
-opacity: .5;
-will-change: opacity; }
-
-.banner-zurich [class^="banner-lines-"].is-zurich-running path {
-transition: opacity var(--zurich-fade-ms, 150ms) linear; }
-
-@media (prefers-reduced-motion: reduce) {
-
-.banner-ecg .banner-lines path {
-opacity: .7 !important;
-transition: none !important; }
-
-.banner-ecg .banner-link,
-.banner-ecg .banner-link-text {
-transition: none !important; }
-
-.banner-zurich [class^="banner-lines-"] path {
-opacity: .7 !important;
-transition: none !important; }
-}
 
 /* ============= BANNER COMPONENT ========== */
 
@@ -986,6 +1018,8 @@ padding-block: var(--spacing-r); }
 
 [role="banner"] > div {
 align-items: center; }
+
+
 
 /* ============= HEADER COMPONENT ========== */
 
@@ -998,6 +1032,8 @@ margin-block: 0 var(--spacing-s); }
 
 .alt-header > ul {
 margin-block: 0; }
+
+
 
 /* ============= FOOTER COMPONENT ========== */
 
@@ -1023,6 +1059,8 @@ transition: scale var(--animate-duration-faster) var(--animate-function); }
 #logo-footer:hover {
 scale: 1.05; }
 
+
+
 /* ==========================================================================
 FLEX LAYOUT
 ========================================================================== */
@@ -1030,11 +1068,12 @@ FLEX LAYOUT
 [data-layout="flex"] { text-align: left; }
 [data-layout="flex"] > * { margin-block-end: var(--spacing-r); }
 
+
+
 /* ==========================================================================
 PAGE LAYOUTS
 ========================================================================== */
 
-/* Layout container */
 .layout > * {
 margin-block-end: var(--spacing-l);
 margin-trim: block; }
@@ -1113,6 +1152,7 @@ padding: var(--spacing-r);
 position: relative; }
 
 
+
 /* ==========================================================================
 RESPONSIVE DESIGN - MEDIA QUERIES
 ========================================================================== */
@@ -1124,7 +1164,7 @@ RESPONSIVE DESIGN - MEDIA QUERIES
 @media screen and (min-width: 48em) {
 
 /* Body padding adjustment */
-body { padding-inline: var(--spacing-m); }
+body { --page-gutter: var(--spacing-m); }
 
 /* Enhanced textarea for larger screens */
 textarea {
@@ -1148,7 +1188,7 @@ margin-inline: unset; }
 [data-visibility="large"] { display: block; }
 
 /* Body padding adjustment */
-body { padding-inline: var(--spacing-l); }
+body { --page-gutter: var(--spacing-l); }
 
 /* Enhanced navigation */
 nav li {
@@ -1205,6 +1245,7 @@ grid-template-columns: var(--grid-6-col); }
 .layout > * { margin-block-end: var(--spacing-r); }
 
 /* Named layout systems (cheese-themed) */
+/* These names are template-facing APIs. Reuse them instead of inventing one-off grids. */
 
 [data-layout="appenzeller"] > *:nth-child(1) {
 grid-column: 1 / -1; }
@@ -1289,9 +1330,15 @@ font-size: 5cqi; /* Container query units for responsive sizing */
 margin-block: 0 var(--spacing-r); }
 }
 
+
+
 /* ==========================================================================
 PROJECT MAP MODAL
 ========================================================================== */
+
+/* Projects map uses a CSS-only modal (`:target`) with optional filter fallback.
+ * If the Google Maps embed is replaced with JS Maps API output, keep this block
+ * as the modal shell and move only the map rendering logic. */
 
 .alt-map-trigger {
 display: block; }
@@ -1317,7 +1364,7 @@ pointer-events: auto; }
 
 .alt-map-modal__inner {
 aspect-ratio: 16 / 10;
-box-shadow: 10px 10px 0 #000;
+box-shadow: 10px 10px 0 oklch(0 0 0);
 height: min(80vh, 50rem);
 max-width: 90rem;
 width: min(90vw, 80rem); }
@@ -1340,7 +1387,7 @@ filter: url(#duotone-blue); }
 
 .alt-map-close {
 align-items: center;
-color: #fff !important;
+color: oklch(1 0 0) !important;
 display: inline-flex;
 font-size: var(--font-size-xl);
 inset-block-start: var(--spacing-r);
@@ -1358,3 +1405,167 @@ text-decoration: none; }
 
 body:has(#projects-map-modal:target) {
 overflow: hidden; }
+
+/* ==========================================================================
+ANIMATIONS
+========================================================================== */
+
+/* banner-animation-grid */
+/* Home tile banner:
+ * - Base color distribution is handled with nth-of-type rules below.
+ * - Hover states are class-driven from JS (`.is-adjacent-cardinal`).
+ * - Rotation/timing logic is in `home.html`, not here. */
+
+.banner-animation-grid {
+display: block;
+inline-size: 100%; }
+
+.banner-animation-grid + .banner-animation-grid {
+margin-block-start: var(--space-m); }
+
+.banner-animation-grid .banner-tile-shape {
+fill: var(--color-brand);
+transition:
+fill var(--animate-duration-faster) var(--animate-function),
+opacity var(--animate-duration-faster) var(--animate-function);
+transition-delay: var(--banner-hover-delay, 0ms); }
+
+.banner-animation-grid .banner-tile:nth-of-type(4n) .banner-tile-shape,
+.banner-animation-grid .banner-tile:nth-of-type(8n + 3) .banner-tile-shape {
+fill: oklch(from var(--color-brand) calc(l - 0.095) c h); }
+
+.banner-animation-grid .banner-tile:nth-of-type(4n + 2) .banner-tile-shape,
+.banner-animation-grid .banner-tile:nth-of-type(8n + 5) .banner-tile-shape {
+fill: oklch(from var(--color-brand) calc(l - 0.135) c h); }
+
+.banner-animation-grid .banner-tile:hover .banner-tile-shape {
+fill: var(--color-accent);
+opacity: 1;
+transition-delay: 0ms; }
+
+.banner-animation-grid .banner-tile.is-adjacent-cardinal .banner-tile-shape {
+fill: var(--color-accent);
+opacity: .5; }
+
+/* banner-animation-alt */
+/* Secondary home banner:
+ * JS toggles elements between a hidden raised state and a visible resting state
+ * to create the "signal rain" effect. Keep transform/opacity transitions here
+ * and timing/randomisation in `home.html`. */
+
+.banner-animation-alt {
+display: block;
+inline-size: 100%; }
+
+.banner-animation-alt path,
+.banner-animation-alt rect {
+opacity: 0;
+transform: translateY(-40px);
+transform-box: fill-box;
+transform-origin: center;
+transition:
+opacity 900ms var(--animate-function),
+transform 900ms var(--animate-function);
+will-change: opacity, transform; }
+
+/* banner-animation-circles */
+/* Circle grid banner:
+ * rotation runs on the placed `<use>` instances, not the source symbol paths.
+ * This keeps the 25 source shapes reusable while allowing each grid item to
+ * have its own timing, direction, and hover state. */
+
+.banner-animation-circles {
+display: block;
+inline-size: 100%; }
+
+.banner-animation-circles .banner-circle-instance {
+animation-duration: 18.5s;
+animation-iteration-count: infinite;
+animation-play-state: paused;
+animation-timing-function: cubic-bezier(.65, 0, .35, 1);
+animation-name: banner-circle-spin-cw;
+color: var(--color-brand);
+cursor: pointer;
+opacity: 1;
+pointer-events: auto;
+transform-box: fill-box;
+transform-origin: 60px 60px;
+transition:
+color var(--animate-duration-faster) var(--animate-function),
+opacity var(--animate-duration-faster) var(--animate-function);
+transition-delay: var(--banner-hover-delay, 0ms); }
+
+.banner-animation-circles.is-animating .banner-circle-instance {
+animation-play-state: running; }
+
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(4n) > .banner-circle-instance,
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(8n + 3) > .banner-circle-instance {
+color: oklch(from var(--color-brand) calc(l - 0.095) c h); }
+
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(4n + 2) > .banner-circle-instance,
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(8n + 5) > .banner-circle-instance {
+color: oklch(from var(--color-brand) calc(l - 0.135) c h); }
+
+.banner-animation-circles .banner-circle-grid > g > .banner-circle-instance:hover {
+animation-play-state: paused;
+color: var(--color-accent);
+opacity: 1;
+transition-delay: 0ms; }
+
+.banner-animation-circles .banner-circle-grid > g > .banner-circle-instance.is-adjacent-cardinal {
+animation-play-state: paused;
+color: var(--color-accent);
+opacity: .5; }
+
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(2n) > .banner-circle-instance {
+animation-name: banner-circle-spin-ccw;
+animation-duration: 13.5s;
+animation-delay: -7.2s; }
+
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(3n) > .banner-circle-instance {
+animation-duration: 24.75s;
+animation-delay: -12.8s; }
+
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(4n) > .banner-circle-instance {
+animation-duration: 16.25s;
+animation-delay: -2.1s; }
+
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(5n) > .banner-circle-instance {
+animation-name: banner-circle-spin-ccw;
+animation-duration: 31s;
+animation-delay: -15.7s; }
+
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(7n) > .banner-circle-instance {
+animation-duration: 11.75s;
+animation-delay: -5.6s; }
+
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(8n + 3) > .banner-circle-instance {
+animation-duration: 27.5s;
+animation-delay: -19.1s; }
+
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(9n + 4) > .banner-circle-instance {
+animation-name: banner-circle-spin-ccw;
+animation-duration: 20.25s;
+animation-delay: -8.9s; }
+
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(11n + 2) > .banner-circle-instance {
+animation-duration: 14.5s;
+animation-delay: -1.8s; }
+
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(13n + 5) > .banner-circle-instance {
+animation-duration: 34s;
+animation-delay: -22.4s; }
+
+.banner-animation-circles .banner-circle-grid > g:nth-of-type(17n + 1) > .banner-circle-instance {
+animation-duration: 9.75s;
+animation-delay: -6.3s; }
+
+@keyframes banner-circle-spin-cw {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+
+@keyframes banner-circle-spin-ccw {
+from { transform: rotate(0deg); }
+to { transform: rotate(-360deg); }
+}

@@ -9,22 +9,94 @@
 
 {% include "partials/header.html" %}
 
+<script src="/js/scripts.js"></script>
+
 {% block content %}
 
 <h1 data-visibility="hidden">{{ title }}</h1>
 
-<div class="layout" data-layout="appenzeller">
+<div class="figure-container">
 
-<div>
+<button
+type="button"
+class="js-anim-toggle"
+title="Animations ON"
+aria-label="Animations ON"
+aria-pressed="true">
+<span class="js-anim-icon-on" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" viewBox="0 0 32 32">
+<g fill="none" fill-rule="evenodd"><path fill="#fff" d="M16 32a16 16 0 1 0 0-32 16 16 0 0 0 0 32"/><path fill="#16599c" d="M25 16 11 8v16z"/></g></svg></span>
+<span class="js-anim-icon-off" aria-hidden="true" hidden><svg xmlns="http://www.w3.org/2000/svg" width="32" viewBox="0 0 32 32">
+<g fill="none" fill-rule="evenodd"><path fill="#fff" d="M16 32a16 16 0 1 0 0-32 16 16 0 0 0 0 32"/><path fill="#16599c" d="M8 8h6.4v16H8zm9.8 0H24v16h-6.2z"/></g></svg></span>
+<span class="visually-hidden js-anim-text">Animations ON</span>
+</button>
 
-<figure>
-<img src="/images/tmp-index-banner.webp" alt="">
+<div class="banner-switcher" role="tablist" aria-label="Banner graphics">
+
+<button
+type="button"
+class="banner-switcher__button js-banner-switch"
+id="banner-switch-alt"
+role="tab"
+aria-controls="banner-panel-alt"
+aria-selected="false"
+data-banner-target="banner-panel-alt">Signals</button>
+
+<button
+type="button"
+class="banner-switcher__button js-banner-switch"
+id="banner-switch-circles"
+role="tab"
+aria-controls="banner-panel-circles"
+aria-selected="false"
+tabindex="-1"
+data-banner-target="banner-panel-circles">Circles</button>
+
+<button
+type="button"
+class="banner-switcher__button js-banner-switch"
+id="banner-switch-grid"
+role="tab"
+aria-controls="banner-panel-grid"
+aria-selected="true"
+tabindex="-1"
+data-banner-target="banner-panel-grid">Paths</button>
+</div>
+
+<figure
+id="banner-panel-alt"
+class="js-banner-panel"
+role="tabpanel"
+aria-labelledby="banner-switch-alt">
+{% include "svgs/banner-animation-alt.svg" %}
 </figure>
 
-{{ main | safe }}
-</div><!-- one -->
+<figure
+id="banner-panel-circles"
+class="js-banner-panel"
+role="tabpanel"
+aria-labelledby="banner-switch-circles"
+hidden>
+{% include "svgs/banner-animation-circles.svg" %}
+</figure>
 
+<figure
+id="banner-panel-grid"
+class="js-banner-panel"
+role="tabpanel"
+aria-labelledby="banner-switch-grid"
+hidden>
+{% include "svgs/banner-animation-index-wide.svg" %}
+</figure>
+
+</div><!-- figure-container -->
+
+
+<div class="layout" data-layout="appenzeller">
+<div>
+{{ main | safe }}
+</div>
 </div><!-- layout -->
+
 
 
 <hr data-function="spacer">
@@ -73,64 +145,638 @@ Email us
 
 <script>
 (() => {
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const svgs = Array.from(document.querySelectorAll(".banner-animation-grid"));
+const altSvg = document.querySelector("#banner-animation-alt");
+const circlesSvg = document.querySelector("#banner-animation-circles");
+const bannerPanels = Array.from(document.querySelectorAll(".js-banner-panel"));
+const bannerSwitchButtons = Array.from(document.querySelectorAll(".js-banner-switch"));
+const button = document.querySelector(".js-anim-toggle");
+const toggleFactory = window.Verkehrsteiner && window.Verkehrsteiner.createAnimationToggle;
 
+if (!svgs.length && !altSvg && !circlesSvg) {
+return;
+}
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+if (!toggleFactory) {
+return;
+}
+
+const rotationSteps = [0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300, 315, 330, 345];
+const tileCenterX = 125;
+const tileCenterY = 125;
+const segmentDuration = 1600;
+const segmentPause = 700;
+const cyclePause = 1000;
+const cycleLength = (segmentDuration * 3) + (segmentPause * 2) + cyclePause;
+const segmentOffsets = [0, segmentDuration + segmentPause, (segmentDuration * 2) + (segmentPause * 2)];
+const easeInOutSine = (value) => -(Math.cos(Math.PI * value) - 1) / 2;
+const reducedMotionLabel = "Animations unavailable";
+
+const getNextAngle = (currentAngle) => {
+let nextAngle = currentAngle;
+
+while (nextAngle === currentAngle) {
+nextAngle = rotationSteps[Math.floor(Math.random() * rotationSteps.length)];
+}
+
+return nextAngle;
+};
+
+const shuffle = (items) => {
+const copy = [...items];
+for (let i = copy.length - 1; i > 0; i -= 1) {
+const j = Math.floor(Math.random() * (i + 1));
+[copy[i], copy[j]] = [copy[j], copy[i]];
+}
+return copy;
+};
+
+const createBannerAnimation = (svg) => {
+const tiles = Array.from(svg.querySelectorAll(".banner-tile"));
+const shapes = Array.from(svg.querySelectorAll(".banner-tile-shape"));
+
+if (!tiles.length || !shapes.length) {
+return null;
+}
+
+const tileMap = new Map();
+tiles.forEach((tile) => {
+const col = Number(tile.dataset.col || 0);
+const row = Number(tile.dataset.row || 0);
+tileMap.set(row + ":" + col, tile);
+});
+
+let animationFrameId = 0;
+let lastCycleIndex = -1;
+let isRunning = false;
+const pausedItems = new Set();
+
+const clearAdjacentHover = () => {
+tiles.forEach((tile) => {
+tile.classList.remove("is-adjacent-cardinal");
+tile.style.removeProperty("--banner-hover-delay");
+});
+};
+
+const setAdjacentHover = (activeTile) => {
+clearAdjacentHover();
+
+if (!activeTile) {
+return;
+}
+
+const activeCol = Number(activeTile.dataset.col || 0);
+const activeRow = Number(activeTile.dataset.row || 0);
+const adjacentTiles = [];
+
+[
+[activeRow - 1, activeCol],
+[activeRow, activeCol + 1],
+[activeRow + 1, activeCol],
+[activeRow, activeCol - 1]
+].forEach(([row, col]) => {
+const adjacentTile = tileMap.get(row + ":" + col);
+
+if (adjacentTile) {
+adjacentTiles.push(adjacentTile);
+}
+});
+
+shuffle(adjacentTiles).forEach((tile, index) => {
+tile.style.setProperty("--banner-hover-delay", (500 + (index * 45)) + "ms");
+tile.classList.add("is-adjacent-cardinal");
+});
+};
+
+const items = shuffle(shapes).map((shape, index) => {
+const tile = shape.closest(".banner-tile");
+const col = Number(tile?.dataset.col || 0);
+const row = Number(tile?.dataset.row || 0);
+return {
+tile,
+shape,
+baseTransform: shape.getAttribute("transform") || "",
+currentAngle: 0,
+startAngle: 0,
+targetAngle: getNextAngle(0),
+segment: 0,
+isPaused: false,
+isResuming: false,
+resumeStartTime: 0,
+resumeDuration: 0,
+index,
+col,
+row
+};
+});
+
+const itemByTile = new Map();
+items.forEach((item) => {
+itemByTile.set(item.tile, item);
+});
+
+const segmentSize = Math.ceil(items.length / 3);
+items.forEach((item, index) => {
+item.segment = Math.min(2, Math.floor(index / segmentSize));
+});
+
+const applyRotation = (item) => {
+if (Math.abs(item.currentAngle) < 0.01) {
+if (item.baseTransform) {
+item.shape.setAttribute("transform", item.baseTransform);
+} else {
+item.shape.removeAttribute("transform");
+}
+return;
+}
+
+const rotation = "rotate(" + item.currentAngle.toFixed(2) + " " + tileCenterX + " " + tileCenterY + ")";
+item.shape.setAttribute("transform", item.baseTransform ? item.baseTransform + " " + rotation : rotation);
+};
+
+const setItemPaused = (item, paused, now = performance.now()) => {
+if (!item) {
+return;
+}
+
+if (paused) {
+item.isPaused = true;
+item.isResuming = false;
+pausedItems.add(item);
+return;
+}
+
+if (!item.isPaused) {
+return;
+}
+
+item.isPaused = false;
+pausedItems.delete(item);
+
+const cycleTime = now % cycleLength;
+const segmentStart = segmentOffsets[item.segment];
+const segmentEnd = segmentStart + segmentDuration;
+
+if (cycleTime >= segmentStart && cycleTime <= segmentEnd) {
+item.startAngle = item.currentAngle;
+item.targetAngle = getNextAngle(item.currentAngle);
+item.resumeStartTime = now;
+item.resumeDuration = Math.max(300, segmentEnd - cycleTime);
+item.isResuming = true;
+}
+};
+
+const clearPausedItems = (now = performance.now()) => {
+Array.from(pausedItems).forEach((item) => {
+setItemPaused(item, false, now);
+});
+};
+
+tiles.forEach((tile) => {
+tile.addEventListener("pointerenter", () => {
+const now = performance.now();
+clearPausedItems(now);
+setAdjacentHover(tile);
+
+const row = Number(tile.dataset.row || 0);
+const col = Number(tile.dataset.col || 0);
+const relatedTiles = [
+tile,
+tileMap.get((row - 1) + ":" + col),
+tileMap.get(row + ":" + (col + 1)),
+tileMap.get((row + 1) + ":" + col),
+tileMap.get(row + ":" + (col - 1))
+].filter(Boolean);
+
+relatedTiles.forEach((relatedTile) => {
+setItemPaused(itemByTile.get(relatedTile), true, now);
+});
+});
+
+tile.addEventListener("pointerleave", () => {
+clearAdjacentHover();
+clearPausedItems(performance.now());
+});
+});
+
+const resetToBaseState = () => {
+items.forEach((item) => {
+item.currentAngle = 0;
+item.startAngle = 0;
+item.targetAngle = getNextAngle(0);
+item.isPaused = false;
+item.isResuming = false;
+applyRotation(item);
+});
+pausedItems.clear();
+clearAdjacentHover();
+lastCycleIndex = -1;
+};
+
+const tick = (now) => {
+if (!isRunning) {
+return;
+}
+
+const cycleIndex = Math.floor(now / cycleLength);
+const cycleTime = now % cycleLength;
+
+if (cycleIndex !== lastCycleIndex) {
+lastCycleIndex = cycleIndex;
+items.forEach((item) => {
+if (item.isPaused) {
+return;
+}
+
+item.startAngle = item.targetAngle;
+item.targetAngle = getNextAngle(item.targetAngle);
+item.currentAngle = item.startAngle;
+item.isResuming = false;
+applyRotation(item);
+});
+}
+
+items.forEach((item) => {
+if (item.isPaused) {
+return;
+}
+
+const segmentStart = segmentOffsets[item.segment];
+const segmentEnd = segmentStart + segmentDuration;
+
+if (cycleTime < segmentStart || cycleTime > segmentEnd) {
+item.isResuming = false;
+return;
+}
+
+const progress = item.isResuming
+? Math.min((now - item.resumeStartTime) / item.resumeDuration, 1)
+: Math.min((cycleTime - segmentStart) / segmentDuration, 1);
+const easedProgress = easeInOutSine(progress);
+item.currentAngle = item.startAngle + ((item.targetAngle - item.startAngle) * easedProgress);
+applyRotation(item);
+
+if (item.isResuming && progress >= 1) {
+item.isResuming = false;
+}
+});
+
+animationFrameId = window.requestAnimationFrame(tick);
+};
+
+return {
+start() {
+if (isRunning || prefersReducedMotion.matches) {
+return;
+}
+
+isRunning = true;
+animationFrameId = window.requestAnimationFrame(tick);
+},
+stop() {
+isRunning = false;
+
+if (animationFrameId) {
+window.cancelAnimationFrame(animationFrameId);
+animationFrameId = 0;
+}
+
+resetToBaseState();
+},
+reset() {
+resetToBaseState();
+}
+};
+};
+
+const createAltBannerAnimation = (svg) => {
+if (!svg) {
+return null;
+}
+
+const elements = Array.from(svg.querySelectorAll("path, rect"));
+
+if (!elements.length) {
+return null;
+}
+
+let isRunning = false;
+
+const items = elements.map((element) => ({
+element,
+timeoutId: 0
+}));
+
+const randomBetween = (min, max) => Math.round(min + (Math.random() * (max - min)));
+
+const clearTimers = () => {
+items.forEach((item) => {
+if (item.timeoutId) {
+window.clearTimeout(item.timeoutId);
+item.timeoutId = 0;
+}
+});
+};
+
+const setRestingState = (item) => {
+item.element.style.opacity = "1";
+item.element.style.transform = "translateY(0)";
+item.element.style.transitionDuration = "";
+};
+
+const setWaitingState = (item) => {
+item.element.style.transitionDuration = "0ms";
+item.element.style.opacity = "0";
+item.element.style.transform = "translateY(-20px)";
+};
+
+const pulseElement = (item) => {
+if (!isRunning) {
+return;
+}
+
+const duration = randomBetween(320, 900);
+const nextDelay = randomBetween(40, 720);
+
+setWaitingState(item);
+
+window.requestAnimationFrame(() => {
+window.requestAnimationFrame(() => {
+if (!isRunning) {
+return;
+}
+
+item.element.style.transitionDuration = duration + "ms";
+item.element.style.opacity = "1";
+item.element.style.transform = "translateY(0)";
+});
+});
+
+item.timeoutId = window.setTimeout(() => {
+pulseElement(item);
+}, duration + nextDelay);
+};
+
+return {
+start() {
+if (isRunning || prefersReducedMotion.matches) {
+return;
+}
+
+isRunning = true;
+items.forEach((item) => {
+setWaitingState(item);
+item.timeoutId = window.setTimeout(() => {
+pulseElement(item);
+}, randomBetween(0, 900));
+});
+},
+stop() {
+isRunning = false;
+clearTimers();
+items.forEach(setRestingState);
+},
+reset() {
+clearTimers();
+items.forEach(setRestingState);
+}
+};
+};
+
+const createCircleBannerAnimation = (svg) => {
+if (!svg) {
+return null;
+}
+
+const circleCells = Array.from(svg.querySelectorAll(".banner-circle-grid > g"));
+const circleInstances = circleCells
+.map((cell, index) => {
+const instance = cell.querySelector(".banner-circle-instance");
+
+if (!instance) {
+return null;
+}
+
+const col = index % 15;
+const row = Math.floor(index / 15);
+cell.dataset.col = String(col);
+cell.dataset.row = String(row);
+instance.dataset.col = String(col);
+instance.dataset.row = String(row);
+
+return {
+cell,
+instance,
+col,
+row
+};
+})
+.filter(Boolean);
+
+const circleMap = new Map();
+circleInstances.forEach((item) => {
+circleMap.set(item.row + ":" + item.col, item);
+});
+
+const clearAdjacentHover = () => {
+circleInstances.forEach(({ instance }) => {
+instance.classList.remove("is-adjacent-cardinal");
+instance.style.removeProperty("--banner-hover-delay");
+});
+};
+
+const setAdjacentHover = (activeInstance) => {
+clearAdjacentHover();
+
+if (!activeInstance) {
+return;
+}
+
+const activeCol = Number(activeInstance.dataset.col || 0);
+const activeRow = Number(activeInstance.dataset.row || 0);
+const adjacentInstances = [];
+
+[
+[activeRow - 1, activeCol],
+[activeRow, activeCol + 1],
+[activeRow + 1, activeCol],
+[activeRow, activeCol - 1]
+].forEach(([row, col]) => {
+const adjacentItem = circleMap.get(row + ":" + col);
+
+if (adjacentItem) {
+adjacentInstances.push(adjacentItem.instance);
+}
+});
+
+shuffle(adjacentInstances).forEach((instance, index) => {
+instance.style.setProperty("--banner-hover-delay", (500 + (index * 45)) + "ms");
+instance.classList.add("is-adjacent-cardinal");
+});
+};
+
+circleInstances.forEach(({ instance }) => {
+instance.addEventListener("pointerenter", () => {
+setAdjacentHover(instance);
+});
+
+instance.addEventListener("pointerleave", () => {
+clearAdjacentHover();
+});
+});
+
+return {
+start() {
 if (prefersReducedMotion.matches) {
 return;
 }
 
-const lineGroups = document.querySelectorAll(".banner-ecg .banner-lines");
+svg.classList.add("is-animating");
+},
+stop() {
+svg.classList.remove("is-animating");
+clearAdjacentHover();
+},
+reset() {
+svg.classList.remove("is-animating");
+clearAdjacentHover();
+}
+};
+};
 
-if (!lineGroups.length) {
+const panelAnimations = [
+{
+panel: document.querySelector("#banner-panel-alt"),
+animation: createAltBannerAnimation(altSvg)
+},
+{
+panel: document.querySelector("#banner-panel-circles"),
+animation: createCircleBannerAnimation(circlesSvg)
+},
+{
+panel: document.querySelector("#banner-panel-grid"),
+animation: svgs[0] ? createBannerAnimation(svgs[0]) : null
+}
+].filter((item) => item.panel && item.animation);
+
+if (!panelAnimations.length) {
 return;
 }
 
-lineGroups.forEach(group => {
-const paths = Array.from(group.querySelectorAll("path"));
+let animationsEnabled = false;
+let activePanelId = bannerPanels.find((panel) => !panel.hidden)?.id || panelAnimations[0].panel.id;
 
-if (!paths.length) {
+const getPanelAnimation = (panelId) => panelAnimations.find(({ panel }) => panel.id === panelId);
+
+const syncPanelAnimations = () => {
+panelAnimations.forEach(({ panel, animation }) => {
+if (animationsEnabled && panel.id === activePanelId) {
+animation.start();
 return;
 }
 
-const orderedPaths = paths
-.map(path => {
-const box = path.getBBox();
-return {
-path,
-midX: box.x + (box.width / 2)
-};
-})
-.sort((a, b) => a.midX - b.midX)
-.map(item => item.path);
-
-group.classList.add("is-ecg-running");
-
-const minOpacity = 0.5;
-const maxOpacity = 1;
-const trailLength = Math.max(10, Math.round(orderedPaths.length * 0.12));
-const cyclePadding = Math.round(trailLength * 0.6);
-const speed = 11.33; // segments per second (3x slower)
-const cycleLength = orderedPaths.length + cyclePadding;
-
-const tick = (now) => {
-const head = ((now / 1000) * speed) % cycleLength;
-
-for (let i = 0; i < orderedPaths.length; i++) {
-const distance = head - i;
-let opacity = minOpacity;
-
-if (distance >= 0 && distance <= trailLength) {
-const strength = 1 - (distance / trailLength);
-opacity = minOpacity + ((maxOpacity - minOpacity) * strength);
-}
-
-orderedPaths[i].style.opacity = opacity.toFixed(3);
-}
-
-window.requestAnimationFrame(tick);
+animation.stop();
+});
 };
 
-window.requestAnimationFrame(tick);
+const setActivePanel = (panelId, options = {}) => {
+const shouldFocus = options.focusButton || false;
+
+activePanelId = panelId;
+
+bannerPanels.forEach((panel) => {
+panel.hidden = panel.id !== panelId;
+});
+
+bannerSwitchButtons.forEach((switchButton) => {
+const isActive = switchButton.dataset.bannerTarget === panelId;
+switchButton.setAttribute("aria-selected", isActive ? "true" : "false");
+switchButton.tabIndex = isActive ? 0 : -1;
+
+if (isActive && shouldFocus) {
+switchButton.focus();
+}
+});
+
+syncPanelAnimations();
+};
+
+bannerSwitchButtons.forEach((switchButton) => {
+switchButton.addEventListener("click", () => {
+setActivePanel(switchButton.dataset.bannerTarget);
+});
+
+switchButton.addEventListener("keydown", (event) => {
+if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+return;
+}
+
+event.preventDefault();
+
+const currentIndex = bannerSwitchButtons.indexOf(switchButton);
+let nextIndex = currentIndex;
+
+if (event.key === "ArrowRight") {
+nextIndex = (currentIndex + 1) % bannerSwitchButtons.length;
+}
+
+if (event.key === "ArrowLeft") {
+nextIndex = (currentIndex - 1 + bannerSwitchButtons.length) % bannerSwitchButtons.length;
+}
+
+if (event.key === "Home") {
+nextIndex = 0;
+}
+
+if (event.key === "End") {
+nextIndex = bannerSwitchButtons.length - 1;
+}
+
+setActivePanel(bannerSwitchButtons[nextIndex].dataset.bannerTarget, { focusButton: true });
+});
+});
+
+const startAnimation = () => {
+animationsEnabled = true;
+syncPanelAnimations();
+};
+
+const stopAnimation = () => {
+animationsEnabled = false;
+syncPanelAnimations();
+};
+
+const toggle = toggleFactory({
+button,
+autoStart: false,
+initiallyRunning: false,
+disabledLabel: reducedMotionLabel,
+onStart: startAnimation,
+onStop: stopAnimation
+});
+
+panelAnimations.forEach(({ animation }) => {
+animation.reset();
+});
+
+setActivePanel(activePanelId);
+
+if (prefersReducedMotion.matches) {
+toggle.disable(reducedMotionLabel);
+} else {
+toggle.start();
+}
+
+prefersReducedMotion.addEventListener("change", (event) => {
+if (event.matches) {
+toggle.disable(reducedMotionLabel);
+stopAnimation();
+return;
+}
+
+toggle.enable();
+toggle.start();
 });
 })();
 </script>
