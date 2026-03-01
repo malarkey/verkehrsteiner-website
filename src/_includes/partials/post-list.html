@@ -6,7 +6,7 @@
 
 <p data-size="s">{{ item.data.postSummary }}</p>
 
-<small>Tagged with: {% for tag in item.data.postTags %}
+<small>Getaggt mit: {% for tag in item.data.postTags %}
 <a href="/news/tag/{{ tag | slug }}/" class="alt-tag">{{ tag }}</a>
 {% endfor %}
 </small>

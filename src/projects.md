@@ -1,6 +1,6 @@
 ---
 layout: "layouts/projects.html"
-title: "Projects"
+title: "Referenzen"
 permalink: "/projects/"
 lede: >
 ---

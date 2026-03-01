@@ -1,5 +1,5 @@
 ---
-image: 'img-service-1.svg'
+image: 'img-service-2.svg'
 layout: 'layouts/service.html'
 name: 'Planung & innovation – Mobilität der Zukunft gestalten'
 eleventyComputed:

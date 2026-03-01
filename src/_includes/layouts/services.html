@@ -2,20 +2,32 @@
 
 {% block content %}
 
-<div class="layout" data-layout="challerhocker">
+<div class="layout" data-layout="sbrinz">
 
 <div>
 <h1>{{ title }}</h1>
-
 {% if main %}
 {{ main | safe }}
 {% endif %}
+</div><!-- one -->
+
+<div>
+</div><!-- two -->
+
+</div><!-- layout -->
+
 
 {% if collections.services.length %}
-<hr>
+
+<div class="layout" data-layout="fribourgeois">
 
 {% for serviceItem in collections.services %}
 <article class="item-service">
+{% if serviceItem.data.image %}
+<figure>
+<a href="{{ serviceItem.url }}"><img src="/images/{{ serviceItem.data.image }}" alt="{{ serviceItem.data.name or serviceItem.data.title }}"></a>
+</figure>
+{% endif %}
 <h2><a href="{{ serviceItem.url }}">{{ serviceItem.data.name or serviceItem.data.title }}</a></h2>
 {% if serviceItem.data.summary %}
 <p>{{ serviceItem.data.summary }}</p>
@@ -23,14 +35,6 @@
 </article>
 {% endfor %}
 {% endif %}
-
-</div><!-- one -->
-
-<div>
-<figure>
-<img src="/images/tmp-service.webp" alt="">
-</figure>
-</div><!-- two -->
 
 </div><!-- layout -->
 

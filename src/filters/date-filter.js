@@ -7,6 +7,10 @@ module.exports = function(date, format = 'DDD') {
   if (date instanceof Date) {
     dateObj = DateTime.fromJSDate(date);
   } else if (typeof date === 'string') {
+    if (/^\d{4}$/.test(date.trim())) {
+      return date.trim();
+    }
+
     // Try parsing as ISO string (YYYY-MM-DD)
     dateObj = DateTime.fromISO(date);
 

@@ -1,19 +1,19 @@
 {
   "items": [
     {
-      "text": "Why us",
+      "text": "Warum wir?",
       "url": "/about/"
     },
     {
-      "text": "Services",
+      "text": "Leistungen",
       "url": "/services/"
     },
     {
-      "text": "Projects",
+      "text": "Referenzen",
       "url": "/projects/"
     },
     {
-      "text": "Contact",
+      "text": "Kontakt",
       "url": "/contact/"
     }
   ]

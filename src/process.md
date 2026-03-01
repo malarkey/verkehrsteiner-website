@@ -1,6 +1,6 @@
 ---
 layout: "layouts/process.html"
-title: "Process"
+title: "Verfahren"
 permalink: "/process/"
 
 lede: >

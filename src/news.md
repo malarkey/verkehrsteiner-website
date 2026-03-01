@@ -6,9 +6,9 @@ metaDesc:
 pagination:
   data: collections.news
   size: 10
-paginationPrevText: 'Newer'
-paginationNextText: 'Older'
+paginationPrevText: 'Neuer'
+paginationNextText: 'Älter'
 paginationAnchor: '#post-list'
 permalink: 'news{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber }}{% endif %}/index.html'
-title: 'Our news'
+title: 'Unsere Neuigkeiten'
 ---

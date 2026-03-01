@@ -17,10 +17,10 @@
 <h1>{{ pageHeaderTitle }}</h1>
 
 <ul class="alt-inline">
-<li>Projects</li>
+<li>Projekte</li>
 
-<li>{% if category %}<a href="/projects/">All</a>{% else %}
-<span aria-current="page">All</span>{% endif %}</li>
+<li>{% if category %}<a href="/projects/">Alle</a>{% else %}
+<span aria-current="page">Alle</span>{% endif %}</li>
 
 {% for projectCategory in collections.projectCategories %}
 <li{% if category == projectCategory %} class="active"{% endif %}>{% if category == projectCategory %}<span class="alt-category active" aria-current="page">{{ projectCategory }}</span>{% else %}
@@ -34,9 +34,9 @@
 
 <figure data-direction="reversed">
 <a href="#projects-map-modal" class="alt-map-trigger" aria-haspopup="dialog" aria-controls="projects-map-modal">
-<img src="/images/tmp-projects-map.webp" alt="Open project map">
+<img src="/images/tmp-projects-map.webp" alt="Karte öffnen">
 </a>
-<figcaption>Explore projects map</figcaption>
+<figcaption>Projektkarte erkunden</figcaption>
 </figure>
 
 <div class="alt-featured">
@@ -60,7 +60,7 @@
 
 {% set projectTags = projectItem.data.tags | asTagArray %}
 {% if projectTags.length %}
-<small>Tagged with:
+<small>Getaggt mit:
 {% for itemTag in projectTags %}
 <a href="/projects/tag/{{ itemTag | lower | replace(" ", "-") }}/" class="alt-tag">{{ itemTag }}</a>{% if not loop.last %} • {% endif %}
 {% endfor %}
@@ -114,7 +114,7 @@
 
 <div id="projects-map-modal" class="alt-map-modal" role="dialog" aria-modal="true" aria-labelledby="projects-map-modal-title">
 
-<a href="#" class="alt-map-close" aria-label="Close map modal">&times;</a>
+<a href="#" class="alt-map-close" aria-label="Schließen">&times;</a>
 
 <div class="alt-map-modal__inner">
 <div id="projects-map" class="alt-map-canvas" hidden></div>

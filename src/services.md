@@ -1,6 +1,6 @@
 ---
 layout: "layouts/services.html"
-title: "Services"
+title: "Leistungen"
 permalink: "/services/"
 
 main: >

@@ -13,7 +13,7 @@
 
 {% set projectTags = projectItem.data.tags | asTagArray %}
 {% if projectTags.length %}
-<small>Tagged with:
+<small>Getaggt mit:
 {% for itemTag in projectTags %}
 <a href="/projects/tag/{{ itemTag | lower | replace(" ", "-") }}/" class="alt-tag">{{ itemTag }}</a>
 {% endfor %}

@@ -1,5 +1,5 @@
 ---
-image: 'img-service-1.svg'
+image: 'img-service-3.svg'
 layout: 'layouts/service.html'
 name: 'Sicherheit & qualität – Infrastruktur überprüfen und sicherer machen'
 eleventyComputed:

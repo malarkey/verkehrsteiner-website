@@ -9,6 +9,6 @@ main: >
  <h1 data-size="3xl">Verkehr verstehen – Mobilität gestalten</h1>
 
 quote: |
- The team of verkehrsteiner AG supports you in dealing with traffic planning issues and developing needs-based mobility solutions.
+ Das Team der Verkehrsteiner AG unterstützt Sie bei der Bewältigung von Fragen der Verkehrsplanung und der Entwicklung bedarfsgerechter Mobilitätslösungen.
 
 ---

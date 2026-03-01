@@ -1,7 +1,7 @@
 {% set assetHash = global.random() %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de_CH">
 
 {% include "partials/head.html" %}
 
@@ -20,17 +20,17 @@
 <button
 type="button"
 class="js-anim-toggle"
-title="Animations ON"
-aria-label="Animations ON"
+title="Animationen EIN"
+aria-label="Animationen EIN"
 aria-pressed="true">
 <span class="js-anim-icon-on" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" viewBox="0 0 32 32">
 <g fill="none" fill-rule="evenodd"><path fill="#fff" d="M16 32a16 16 0 1 0 0-32 16 16 0 0 0 0 32"/><path fill="#16599c" d="M25 16 11 8v16z"/></g></svg></span>
 <span class="js-anim-icon-off" aria-hidden="true" hidden><svg xmlns="http://www.w3.org/2000/svg" width="32" viewBox="0 0 32 32">
 <g fill="none" fill-rule="evenodd"><path fill="#fff" d="M16 32a16 16 0 1 0 0-32 16 16 0 0 0 0 32"/><path fill="#16599c" d="M8 8h6.4v16H8zm9.8 0H24v16h-6.2z"/></g></svg></span>
-<span class="visually-hidden js-anim-text">Animations ON</span>
+<span class="visually-hidden js-anim-text">Animationen EIN</span>
 </button>
 
-<div class="banner-switcher" role="tablist" aria-label="Banner graphics">
+<div class="banner-switcher" role="tablist" aria-label="Bannergrafiken">
 
 <button
 type="button"
@@ -39,6 +39,7 @@ id="banner-switch-alt"
 role="tab"
 aria-controls="banner-panel-alt"
 aria-selected="false"
+tabindex="-1"
 data-banner-target="banner-panel-alt">Signals</button>
 
 <button
@@ -58,7 +59,6 @@ id="banner-switch-grid"
 role="tab"
 aria-controls="banner-panel-grid"
 aria-selected="true"
-tabindex="-1"
 data-banner-target="banner-panel-grid">Paths</button>
 </div>
 
@@ -66,7 +66,8 @@ data-banner-target="banner-panel-grid">Paths</button>
 id="banner-panel-alt"
 class="js-banner-panel"
 role="tabpanel"
-aria-labelledby="banner-switch-alt">
+aria-labelledby="banner-switch-alt"
+hidden>
 {% include "svgs/banner-animation-alt.svg" %}
 </figure>
 
@@ -83,9 +84,8 @@ hidden>
 id="banner-panel-grid"
 class="js-banner-panel"
 role="tabpanel"
-aria-labelledby="banner-switch-grid"
-hidden>
-{% include "svgs/banner-animation-index-wide.svg" %}
+aria-labelledby="banner-switch-grid">
+{% include "svgs/banner-animation-index.svg" %}
 </figure>
 
 </div><!-- figure-container -->
@@ -124,12 +124,12 @@ hidden>
 {% if site.email or site.telephone %}
 <p data-align-h="center" data-size="s">
 {% if site.email %}
-<a href="mailto:{{ site.email }}">Email us</a>
+<a href="mailto:{{ site.email }}">E-mail</a>
 {% else %}
-Email us
+E-mail
 {% endif %}
 {% if site.telephone %}
- or call <br><a href="tel:{{ site.telephone }}" class="alt-tel">{{ site.telephone }}</a>
+ oder rufen Sie an <br><a href="tel:{{ site.telephone }}" class="alt-tel">{{ site.telephone }}</a>
 {% endif %}
 </p>
 {% endif %}
@@ -171,7 +171,7 @@ const cyclePause = 1000;
 const cycleLength = (segmentDuration * 3) + (segmentPause * 2) + cyclePause;
 const segmentOffsets = [0, segmentDuration + segmentPause, (segmentDuration * 2) + (segmentPause * 2)];
 const easeInOutSine = (value) => -(Math.cos(Math.PI * value) - 1) / 2;
-const reducedMotionLabel = "Animations unavailable";
+const reducedMotionLabel = "Animationen nicht verfügbar";
 
 const getNextAngle = (currentAngle) => {
 let nextAngle = currentAngle;

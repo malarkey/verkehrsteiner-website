@@ -1,393 +1,1545 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 2000" id="banner-animation-index" class="banner-animation-grid">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6000 4000" id="banner-animation-index-wide" class="banner-animation-grid">
 <defs>
-<clipPath id="banner-tile-clip">
+<clipPath id="banner-tile-clip-wide">
 <rect width="250" height="250"/>
 </clipPath>
 </defs>
 
 <g class="banner-tiles" fill="none" fill-rule="evenodd">
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="0" data-row="0">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="0">
 <path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(15 125 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="1" data-row="0" transform="translate(250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="0" transform="translate(250)">
 <path class="banner-tile-shape" fill="#fff" d="m-12.5-62 225 375H160L-65-62zM250-62v375h-37.5V-62z" />
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="2" data-row="0" transform="translate(500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="0" transform="translate(500)">
 <path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z" />
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="3" data-row="0" transform="translate(750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="0" transform="translate(750)">
 <path class="banner-tile-shape" fill="#fff" d="M211-63v375h-75.2V-63zm-75.2 0L60.6 312H38l75.2-375z"  transform="rotate(20 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="4" data-row="0" transform="translate(1000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="0" transform="translate(1000)">
 <path class="banner-tile-shape" fill="#fff" d="m79.5-63 27.4 228.5 205.1-41V147l-202.4 40.5L124.5 312H117l-14.8-123L-63 222v-22.5L99.6 167 72-63z" />
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="5" data-row="0" transform="translate(1250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="0" transform="translate(1250)">
 <path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="rotate(-30 125.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="0" data-row="1" transform="translate(0 250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="1" transform="translate(0 250)">
 <path class="banner-tile-shape" fill="#fff" d="M145.5-63v375H93V-63zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(30 160.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="1" data-row="1" transform="translate(250 250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="1" transform="translate(250 250)">
 <path class="banner-tile-shape" fill="#fff" d="M-62 120.7h375V196H-62Zm0-37.6L313 53v7.5L-62 90.6z"  transform="rotate(-30 125.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="2" data-row="1" transform="translate(500 250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="1" transform="translate(500 250)">
 <path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(90 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="3" data-row="1" transform="translate(750 250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="1" transform="translate(750 250)">
 <path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z"  transform="rotate(40 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="4" data-row="1" transform="translate(1000 250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="1" transform="translate(1000 250)">
 <path class="banner-tile-shape" fill="#fff" d="M11.5-121 64.2-11.6V-121h75.2v265.6L192 254h-7.5l-45.1-93.8V254H64.2V4L4-121z"  transform="rotate(45 98 66.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="5" data-row="1" transform="translate(1250 250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="1" transform="translate(1250 250)">
 <path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(-60 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="6" data-row="0" transform="translate(1500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="0" transform="translate(1500)">
 <path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z" />
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="7" data-row="0" transform="translate(1750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="0" transform="translate(1750)">
 <path class="banner-tile-shape" fill="#fff" d="m-1.5-63 225 375H171L-54-63zM261-63v375h-37.5V-63z"  transform="rotate(-45 103.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="8" data-row="0" transform="translate(2000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="0" transform="translate(2000)">
 <path class="banner-tile-shape" fill="#fff" d="M46-62h75.2v375H46Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(30 138.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="9" data-row="0" transform="translate(2250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="0" transform="translate(2250)">
 <path class="banner-tile-shape" fill="#fff" d="M212-62v375h-75.2V-62zm-75.2 0L61.6 313H39l75.2-375z" />
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="10" data-row="0" transform="translate(2500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="0" transform="translate(2500)">
 <path class="banner-tile-shape" fill="#fff" d="m80.5-62 27.4 228.5 205.1-41V148l-202.4 40.5L125.5 313H118l-14.8-123L-62 223v-22.5L100.6 168 73-62z"  transform="rotate(45 125.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="11" data-row="0" transform="translate(2750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="0" transform="translate(2750)">
 <path class="banner-tile-shape" fill="#fff" d="M91.2-62v375H16V-62zm7.5 0L249 313h-7.5L91.2-62z"  transform="rotate(-30 132.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="6" data-row="1" transform="translate(1500 250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="1" transform="translate(1500 250)">
 <path class="banner-tile-shape" fill="#fff" d="M142.5-63v375H90V-63zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(20 157.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="7" data-row="1" transform="translate(1750 250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="1" transform="translate(1750 250)">
 <path class="banner-tile-shape" fill="#fff" d="M-63 89.7h375V165H-63Zm0-37.6L312 22v7.5L-63 59.6z"  transform="rotate(30 124.5 93.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="8" data-row="1" transform="translate(2000 250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="1" transform="translate(2000 250)">
 <path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(60 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="9" data-row="1" transform="translate(2250 250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="1" transform="translate(2250 250)">
 <path class="banner-tile-shape" fill="#fff" d="M151.8-62 227 313h-52.6L99.2-62zm-52.6 0v375H24V-62z"  transform="rotate(45 125.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="10" data-row="1" transform="translate(2500 250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="1" transform="translate(2500 250)">
 <path class="banner-tile-shape" fill="#fff" d="M13.5-30 66.2 79.4V-30h75.2v265.6L194 345h-7.5l-45.1-93.8V345H66.2V95L6-30z"  transform="rotate(-45 100 157.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="11" data-row="1" transform="translate(2750 250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="1" transform="translate(2750 250)">
 <path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(-60 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="0" data-row="2" transform="translate(0 500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="2" transform="translate(0 500)">
 <path class="banner-tile-shape" fill="#fff" d="M77.5-62v375H25V-62zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(60 100 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="1" data-row="2" transform="translate(250 500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="2" transform="translate(250 500)">
 <path class="banner-tile-shape" fill="#fff" d="m-21.5-20 225 375H151L-74-20zM241-20v375h-37.5V-20z"  transform="rotate(-60 83.5 167.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="2" data-row="2" transform="translate(500 500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="2" transform="translate(500 500)">
 <path class="banner-tile-shape" fill="#fff" d="M4-62h75.2v375H4Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="matrix(-1 0 0 -1 193 251)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="3" data-row="2" transform="translate(750 500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="2" transform="translate(750 500)">
 <path class="banner-tile-shape" fill="#fff" d="M206-62v375h-75.2V-62zm-75.2 0L55.6 313H33l75.2-375z"  transform="rotate(60 119.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="4" data-row="2" transform="translate(1000 500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="2" transform="translate(1000 500)">
 <path class="banner-tile-shape" fill="#fff" d="m80.5-62 27.4 228.5 205.1-41V148l-202.4 40.5L125.5 313H118l-14.8-123L-62 223v-22.5L100.6 168 73-62z"  transform="rotate(90 125.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="5" data-row="2" transform="translate(1250 500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="2" transform="translate(1250 500)">
 <path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(0 -1 1 0 0 251)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="0" data-row="3" transform="translate(0 750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="3" transform="translate(0 750)">
 <path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(90 124.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="1" data-row="3" transform="translate(250 750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="3" transform="translate(250 750)">
 <path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="matrix(0 -1 1 0 0 249)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="2" data-row="3" transform="translate(500 750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="3" transform="translate(500 750)">
 <path class="banner-tile-shape" fill="#fff" d="m173.5-63-28 175.5H313V135H141.8l-28.3 177H76l28.3-177H-62v-22.5h170L136-63z"  transform="matrix(0 -1 1 0 1 250)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="3" data-row="3" transform="translate(750 750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="3" transform="translate(750 750)">
 <path class="banner-tile-shape" fill="#fff" d="M151.8-62 227 313h-52.6L99.2-62zm-52.6 0v375H24V-62z"  transform="rotate(80 125.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="4" data-row="3" transform="translate(1000 750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="3" transform="translate(1000 750)">
 <path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="rotate(135 125 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="5" data-row="3" transform="translate(1250 750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="3" transform="translate(1250 750)">
 <path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(240 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="6" data-row="2" transform="translate(1500 500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="2" transform="translate(1500 500)">
 <path class="banner-tile-shape" fill="#fff" d="M131.5-51v375H79V-51zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(30 154 136.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="7" data-row="2" transform="translate(1750 500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="2" transform="translate(1750 500)">
 <path class="banner-tile-shape" fill="#fff" d="m-22.5-49 225 375H150L-75-49zM240-49v375h-37.5V-49z"  transform="rotate(-30 82.5 138.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="8" data-row="2" transform="translate(2000 500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="2" transform="translate(2000 500)">
 <path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(90 124.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="9" data-row="2" transform="translate(2250 500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="2" transform="translate(2250 500)">
 <path class="banner-tile-shape" fill="#fff" d="M212-62v375h-75.2V-62zm-75.2 0L61.6 313H39l75.2-375z"  transform="rotate(90 125.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="10" data-row="2" transform="translate(2500 500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="2" transform="translate(2500 500)">
 <path class="banner-tile-shape" fill="#fff" d="m80.5-62 27.4 228.5 205.1-41V148l-202.4 40.5L125.5 313H118l-14.8-123L-62 223v-22.5L100.6 168 73-62z"  transform="rotate(90 125.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="11" data-row="2" transform="translate(2750 500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="2" transform="translate(2750 500)">
 <path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(0 -1 1 0 0 251)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="6" data-row="3" transform="translate(1500 750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="3" transform="translate(1500 750)">
 <path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(40 124.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="7" data-row="3" transform="translate(1750 750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="3" transform="translate(1750 750)">
 <path class="banner-tile-shape" fill="#fff" d="M-62 121.7h375V197H-62Zm0-37.6L313 54v7.5L-62 91.6z"  transform="rotate(45 125.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="8" data-row="3" transform="translate(2000 750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="3" transform="translate(2000 750)">
 <path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="9" data-row="3" transform="translate(2250 750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="3" transform="translate(2250 750)">
 <path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="10" data-row="3" transform="translate(2500 750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="3" transform="translate(2500 750)">
 <path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="rotate(-90 125 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="11" data-row="3" transform="translate(2750 750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="3" transform="translate(2750 750)">
 <path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(225 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="0" data-row="4" transform="translate(0 1000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="4" transform="translate(0 1000)">
 <path class="banner-tile-shape" fill="#fff" d="M76.5-34v375H24V-34zM99-34l75 375h-22.5l-75-375z"  transform="rotate(120 99 153.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="0" data-row="6" transform="translate(0 1500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="6" transform="translate(0 1500)">
 <path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z"  transform="matrix(-1 0 0 -1 250 249)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="1" data-row="4" transform="translate(250 1000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="4" transform="translate(250 1000)">
 <path class="banner-tile-shape" fill="#fff" d="m70.5-37 225 375H243L18-37zM333-37v375h-37.5V-37z"  transform="rotate(240 175.5 150.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="1" data-row="6" transform="translate(250 1500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="6" transform="translate(250 1500)">
 <path class="banner-tile-shape" fill="#fff" d="m69.5-62 225 375H242L17-62zM332-62v375h-37.5V-62z"  transform="matrix(-1 0 0 -1 349 251)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="2" data-row="4" transform="translate(500 1000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="4" transform="translate(500 1000)">
 <path class="banner-tile-shape" fill="#fff" d="M61-62h75.2v375H61Zm177.5 0h7.5l-75.2 375h-7.5z" />
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="2" data-row="6" transform="translate(500 1500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="6" transform="translate(500 1500)">
 <path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(90 124.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="3" data-row="4" transform="translate(750 1000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="4" transform="translate(750 1000)">
 <path class="banner-tile-shape" fill="#fff" d="M194-70v375h-75.2V-70zm-75.2 0L43.6 305H21L96.2-70z"  transform="rotate(100 107.5 117.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="3" data-row="6" transform="translate(750 1500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="6" transform="translate(750 1500)">
 <path class="banner-tile-shape" fill="#fff" d="M211-63v375h-75.2V-63zm-75.2 0L60.6 312H38l75.2-375z"  transform="rotate(140 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="4" data-row="4" transform="translate(1000 1000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="4" transform="translate(1000 1000)">
 <path class="banner-tile-shape" fill="#fff" d="m80.5-63 27.4 228.5 205.1-41V147l-202.4 40.5L125.5 312H118l-14.8-123L-62 222v-22.5L100.6 167 73-63z"  transform="matrix(-1 0 0 -1 251 249)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="4" data-row="6" transform="translate(1000 1500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="6" transform="translate(1000 1500)">
 <path class="banner-tile-shape" fill="#fff" d="m17.5-62 27.4 228.5 205.1-41V148L47.6 188.5 62.5 313H55L40.2 190-125 223v-22.5L37.6 168 10-62z"  transform="rotate(-90 62.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="5" data-row="4" transform="translate(1250 1000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="4" transform="translate(1250 1000)">
 <path class="banner-tile-shape" fill="#fff" d="M76.2-62v375H1V-62zm7.5 0L234 313h-7.5L76.2-62z"  transform="rotate(210 117.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="5" data-row="6" transform="translate(1250 1500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="6" transform="translate(1250 1500)">
 <path class="banner-tile-shape" fill="#fff" d="M14.2-33v375H-61V-33zm7.5 0L172 342h-7.5L14.2-33z"  transform="rotate(150 55.5 154.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="0" data-row="5" transform="translate(0 1250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="5" transform="translate(0 1250)">
 <path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(150 124.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="0" data-row="7" transform="translate(0 1750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="7" transform="translate(0 1750)">
 <path class="banner-tile-shape" fill="#fff" d="M74.5-62v375H22V-62zm82.5 0L82 313h-7.5l75-375z"  transform="rotate(210 89.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="1" data-row="5" transform="translate(250 1250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="5" transform="translate(250 1250)">
 <path class="banner-tile-shape" fill="#fff" d="M-62 120.7h375V196H-62Zm0-37.6L313 53v7.5L-62 90.6z"  transform="rotate(210 125.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="1" data-row="7" transform="translate(250 1750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="7" transform="translate(250 1750)">
 <path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(150 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="2" data-row="5" transform="translate(500 1250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="5" transform="translate(500 1250)">
 <path class="banner-tile-shape" fill="#fff" d="m194.5-62-28 175.5H334V136H162.8l-28.3 177H97l28.3-177H-41v-22.5h170L157-62z" />
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="2" data-row="7" transform="translate(500 1750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="7" transform="translate(500 1750)">
 <path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(120 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="3" data-row="5" transform="translate(750 1250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="5" transform="translate(750 1250)">
 <path class="banner-tile-shape" fill="#fff" d="M151.8-57 227 318h-52.6L99.2-57zm-52.6 0v375H24V-57z"  transform="rotate(120 125.5 130.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="3" data-row="7" transform="translate(750 1750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="7" transform="translate(750 1750)">
 <path class="banner-tile-shape" fill="#fff" d="M151.8-63 227 312h-52.6L99.2-63zm-52.6 0v375H24V-63z"  transform="rotate(160 125.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="4" data-row="5" transform="translate(1000 1250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="5" transform="translate(1000 1250)">
 <path class="banner-tile-shape" fill="#fff" d="M36.5-62 89.2 47.4V-62h75.2v265.6L217 313h-7.5l-45.1-93.8V313H89.2V63L29-62z"  transform="rotate(225 123 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="4" data-row="7" transform="translate(1000 1750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="7" transform="translate(1000 1750)">
 <path class="banner-tile-shape" fill="#fff" d="M-20.5-34 32.2 75.4V-34h75.2v265.6L160 341h-7.5l-45.1-93.8V341H32.2V91L-28-34z"  transform="rotate(-45 66 153.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="5" data-row="5" transform="translate(1250 1250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="5" transform="translate(1250 1250)">
 <path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="5" data-row="7" transform="translate(1250 1750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="7" transform="translate(1250 1750)">
 <path class="banner-tile-shape" fill="#fff" d="m166-63-35.1 175.5H313V135H126.4L91 312h-7.5l35.4-177H-62v-22.5h185.4L158.5-63z"  transform="rotate(120 125.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="6" data-row="4" transform="translate(1500 1000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="4" transform="translate(1500 1000)">
 <path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(50 125 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="6" data-row="6" transform="translate(1500 1500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="6" transform="translate(1500 1500)">
 <path class="banner-tile-shape" fill="#fff" d="M76.5-146v375H24v-375zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(70 99 41.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="7" data-row="4" transform="translate(1750 1000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="4" transform="translate(1750 1000)">
 <path class="banner-tile-shape" fill="#fff" d="m-1.5-63 225 375H171L-54-63zM261-63v375h-37.5V-63z"  transform="rotate(-45 103.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="7" data-row="6" transform="translate(1750 1500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="6" transform="translate(1750 1500)">
 <path class="banner-tile-shape" fill="#fff" d="m-2.5-30 225 375H170L-55-30zM260-30v375h-37.5V-30z"  transform="rotate(-90 102.5 157.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="8" data-row="4" transform="translate(2000 1000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="4" transform="translate(2000 1000)">
 <path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(210 124.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="8" data-row="6" transform="translate(2000 1500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="6" transform="translate(2000 1500)">
 <path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(-90 124.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="9" data-row="4" transform="translate(2250 1000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="4" transform="translate(2250 1000)">
 <path class="banner-tile-shape" fill="#fff" d="M212-62v375h-75.2V-62zm-75.2 0L61.6 313H39l75.2-375z"  transform="matrix(0 -1 1 0 0 251)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="9" data-row="6" transform="translate(2250 1500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="6" transform="translate(2250 1500)">
 <path class="banner-tile-shape" fill="#fff" d="M191-57v375h-75.2V-57zm-75.2 0L40.6 318H18L93.2-57z"  transform="rotate(90 104.5 130.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="10" data-row="4" transform="translate(2500 1000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="4" transform="translate(2500 1000)">
 <path class="banner-tile-shape" fill="#fff" d="m80.5-63 27.4 228.5 205.1-41V147l-202.4 40.5L125.5 312H118l-14.8-123L-62 222v-22.5L100.6 167 73-63z"  transform="matrix(-1 0 0 -1 251 249)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="10" data-row="6" transform="translate(2500 1500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="6" transform="translate(2500 1500)">
 <path class="banner-tile-shape" fill="#fff" d="m28.5-62 27.4 228.5 205.1-41V148L58.6 188.5 73.5 313H66L51.2 190-114 223v-22.5L48.6 168 21-62z"  transform="rotate(-90 73.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="11" data-row="4" transform="translate(2750 1000)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="4" transform="translate(2750 1000)">
 <path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(-1 0 0 -1 251 251)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="11" data-row="6" transform="translate(2750 1500)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="6" transform="translate(2750 1500)">
 <path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z" />
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="6" data-row="5" transform="translate(1500 1250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="5" transform="translate(1500 1250)">
 <path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(60 124.5 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="6" data-row="7" transform="translate(1500 1750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="7" transform="translate(1500 1750)">
 <path class="banner-tile-shape" fill="#fff" d="M109.5-29v375H57V-29zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(80 124.5 158.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="7" data-row="5" transform="translate(1750 1250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="5" transform="translate(1750 1250)">
 <path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(90 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="7" data-row="7" transform="translate(1750 1750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="7" transform="translate(1750 1750)">
 <path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(135 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="8" data-row="5" transform="translate(2000 1250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="5" transform="translate(2000 1250)">
 <path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(240 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="8" data-row="7" transform="translate(2000 1750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="7" transform="translate(2000 1750)">
 <path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(-60 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="9" data-row="5" transform="translate(2250 1250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="5" transform="translate(2250 1250)">
 <path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z" />
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="9" data-row="7" transform="translate(2250 1750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="7" transform="translate(2250 1750)">
 <path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="10" data-row="5" transform="translate(2500 1250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="5" transform="translate(2500 1250)">
 <path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="matrix(-1 0 0 -1 250 251)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="10" data-row="7" transform="translate(2500 1750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="7" transform="translate(2500 1750)">
 <path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="rotate(90 125 125.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="11" data-row="5" transform="translate(2750 1250)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="5" transform="translate(2750 1250)">
 <path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(90 124.5 124.5)"/>
 </g>
 
-<g class="banner-tile" clip-path="url(#banner-tile-clip)" data-col="11" data-row="7" transform="translate(2750 1750)">
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="7" transform="translate(2750 1750)">
 <path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z" />
+</g>
+
+<g class="banner-tile" transform="translate(3000)" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="0">
+<path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(15 125 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="0" transform="translate(3250)">
+<path class="banner-tile-shape" fill="#fff" d="m-12.5-62 225 375H160L-65-62zM250-62v375h-37.5V-62z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="0" transform="translate(3500)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="0" transform="translate(3750)">
+<path class="banner-tile-shape" fill="#fff" d="M211-63v375h-75.2V-63zm-75.2 0L60.6 312H38l75.2-375z"  transform="rotate(20 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="0" transform="translate(4000)">
+<path class="banner-tile-shape" fill="#fff" d="m79.5-63 27.4 228.5 205.1-41V147l-202.4 40.5L124.5 312H117l-14.8-123L-63 222v-22.5L99.6 167 72-63z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="0" transform="translate(4250)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="rotate(-30 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="1" transform="translate(3000 250)">
+<path class="banner-tile-shape" fill="#fff" d="M145.5-63v375H93V-63zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(30 160.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="1" transform="translate(3250 250)">
+<path class="banner-tile-shape" fill="#fff" d="M-62 120.7h375V196H-62Zm0-37.6L313 53v7.5L-62 90.6z"  transform="rotate(-30 125.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="1" transform="translate(3500 250)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(90 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="1" transform="translate(3750 250)">
+<path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z"  transform="rotate(40 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="1" transform="translate(4000 250)">
+<path class="banner-tile-shape" fill="#fff" d="M11.5-121 64.2-11.6V-121h75.2v265.6L192 254h-7.5l-45.1-93.8V254H64.2V4L4-121z"  transform="rotate(45 98 66.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="1" transform="translate(4250 250)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(-60 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="0" transform="translate(4500)">
+<path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="0" transform="translate(4750)">
+<path class="banner-tile-shape" fill="#fff" d="m-1.5-63 225 375H171L-54-63zM261-63v375h-37.5V-63z"  transform="rotate(-45 103.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="0" transform="translate(5000)">
+<path class="banner-tile-shape" fill="#fff" d="M46-62h75.2v375H46Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(30 138.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="0" transform="translate(5250)">
+<path class="banner-tile-shape" fill="#fff" d="M212-62v375h-75.2V-62zm-75.2 0L61.6 313H39l75.2-375z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="0" transform="translate(5500)">
+<path class="banner-tile-shape" fill="#fff" d="m80.5-62 27.4 228.5 205.1-41V148l-202.4 40.5L125.5 313H118l-14.8-123L-62 223v-22.5L100.6 168 73-62z"  transform="rotate(45 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="0" transform="translate(5750)">
+<path class="banner-tile-shape" fill="#fff" d="M91.2-62v375H16V-62zm7.5 0L249 313h-7.5L91.2-62z"  transform="rotate(-30 132.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="1" transform="translate(4500 250)">
+<path class="banner-tile-shape" fill="#fff" d="M142.5-63v375H90V-63zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(20 157.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="1" transform="translate(4750 250)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 89.7h375V165H-63Zm0-37.6L312 22v7.5L-63 59.6z"  transform="rotate(30 124.5 93.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="1" transform="translate(5000 250)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(60 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="1" transform="translate(5250 250)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-62 227 313h-52.6L99.2-62zm-52.6 0v375H24V-62z"  transform="rotate(45 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="1" transform="translate(5500 250)">
+<path class="banner-tile-shape" fill="#fff" d="M13.5-30 66.2 79.4V-30h75.2v265.6L194 345h-7.5l-45.1-93.8V345H66.2V95L6-30z"  transform="rotate(-45 100 157.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="1" transform="translate(5750 250)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(-60 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="2" transform="translate(3000 500)">
+<path class="banner-tile-shape" fill="#fff" d="M77.5-62v375H25V-62zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(60 100 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="2" transform="translate(3250 500)">
+<path class="banner-tile-shape" fill="#fff" d="m-21.5-20 225 375H151L-74-20zM241-20v375h-37.5V-20z"  transform="rotate(-60 83.5 167.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="2" transform="translate(3500 500)">
+<path class="banner-tile-shape" fill="#fff" d="M4-62h75.2v375H4Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="matrix(-1 0 0 -1 193 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="2" transform="translate(3750 500)">
+<path class="banner-tile-shape" fill="#fff" d="M206-62v375h-75.2V-62zm-75.2 0L55.6 313H33l75.2-375z"  transform="rotate(60 119.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="2" transform="translate(4000 500)">
+<path class="banner-tile-shape" fill="#fff" d="m80.5-62 27.4 228.5 205.1-41V148l-202.4 40.5L125.5 313H118l-14.8-123L-62 223v-22.5L100.6 168 73-62z"  transform="rotate(90 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="2" transform="translate(4250 500)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(0 -1 1 0 0 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="3" transform="translate(3000 750)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="3" transform="translate(3250 750)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="matrix(0 -1 1 0 0 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="3" transform="translate(3500 750)">
+<path class="banner-tile-shape" fill="#fff" d="m173.5-63-28 175.5H313V135H141.8l-28.3 177H76l28.3-177H-62v-22.5h170L136-63z"  transform="matrix(0 -1 1 0 1 250)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="3" transform="translate(3750 750)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-62 227 313h-52.6L99.2-62zm-52.6 0v375H24V-62z"  transform="rotate(80 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="3" transform="translate(4000 750)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="rotate(135 125 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="3" transform="translate(4250 750)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(240 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="2" transform="translate(4500 500)">
+<path class="banner-tile-shape" fill="#fff" d="M131.5-51v375H79V-51zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(30 154 136.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="2" transform="translate(4750 500)">
+<path class="banner-tile-shape" fill="#fff" d="m-22.5-49 225 375H150L-75-49zM240-49v375h-37.5V-49z"  transform="rotate(-30 82.5 138.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="2" transform="translate(5000 500)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="2" transform="translate(5250 500)">
+<path class="banner-tile-shape" fill="#fff" d="M212-62v375h-75.2V-62zm-75.2 0L61.6 313H39l75.2-375z"  transform="rotate(90 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="2" transform="translate(5500 500)">
+<path class="banner-tile-shape" fill="#fff" d="m80.5-62 27.4 228.5 205.1-41V148l-202.4 40.5L125.5 313H118l-14.8-123L-62 223v-22.5L100.6 168 73-62z"  transform="rotate(90 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="2" transform="translate(5750 500)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(0 -1 1 0 0 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="3" transform="translate(4500 750)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(40 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="3" transform="translate(4750 750)">
+<path class="banner-tile-shape" fill="#fff" d="M-62 121.7h375V197H-62Zm0-37.6L313 54v7.5L-62 91.6z"  transform="rotate(45 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="3" transform="translate(5000 750)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="3" transform="translate(5250 750)">
+<path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="3" transform="translate(5500 750)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="rotate(-90 125 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="3" transform="translate(5750 750)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(225 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="4" transform="translate(3000 1000)">
+<path class="banner-tile-shape" fill="#fff" d="M76.5-34v375H24V-34zM99-34l75 375h-22.5l-75-375z"  transform="rotate(120 99 153.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="6" transform="translate(3000 1500)">
+<path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z"  transform="matrix(-1 0 0 -1 250 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="4" transform="translate(3250 1000)">
+<path class="banner-tile-shape" fill="#fff" d="m70.5-37 225 375H243L18-37zM333-37v375h-37.5V-37z"  transform="rotate(240 175.5 150.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="6" transform="translate(3250 1500)">
+<path class="banner-tile-shape" fill="#fff" d="m69.5-62 225 375H242L17-62zM332-62v375h-37.5V-62z"  transform="matrix(-1 0 0 -1 349 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="4" transform="translate(3500 1000)">
+<path class="banner-tile-shape" fill="#fff" d="M61-62h75.2v375H61Zm177.5 0h7.5l-75.2 375h-7.5z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="6" transform="translate(3500 1500)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="4" transform="translate(3750 1000)">
+<path class="banner-tile-shape" fill="#fff" d="M194-70v375h-75.2V-70zm-75.2 0L43.6 305H21L96.2-70z"  transform="rotate(100 107.5 117.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="6" transform="translate(3750 1500)">
+<path class="banner-tile-shape" fill="#fff" d="M211-63v375h-75.2V-63zm-75.2 0L60.6 312H38l75.2-375z"  transform="rotate(140 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="4" transform="translate(4000 1000)">
+<path class="banner-tile-shape" fill="#fff" d="m80.5-63 27.4 228.5 205.1-41V147l-202.4 40.5L125.5 312H118l-14.8-123L-62 222v-22.5L100.6 167 73-63z"  transform="matrix(-1 0 0 -1 251 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="6" transform="translate(4000 1500)">
+<path class="banner-tile-shape" fill="#fff" d="m17.5-62 27.4 228.5 205.1-41V148L47.6 188.5 62.5 313H55L40.2 190-125 223v-22.5L37.6 168 10-62z"  transform="rotate(-90 62.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="4" transform="translate(4250 1000)">
+<path class="banner-tile-shape" fill="#fff" d="M76.2-62v375H1V-62zm7.5 0L234 313h-7.5L76.2-62z"  transform="rotate(210 117.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="6" transform="translate(4250 1500)">
+<path class="banner-tile-shape" fill="#fff" d="M14.2-33v375H-61V-33zm7.5 0L172 342h-7.5L14.2-33z"  transform="rotate(150 55.5 154.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="5" transform="translate(3000 1250)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(150 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="7" transform="translate(3000 1750)">
+<path class="banner-tile-shape" fill="#fff" d="M74.5-62v375H22V-62zm82.5 0L82 313h-7.5l75-375z"  transform="rotate(210 89.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="5" transform="translate(3250 1250)">
+<path class="banner-tile-shape" fill="#fff" d="M-62 120.7h375V196H-62Zm0-37.6L313 53v7.5L-62 90.6z"  transform="rotate(210 125.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="7" transform="translate(3250 1750)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(150 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="5" transform="translate(3500 1250)">
+<path class="banner-tile-shape" fill="#fff" d="m194.5-62-28 175.5H334V136H162.8l-28.3 177H97l28.3-177H-41v-22.5h170L157-62z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="7" transform="translate(3500 1750)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(120 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="5" transform="translate(3750 1250)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-57 227 318h-52.6L99.2-57zm-52.6 0v375H24V-57z"  transform="rotate(120 125.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="7" transform="translate(3750 1750)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-63 227 312h-52.6L99.2-63zm-52.6 0v375H24V-63z"  transform="rotate(160 125.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="5" transform="translate(4000 1250)">
+<path class="banner-tile-shape" fill="#fff" d="M36.5-62 89.2 47.4V-62h75.2v265.6L217 313h-7.5l-45.1-93.8V313H89.2V63L29-62z"  transform="rotate(225 123 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="7" transform="translate(4000 1750)">
+<path class="banner-tile-shape" fill="#fff" d="M-20.5-34 32.2 75.4V-34h75.2v265.6L160 341h-7.5l-45.1-93.8V341H32.2V91L-28-34z"  transform="rotate(-45 66 153.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="5" transform="translate(4250 1250)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="7" transform="translate(4250 1750)">
+<path class="banner-tile-shape" fill="#fff" d="m166-63-35.1 175.5H313V135H126.4L91 312h-7.5l35.4-177H-62v-22.5h185.4L158.5-63z"  transform="rotate(120 125.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="4" transform="translate(4500 1000)">
+<path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(50 125 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="6" transform="translate(4500 1500)">
+<path class="banner-tile-shape" fill="#fff" d="M76.5-146v375H24v-375zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(70 99 41.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="4" transform="translate(4750 1000)">
+<path class="banner-tile-shape" fill="#fff" d="m-1.5-63 225 375H171L-54-63zM261-63v375h-37.5V-63z"  transform="rotate(-45 103.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="6" transform="translate(4750 1500)">
+<path class="banner-tile-shape" fill="#fff" d="m-2.5-30 225 375H170L-55-30zM260-30v375h-37.5V-30z"  transform="rotate(-90 102.5 157.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="4" transform="translate(5000 1000)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(210 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="6" transform="translate(5000 1500)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(-90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="4" transform="translate(5250 1000)">
+<path class="banner-tile-shape" fill="#fff" d="M212-62v375h-75.2V-62zm-75.2 0L61.6 313H39l75.2-375z"  transform="matrix(0 -1 1 0 0 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="6" transform="translate(5250 1500)">
+<path class="banner-tile-shape" fill="#fff" d="M191-57v375h-75.2V-57zm-75.2 0L40.6 318H18L93.2-57z"  transform="rotate(90 104.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="4" transform="translate(5500 1000)">
+<path class="banner-tile-shape" fill="#fff" d="m80.5-63 27.4 228.5 205.1-41V147l-202.4 40.5L125.5 312H118l-14.8-123L-62 222v-22.5L100.6 167 73-63z"  transform="matrix(-1 0 0 -1 251 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="6" transform="translate(5500 1500)">
+<path class="banner-tile-shape" fill="#fff" d="m28.5-62 27.4 228.5 205.1-41V148L58.6 188.5 73.5 313H66L51.2 190-114 223v-22.5L48.6 168 21-62z"  transform="rotate(-90 73.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="4" transform="translate(5750 1000)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(-1 0 0 -1 251 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="6" transform="translate(5750 1500)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="5" transform="translate(4500 1250)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(60 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="7" transform="translate(4500 1750)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-29v375H57V-29zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(80 124.5 158.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="5" transform="translate(4750 1250)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(90 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="7" transform="translate(4750 1750)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(135 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="5" transform="translate(5000 1250)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(240 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="7" transform="translate(5000 1750)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(-60 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="5" transform="translate(5250 1250)">
+<path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="7" transform="translate(5250 1750)">
+<path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="5" transform="translate(5500 1250)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="matrix(-1 0 0 -1 250 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="7" transform="translate(5500 1750)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="rotate(90 125 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="5" transform="translate(5750 1250)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(90 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="7" transform="translate(5750 1750)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="8" transform="translate(0 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M76.5-34v375H24V-34zM99-34l75 375h-22.5l-75-375z"  transform="rotate(120 99 153.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="10" transform="translate(0 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z"  transform="matrix(-1 0 0 -1 250 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="8" transform="translate(250 2000)">
+<path class="banner-tile-shape" fill="#fff" d="m70.5-37 225 375H243L18-37zM333-37v375h-37.5V-37z"  transform="rotate(240 175.5 150.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="10" transform="translate(250 2500)">
+<path class="banner-tile-shape" fill="#fff" d="m69.5-62 225 375H242L17-62zM332-62v375h-37.5V-62z"  transform="matrix(-1 0 0 -1 349 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="8" transform="translate(500 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M61-62h75.2v375H61Zm177.5 0h7.5l-75.2 375h-7.5z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="10" transform="translate(500 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="8" transform="translate(750 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M194-70v375h-75.2V-70zm-75.2 0L43.6 305H21L96.2-70z"  transform="rotate(100 107.5 117.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="10" transform="translate(750 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M211-63v375h-75.2V-63zm-75.2 0L60.6 312H38l75.2-375z"  transform="rotate(140 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="8" transform="translate(1000 2000)">
+<path class="banner-tile-shape" fill="#fff" d="m80.5-63 27.4 228.5 205.1-41V147l-202.4 40.5L125.5 312H118l-14.8-123L-62 222v-22.5L100.6 167 73-63z"  transform="matrix(-1 0 0 -1 251 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="10" transform="translate(1000 2500)">
+<path class="banner-tile-shape" fill="#fff" d="m17.5-62 27.4 228.5 205.1-41V148L47.6 188.5 62.5 313H55L40.2 190-125 223v-22.5L37.6 168 10-62z"  transform="rotate(-90 62.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="8" transform="translate(1250 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M76.2-62v375H1V-62zm7.5 0L234 313h-7.5L76.2-62z"  transform="rotate(210 117.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="10" transform="translate(1250 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M14.2-33v375H-61V-33zm7.5 0L172 342h-7.5L14.2-33z"  transform="rotate(150 55.5 154.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="9" transform="translate(0 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(150 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="11" transform="translate(0 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M74.5-62v375H22V-62zm82.5 0L82 313h-7.5l75-375z"  transform="rotate(210 89.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="9" transform="translate(250 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M-62 120.7h375V196H-62Zm0-37.6L313 53v7.5L-62 90.6z"  transform="rotate(210 125.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="11" transform="translate(250 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(150 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="9" transform="translate(500 2250)">
+<path class="banner-tile-shape" fill="#fff" d="m194.5-62-28 175.5H334V136H162.8l-28.3 177H97l28.3-177H-41v-22.5h170L157-62z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="11" transform="translate(500 2750)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(120 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="9" transform="translate(750 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-57 227 318h-52.6L99.2-57zm-52.6 0v375H24V-57z"  transform="rotate(120 125.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="11" transform="translate(750 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-63 227 312h-52.6L99.2-63zm-52.6 0v375H24V-63z"  transform="rotate(160 125.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="9" transform="translate(1000 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M36.5-62 89.2 47.4V-62h75.2v265.6L217 313h-7.5l-45.1-93.8V313H89.2V63L29-62z"  transform="rotate(225 123 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="11" transform="translate(1000 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M-20.5-34 32.2 75.4V-34h75.2v265.6L160 341h-7.5l-45.1-93.8V341H32.2V91L-28-34z"  transform="rotate(-45 66 153.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="9" transform="translate(1250 2250)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="11" transform="translate(1250 2750)">
+<path class="banner-tile-shape" fill="#fff" d="m166-63-35.1 175.5H313V135H126.4L91 312h-7.5l35.4-177H-62v-22.5h185.4L158.5-63z"  transform="rotate(120 125.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="8" transform="translate(1500 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(50 125 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="10" transform="translate(1500 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M76.5-146v375H24v-375zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(70 99 41.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="8" transform="translate(1750 2000)">
+<path class="banner-tile-shape" fill="#fff" d="m-1.5-63 225 375H171L-54-63zM261-63v375h-37.5V-63z"  transform="rotate(-45 103.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="10" transform="translate(1750 2500)">
+<path class="banner-tile-shape" fill="#fff" d="m-2.5-30 225 375H170L-55-30zM260-30v375h-37.5V-30z"  transform="rotate(-90 102.5 157.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="8" transform="translate(2000 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(210 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="10" transform="translate(2000 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(-90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="8" transform="translate(2250 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M212-62v375h-75.2V-62zm-75.2 0L61.6 313H39l75.2-375z"  transform="matrix(0 -1 1 0 0 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="10" transform="translate(2250 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M191-57v375h-75.2V-57zm-75.2 0L40.6 318H18L93.2-57z"  transform="rotate(90 104.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="8" transform="translate(2500 2000)">
+<path class="banner-tile-shape" fill="#fff" d="m80.5-63 27.4 228.5 205.1-41V147l-202.4 40.5L125.5 312H118l-14.8-123L-62 222v-22.5L100.6 167 73-63z"  transform="matrix(-1 0 0 -1 251 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="10" transform="translate(2500 2500)">
+<path class="banner-tile-shape" fill="#fff" d="m28.5-62 27.4 228.5 205.1-41V148L58.6 188.5 73.5 313H66L51.2 190-114 223v-22.5L48.6 168 21-62z"  transform="rotate(-90 73.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="8" transform="translate(2750 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(-1 0 0 -1 251 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="10" transform="translate(2750 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="9" transform="translate(1500 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(60 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="11" transform="translate(1500 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-29v375H57V-29zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(80 124.5 158.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="9" transform="translate(1750 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(90 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="11" transform="translate(1750 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(135 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="9" transform="translate(2000 2250)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(240 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="11" transform="translate(2000 2750)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(-60 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="9" transform="translate(2250 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="11" transform="translate(2250 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="9" transform="translate(2500 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="matrix(-1 0 0 -1 250 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="11" transform="translate(2500 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="rotate(90 125 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="9" transform="translate(2750 2250)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(90 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="11" transform="translate(2750 2750)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="8" transform="translate(3000 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M76.5-34v375H24V-34zM99-34l75 375h-22.5l-75-375z"  transform="rotate(120 99 153.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="10" transform="translate(3000 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z"  transform="matrix(-1 0 0 -1 250 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="8" transform="translate(3250 2000)">
+<path class="banner-tile-shape" fill="#fff" d="m70.5-37 225 375H243L18-37zM333-37v375h-37.5V-37z"  transform="rotate(240 175.5 150.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="10" transform="translate(3250 2500)">
+<path class="banner-tile-shape" fill="#fff" d="m69.5-62 225 375H242L17-62zM332-62v375h-37.5V-62z"  transform="matrix(-1 0 0 -1 349 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="8" transform="translate(3500 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M61-62h75.2v375H61Zm177.5 0h7.5l-75.2 375h-7.5z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="10" transform="translate(3500 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="8" transform="translate(3750 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M194-70v375h-75.2V-70zm-75.2 0L43.6 305H21L96.2-70z"  transform="rotate(100 107.5 117.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="10" transform="translate(3750 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M211-63v375h-75.2V-63zm-75.2 0L60.6 312H38l75.2-375z"  transform="rotate(140 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="8" transform="translate(4000 2000)">
+<path class="banner-tile-shape" fill="#fff" d="m80.5-63 27.4 228.5 205.1-41V147l-202.4 40.5L125.5 312H118l-14.8-123L-62 222v-22.5L100.6 167 73-63z"  transform="matrix(-1 0 0 -1 251 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="10" transform="translate(4000 2500)">
+<path class="banner-tile-shape" fill="#fff" d="m17.5-62 27.4 228.5 205.1-41V148L47.6 188.5 62.5 313H55L40.2 190-125 223v-22.5L37.6 168 10-62z"  transform="rotate(-90 62.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="8" transform="translate(4250 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M76.2-62v375H1V-62zm7.5 0L234 313h-7.5L76.2-62z"  transform="rotate(210 117.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="10" transform="translate(4250 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M14.2-33v375H-61V-33zm7.5 0L172 342h-7.5L14.2-33z"  transform="rotate(150 55.5 154.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="9" transform="translate(3000 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(150 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="11" transform="translate(3000 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M74.5-62v375H22V-62zm82.5 0L82 313h-7.5l75-375z"  transform="rotate(210 89.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="9" transform="translate(3250 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M-62 120.7h375V196H-62Zm0-37.6L313 53v7.5L-62 90.6z"  transform="rotate(210 125.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="11" transform="translate(3250 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(150 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="9" transform="translate(3500 2250)">
+<path class="banner-tile-shape" fill="#fff" d="m194.5-62-28 175.5H334V136H162.8l-28.3 177H97l28.3-177H-41v-22.5h170L157-62z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="11" transform="translate(3500 2750)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(120 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="9" transform="translate(3750 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-57 227 318h-52.6L99.2-57zm-52.6 0v375H24V-57z"  transform="rotate(120 125.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="11" transform="translate(3750 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-63 227 312h-52.6L99.2-63zm-52.6 0v375H24V-63z"  transform="rotate(160 125.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="9" transform="translate(4000 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M36.5-62 89.2 47.4V-62h75.2v265.6L217 313h-7.5l-45.1-93.8V313H89.2V63L29-62z"  transform="rotate(225 123 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="11" transform="translate(4000 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M-20.5-34 32.2 75.4V-34h75.2v265.6L160 341h-7.5l-45.1-93.8V341H32.2V91L-28-34z"  transform="rotate(-45 66 153.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="9" transform="translate(4250 2250)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="11" transform="translate(4250 2750)">
+<path class="banner-tile-shape" fill="#fff" d="m166-63-35.1 175.5H313V135H126.4L91 312h-7.5l35.4-177H-62v-22.5h185.4L158.5-63z"  transform="rotate(120 125.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="8" transform="translate(4500 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(50 125 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="10" transform="translate(4500 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M76.5-146v375H24v-375zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(70 99 41.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="8" transform="translate(4750 2000)">
+<path class="banner-tile-shape" fill="#fff" d="m-1.5-63 225 375H171L-54-63zM261-63v375h-37.5V-63z"  transform="rotate(-45 103.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="10" transform="translate(4750 2500)">
+<path class="banner-tile-shape" fill="#fff" d="m-2.5-30 225 375H170L-55-30zM260-30v375h-37.5V-30z"  transform="rotate(-90 102.5 157.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="8" transform="translate(5000 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(210 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="10" transform="translate(5000 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(-90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="8" transform="translate(5250 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M212-62v375h-75.2V-62zm-75.2 0L61.6 313H39l75.2-375z"  transform="matrix(0 -1 1 0 0 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="10" transform="translate(5250 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M191-57v375h-75.2V-57zm-75.2 0L40.6 318H18L93.2-57z"  transform="rotate(90 104.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="8" transform="translate(5500 2000)">
+<path class="banner-tile-shape" fill="#fff" d="m80.5-63 27.4 228.5 205.1-41V147l-202.4 40.5L125.5 312H118l-14.8-123L-62 222v-22.5L100.6 167 73-63z"  transform="matrix(-1 0 0 -1 251 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="10" transform="translate(5500 2500)">
+<path class="banner-tile-shape" fill="#fff" d="m28.5-62 27.4 228.5 205.1-41V148L58.6 188.5 73.5 313H66L51.2 190-114 223v-22.5L48.6 168 21-62z"  transform="rotate(-90 73.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="8" transform="translate(5750 2000)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(-1 0 0 -1 251 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="10" transform="translate(5750 2500)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="9" transform="translate(4500 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(60 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="11" transform="translate(4500 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-29v375H57V-29zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(80 124.5 158.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="9" transform="translate(4750 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(90 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="11" transform="translate(4750 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(135 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="9" transform="translate(5000 2250)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(240 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="11" transform="translate(5000 2750)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(-60 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="9" transform="translate(5250 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="11" transform="translate(5250 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="9" transform="translate(5500 2250)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="matrix(-1 0 0 -1 250 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="11" transform="translate(5500 2750)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="rotate(90 125 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="9" transform="translate(5750 2250)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(90 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="11" transform="translate(5750 2750)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="12" transform="translate(0 3000)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(60 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="12" transform="translate(250 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(60 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="12" transform="translate(500 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="matrix(-1 0 0 -1 250 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="12" transform="translate(750 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-57 227 318h-52.6L99.2-57zm-52.6 0v375H24V-57z"  transform="rotate(120 125.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="12" transform="translate(1000 3000)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(60 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="12" transform="translate(1250 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(0 -1 1 0 0 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="12" transform="translate(1500 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-57 227 318h-52.6L99.2-57zm-52.6 0v375H24V-57z"  transform="rotate(120 125.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="12" transform="translate(1750 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M11.5-121 64.2-11.6V-121h75.2v265.6L192 254h-7.5l-45.1-93.8V254H64.2V4L4-121z"  transform="rotate(45 98 66.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="12" transform="translate(2000 3000)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(90 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="12" transform="translate(2250 3000)">
+<path class="banner-tile-shape" fill="#fff" d="m70.5-37 225 375H243L18-37zM333-37v375h-37.5V-37z"  transform="rotate(240 175.5 150.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="12" transform="translate(2500 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(150 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="12" transform="translate(2750 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(150 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="12" transform="translate(3000 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M191-57v375h-75.2V-57zm-75.2 0L40.6 318H18L93.2-57z"  transform="rotate(90 104.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="12" transform="translate(3250 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="rotate(90 125 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="12" transform="translate(3500 3000)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(60 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="12" transform="translate(3750 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-63 227 312h-52.6L99.2-63zm-52.6 0v375H24V-63z"  transform="rotate(160 125.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="12" transform="translate(4000 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M77.5-62v375H25V-62zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(60 100 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="12" transform="translate(4250 3000)">
+<path class="banner-tile-shape" fill="#fff" d="m80.5-62 27.4 228.5 205.1-41V148l-202.4 40.5L125.5 313H118l-14.8-123L-62 223v-22.5L100.6 168 73-62z"  transform="rotate(90 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="12" transform="translate(4500 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M36.5-62 89.2 47.4V-62h75.2v265.6L217 313h-7.5l-45.1-93.8V313H89.2V63L29-62z"  transform="rotate(225 123 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="12" transform="translate(4750 3000)">
+<path class="banner-tile-shape" fill="#fff" d="m-2.5-30 225 375H170L-55-30zM260-30v375h-37.5V-30z"  transform="rotate(-90 102.5 157.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="12" transform="translate(5000 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="12" transform="translate(5250 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-29v375H57V-29zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(80 124.5 158.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="12" transform="translate(5500 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="12" transform="translate(5750 3000)">
+<path class="banner-tile-shape" fill="#fff" d="M14.2-33v375H-61V-33zm7.5 0L172 342h-7.5L14.2-33z"  transform="rotate(150 55.5 154.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="13" transform="translate(0 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M142.5-63v375H90V-63zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(20 157.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="13" transform="translate(250 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M191-57v375h-75.2V-57zm-75.2 0L40.6 318H18L93.2-57z"  transform="rotate(90 104.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="13" transform="translate(500 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-57 227 318h-52.6L99.2-57zm-52.6 0v375H24V-57z"  transform="rotate(120 125.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="13" transform="translate(750 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="matrix(-1 0 0 -1 250 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="13" transform="translate(1000 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M211-63v375h-75.2V-63zm-75.2 0L60.6 312H38l75.2-375z"  transform="rotate(20 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="13" transform="translate(1250 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="13" transform="translate(1500 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(150 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="13" transform="translate(1750 3250)">
+<path class="banner-tile-shape" fill="#fff" d="m80.5-62 27.4 228.5 205.1-41V148l-202.4 40.5L125.5 313H118l-14.8-123L-62 223v-22.5L100.6 168 73-62z"  transform="rotate(90 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="13" transform="translate(2000 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="rotate(-90 125 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="13" transform="translate(2250 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M-62 120.7h375V196H-62Zm0-37.6L313 53v7.5L-62 90.6z"  transform="rotate(210 125.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="13" transform="translate(2500 3250)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="13" transform="translate(2750 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M61-62h75.2v375H61Zm177.5 0h7.5l-75.2 375h-7.5z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="13" transform="translate(3000 3250)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(-60 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="13" transform="translate(3250 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(-1 0 0 -1 251 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="13" transform="translate(3500 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(-1 0 0 -1 251 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="13" transform="translate(3750 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="rotate(90 125 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="13" transform="translate(4000 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(0 -1 1 0 0 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="13" transform="translate(4250 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(-1 0 0 -1 251 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="13" transform="translate(4500 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="rotate(-90 125 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="13" transform="translate(4750 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(150 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="13" transform="translate(5000 3250)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(-60 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="13" transform="translate(5250 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="13" transform="translate(5500 3250)">
+<path class="banner-tile-shape" fill="#fff" d="m80.5-62 27.4 228.5 205.1-41V148l-202.4 40.5L125.5 313H118l-14.8-123L-62 223v-22.5L100.6 168 73-62z"  transform="rotate(90 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="13" transform="translate(5750 3250)">
+<path class="banner-tile-shape" fill="#fff" d="M76.5-146v375H24v-375zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(70 99 41.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="14" transform="translate(0 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M61-62h75.2v375H61Zm177.5 0h7.5l-75.2 375h-7.5z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="14" transform="translate(250 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M-62 121.7h375V197H-62Zm0-37.6L313 54v7.5L-62 91.6z"  transform="rotate(45 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="14" transform="translate(500 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M76.2-62v375H1V-62zm7.5 0L234 313h-7.5L76.2-62z"  transform="rotate(210 117.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="14" transform="translate(750 3500)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="14" transform="translate(1000 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="14" transform="translate(1250 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M14.2-33v375H-61V-33zm7.5 0L172 342h-7.5L14.2-33z"  transform="rotate(150 55.5 154.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="14" transform="translate(1500 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-62v375H57V-62zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(60 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="14" transform="translate(1750 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M212-62v375h-75.2V-62zm-75.2 0L61.6 313H39l75.2-375z"  transform="matrix(0 -1 1 0 0 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="14" transform="translate(2000 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="14" transform="translate(2250 3500)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="14" transform="translate(2500 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M74.5-62v375H22V-62zm82.5 0L82 313h-7.5l75-375z"  transform="rotate(210 89.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="14" transform="translate(2750 3500)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(240 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="14" transform="translate(3000 3500)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="matrix(-1 0 0 -1 249 249)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="14" transform="translate(3250 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="14" transform="translate(3500 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M46-62h75.2v375H46Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(30 138.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="14" transform="translate(3750 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M38.5-62 91.2 47.4V-62h75.2v265.6L219 313h-7.5l-45.1-93.8V313H91.2V63L31-62z"  transform="rotate(135 125 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="14" transform="translate(4000 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="matrix(0 -1 1 0 0 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="14" transform="translate(4250 3500)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(120 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="14" transform="translate(4500 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M191-57v375h-75.2V-57zm-75.2 0L40.6 318H18L93.2-57z"  transform="rotate(90 104.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="14" transform="translate(4750 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(-90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="14" transform="translate(5000 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M109.5-29v375H57V-29zm82.5 0-75 375h-7.5l75-375z"  transform="rotate(80 124.5 158.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="14" transform="translate(5250 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M206-62v375h-75.2V-62zm-75.2 0L55.6 313H33l75.2-375z"  transform="rotate(60 119.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="14" transform="translate(5500 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M32-62h75.2v375H32Zm177.5 0h7.5l-75.2 375h-7.5z"  transform="rotate(90 124.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="14" transform="translate(5750 3500)">
+<path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="0" data-row="15" transform="translate(0 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z"  transform="rotate(-30 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="1" data-row="15" transform="translate(250 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M14.2-33v375H-61V-33zm7.5 0L172 342h-7.5L14.2-33z"  transform="rotate(150 55.5 154.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="2" data-row="15" transform="translate(500 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(135 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="3" data-row="15" transform="translate(750 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(50 125 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="4" data-row="15" transform="translate(1000 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M102.5-63v375H50V-63zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(50 125 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="5" data-row="15" transform="translate(1250 3750)">
+<path class="banner-tile-shape" fill="#fff" d="m28.5-62 27.4 228.5 205.1-41V148L58.6 188.5 73.5 313H66L51.2 190-114 223v-22.5L48.6 168 21-62z"  transform="rotate(-90 73.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="6" data-row="15" transform="translate(1500 3750)">
+<path class="banner-tile-shape" fill="#fff" d="m194.5-62-28 175.5H334V136H162.8l-28.3 177H97l28.3-177H-41v-22.5h170L157-62z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="7" data-row="15" transform="translate(1750 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M-62 121.7h375V197H-62Zm0-37.6L313 54v7.5L-62 91.6z"  transform="rotate(45 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="8" data-row="15" transform="translate(2000 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M212-62v375h-75.2V-62zm-75.2 0L61.6 313H39l75.2-375z"  transform="matrix(0 -1 1 0 0 251)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="9" data-row="15" transform="translate(2250 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M150.8-63 226 312h-52.6L98.2-63zm-52.6 0v375H23V-63z"  transform="rotate(40 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="10" data-row="15" transform="translate(2500 3750)">
+<path class="banner-tile-shape" fill="#fff" d="m80.5-62 27.4 228.5 205.1-41V148l-202.4 40.5L125.5 313H118l-14.8-123L-62 223v-22.5L100.6 168 73-62z"  transform="rotate(90 125.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="11" data-row="15" transform="translate(2750 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M191-57v375h-75.2V-57zm-75.2 0L40.6 318H18L93.2-57z"  transform="rotate(90 104.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="12" data-row="15" transform="translate(3000 3750)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(240 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="13" data-row="15" transform="translate(3250 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M84.2-62v375H9V-62zm7.5 0L242 313h-7.5L84.2-62z" />
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="14" data-row="15" transform="translate(3500 3750)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(240 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="15" data-row="15" transform="translate(3750 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M-63 120.7h375V196H-63Zm0-37.6L312 53v7.5L-63 90.6z"  transform="rotate(90 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="16" data-row="15" transform="translate(4000 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M211-63v375h-75.2V-63zm-75.2 0L60.6 312H38l75.2-375z"  transform="rotate(20 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="17" data-row="15" transform="translate(4250 3750)">
+<path class="banner-tile-shape" fill="#fff" d="m165-63-35.1 175.5H312V135H125.4L90 312h-7.5l35.4-177H-63v-22.5h185.4L157.5-63z"  transform="rotate(-60 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="18" data-row="15" transform="translate(4500 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-57 227 318h-52.6L99.2-57zm-52.6 0v375H24V-57z"  transform="rotate(120 125.5 130.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="19" data-row="15" transform="translate(4750 3750)">
+<path class="banner-tile-shape" fill="#fff" d="m28.5-62 27.4 228.5 205.1-41V148L58.6 188.5 73.5 313H66L51.2 190-114 223v-22.5L48.6 168 21-62z"  transform="rotate(-90 73.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="20" data-row="15" transform="translate(5000 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M76.5-146v375H24v-375zm22.5 0 75 375h-22.5l-75-375z"  transform="rotate(70 99 41.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="21" data-row="15" transform="translate(5250 3750)">
+<path class="banner-tile-shape" fill="#fff" d="m172.5-63-28 175.5H312V135H140.8l-28.3 177H75l28.3-177H-63v-22.5h170L135-63z"  transform="rotate(120 124.5 124.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="22" data-row="15" transform="translate(5500 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M74.5-62v375H22V-62zm82.5 0L82 313h-7.5l75-375z"  transform="rotate(210 89.5 125.5)"/>
+</g>
+
+<g class="banner-tile" clip-path="url(#banner-tile-clip-wide)" data-col="23" data-row="15" transform="translate(5750 3750)">
+<path class="banner-tile-shape" fill="#fff" d="M151.8-57 227 318h-52.6L99.2-57zm-52.6 0v375H24V-57z"  transform="rotate(120 125.5 130.5)"/>
 </g>
 </g>
 </svg>
