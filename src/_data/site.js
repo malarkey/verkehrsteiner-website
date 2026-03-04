@@ -5,6 +5,7 @@ const defaultSiteData = {
   authorEmail: "andy.clarke@stuffandnonsense.co.uk",
   telephone: "31-537-12-00",
   email: "info@verkehrsteiner.ch",
+  linkedin: "https://www.linkedin.com/company/verkehrsteiner",
   siteID: "verkehrsteiner-ch",
   googleMapsApiKey: "",
   googleMapsMapId: ""

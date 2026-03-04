@@ -1,5 +1,6 @@
 ---
 title: "Binningen, Dorfplatz"
+subtitle: "Zählung des Fussverkehrs"
 activities: ""
 category: "Verkehrszählung"
 client: "WSG AG"

@@ -13,8 +13,6 @@
 
 {% block content %}
 
-<h1 data-visibility="hidden">{{ title }}</h1>
-
 <div class="figure-container">
 
 <button
@@ -88,18 +86,17 @@ aria-labelledby="banner-switch-grid">
 {% include "svgs/banner-animation-index.svg" %}
 </figure>
 
+<h1 data-size="3xl">Verkehr verstehen – Mobilität gestalten</h1>
+
 </div><!-- figure-container -->
 
-
+{% if main | safe %}
 <div class="layout" data-layout="appenzeller">
 <div>
 {{ main | safe }}
 </div>
 </div><!-- layout -->
-
-
-
-<hr data-function="spacer">
+{% endif %}
 
 
 <div class="layout" data-layout="fribourgeois">
@@ -453,6 +450,7 @@ return null;
 }
 
 let isRunning = false;
+let focusTimeoutId = 0;
 
 const items = elements.map((element) => ({
 element,
@@ -468,6 +466,28 @@ window.clearTimeout(item.timeoutId);
 item.timeoutId = 0;
 }
 });
+};
+
+const clearFocusState = () => {
+if (focusTimeoutId) {
+window.clearTimeout(focusTimeoutId);
+focusTimeoutId = 0;
+}
+
+svg.classList.remove("is-focus-active");
+elements.forEach((element) => {
+element.classList.remove("is-focus-target");
+});
+};
+
+const focusElement = (activeElement) => {
+clearFocusState();
+svg.classList.add("is-focus-active");
+activeElement.classList.add("is-focus-target");
+
+focusTimeoutId = window.setTimeout(() => {
+clearFocusState();
+}, 3000);
 };
 
 const setRestingState = (item) => {
@@ -509,6 +529,12 @@ pulseElement(item);
 }, duration + nextDelay);
 };
 
+elements.forEach((element) => {
+element.addEventListener("click", () => {
+focusElement(element);
+});
+});
+
 return {
 start() {
 if (isRunning || prefersReducedMotion.matches) {
@@ -526,10 +552,12 @@ pulseElement(item);
 stop() {
 isRunning = false;
 clearTimers();
+clearFocusState();
 items.forEach(setRestingState);
 },
 reset() {
 clearTimers();
+clearFocusState();
 items.forEach(setRestingState);
 }
 };

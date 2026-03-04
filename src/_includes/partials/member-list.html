@@ -19,12 +19,12 @@
 </div><!-- one -->
 
 <div class="member-contact">
-{% if member.data.telephone %}<a href="tel:{{ member.data.telephone}}" class="alt-tel">{{ member.data.telephone }}</a>{% endif %}
-
 <span>
-{% if member.data.email %}<a href="mailto:{{ member.data.email }}"><svg xmlns="http://www.w3.org/2000/svg" class="icon-social" width="32" viewBox="0 0 32 32"><g fill="none" fill-rule="evenodd"><path class="logo-mark" fill="#16599c" d="M0 16a16 16 0 1 1 32 0 16 16 0 0 1-32 0"/><path fill="#fff" d="M24.8 8.3A1 1 0 0 0 23.5 7L7.1 13.3a1.7 1.7 0 0 0-.1 3l4.5 2.1 4.6-4.6a1.3 1.3 0 0 1 2 1.8l-4.7 4.7 2 4.5a1.7 1.7 0 0 0 3 0z"/></g></svg><span data-visibility="hidden">Email</span></a>{% endif %}
+{% if member.data.telephone %}<a href="tel:{{ member.data.telephone}}"><svg xmlns="http://www.w3.org/2000/svg" class="icon-social" width="24" viewBox="0 0 32 32"><g fill="none"><path class="logo-mark" fill="#16599c" d="M15.5 1a15.5 15.5 0 1 0 0 31 15.5 15.5 0 0 0 0-31"/><path fill="#fbf8f2" fill-rule="evenodd" d="M23.4 25.3h-4.6c-6-.3-10.8-5-11-11V9.7q0-.9.9-1h3.6q.9.1 1 1v3.6q-.1 1-1 1h-1.8c.3 4.4 3.8 8 8.3 8.2v-1.8a1 1 0 0 1 .9-1h3.7q.8.1.9 1v3.7q0 .8-1 .9"/></g></svg><span data-visibility="hidden">{{ member.data.telephone }}</span></a>{% endif %}
 
-{% if member.data.linkedin %}<a href="{{ member.data.linkedin }}"><svg xmlns="http://www.w3.org/2000/svg" class="icon-social" width="32" viewBox="0 0 32 32"><g fill="none" fill-rule="evenodd"><path class="logo-mark" fill="#16599c" d="M16 0a16 16 0 1 0 0 32 16 16 0 0 0 0-32"/><path fill="#fff" d="M26 24q0 .6-.7.7h-2a1 1 0 0 1-.6-.7v-7.3q-.3-1.6-1.8-2.3a2.5 2.5 0 0 0-3.6 2.3V24q0 .6-.6.7h-2a1 1 0 0 1-.7-.7V12q0-.6.7-.7h2q.5 0 .6.7l.2.3h.4c3.8-2.8 8.1-.7 8.1 3.7zM10.7 8v16q0 .6-.7.7H7.3a1 1 0 0 1-.6-.7V8q0-.7.6-.7H10q.6 0 .7.7"/></g></svg><span data-visibility="hidden">LinkedIn</span></a>{% endif %}
+{% if member.data.email %}<a href="mailto:{{ member.data.email }}"><svg xmlns="http://www.w3.org/2000/svg" class="icon-social" width="24" viewBox="0 0 32 32"><g fill="none" fill-rule="evenodd"><path class="logo-mark" fill="#16599c" d="M0 16a16 16 0 1 1 32 0 16 16 0 0 1-32 0"/><path fill="#fff" d="M24.8 8.3A1 1 0 0 0 23.5 7L7.1 13.3a1.7 1.7 0 0 0-.1 3l4.5 2.1 4.6-4.6a1.3 1.3 0 0 1 2 1.8l-4.7 4.7 2 4.5a1.7 1.7 0 0 0 3 0z"/></g></svg><span data-visibility="hidden">Email</span></a>{% endif %}
+
+{% if member.data.linkedin %}<a href="{{ member.data.linkedin }}"><svg xmlns="http://www.w3.org/2000/svg" class="icon-social" width="24" viewBox="0 0 32 32"><g fill="none" fill-rule="evenodd"><path class="logo-mark" fill="#16599c" d="M16 0a16 16 0 1 0 0 32 16 16 0 0 0 0-32"/><path fill="#fff" d="M26 24q0 .6-.7.7h-2a1 1 0 0 1-.6-.7v-7.3q-.3-1.6-1.8-2.3a2.5 2.5 0 0 0-3.6 2.3V24q0 .6-.6.7h-2a1 1 0 0 1-.7-.7V12q0-.6.7-.7h2q.5 0 .6.7l.2.3h.4c3.8-2.8 8.1-.7 8.1 3.7zM10.7 8v16q0 .6-.7.7H7.3a1 1 0 0 1-.6-.7V8q0-.7.6-.7H10q.6 0 .7.7"/></g></svg><span data-visibility="hidden">LinkedIn</span></a>{% endif %}
 </span>
 
 </div><!-- two -->

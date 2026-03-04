@@ -1,5 +1,6 @@
 ---
 title: "Gümmenenen, Murtenstrasse"
+subtitle: "Zählung des Fussverkehrs"
 activities: "Videoerhebung mit zwei programmierbaren Kameras, Quantitative Analyse, Anwendung teilautomatisierter Verfahren, Ergebnisaufbereitung in Form von Datenblättern"
 category: "Zählung des Fussverkehrs"
 client: "WSG AG"

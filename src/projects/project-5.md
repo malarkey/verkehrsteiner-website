@@ -1,5 +1,6 @@
 ---
 title: "Oetwil Am See, Chrüzlenstrasse"
+subtitle: "Zählung des Fussverkehrs"
 activities: ""
 category: "Verkehrszählung"
 client: "WSG AG"

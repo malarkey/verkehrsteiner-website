@@ -10,6 +10,10 @@
 
 <div>
 
+{% if subtitle %}
+<p data-size="s" class="alt-uppercase">{{subtitle}}</p>
+{% endif %}
+
 {% if image %}
 <figure>
 <img src="{{ image }}" alt="{{ title }}" />
@@ -29,6 +33,7 @@
 {% if date %}<li><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 32 32" aria-hidden="true"><g fill="none"><path fill="#16599c" d="M16 0a16 16 0 1 0 0 32 16 16 0 0 0 0-32"/><path fill="#f8f8f8" fill-rule="evenodd" d="M23 23a1.3 1.3 0 0 1-2 0l-6.6-6q-.4-.4-.4-1V8.7a1.3 1.3 0 0 1 2.7 0v6.7l6.1 5.7q.9.9.1 1.9"/></g></svg> {{ date }}</li>{% endif %}
 {% if category %}<li><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 32 32" aria-hidden="true"><g fill="none"><path fill="#16599c" d="M16 0a16 16 0 1 0 0 32 16 16 0 0 0 0-32"/><path fill="#f8f8f8" fill-rule="evenodd" d="M9.4 10h12.7q.8 0 .9-.9 0-.7-.9-.8H9.4q-.7.1-.8.8.1.8.8.9m12.7 5.1H9.4q-.7 0-.8.9.1.8.8.9h12.7q.8 0 .9-.9t-.9-.9m0 6.9H9.4q-.7 0-.8.9.1.7.8.8h12.7q.8-.1.9-.8t-.9-.9"/></g></svg> {{ category }}</li>{% endif %}
 </ul>
+
 </div><!-- alt-header -->
 
 {% if summary %}

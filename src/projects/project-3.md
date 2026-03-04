@@ -1,5 +1,6 @@
 ---
 title: "Oberlindach, node Lindachstrasse"
+subtitle: "Zählung des Fussverkehrs"
 activities: ""
 category: "Verkehrszählung"
 client: "WSG AG"
