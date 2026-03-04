@@ -1417,7 +1417,8 @@ ANIMATIONS
 /* banner-animation-grid */
 /* Home tile banner:
  * - Base color distribution is handled with nth-of-type rules below.
- * - Hover states are class-driven from JS (`.is-adjacent-cardinal`).
+ * - Click states are class-driven from JS (`.is-row-active`, `.is-col-active`,
+ *   `.is-cross-active`).
  * - Rotation/timing logic is in `home.html`, not here. */
 
 .banner-animation-grid {
@@ -1427,12 +1428,25 @@ inline-size: 100%; }
 .banner-animation-grid + .banner-animation-grid {
 margin-block-start: var(--space-m); }
 
+.banner-animation-grid .banner-tile {
+cursor: pointer; }
+
+.banner-animation-grid .banner-tile-hit {
+fill: transparent;
+pointer-events: all; }
+
 .banner-animation-grid .banner-tile-shape {
 fill: var(--color-brand);
 transition:
 fill var(--animate-duration-faster) var(--animate-function),
 opacity var(--animate-duration-faster) var(--animate-function);
-transition-delay: var(--banner-hover-delay, 0ms); }
+}
+
+.banner-animation-grid .banner-tile-overlay {
+fill: var(--color-accent);
+opacity: 0;
+pointer-events: none;
+transition: opacity var(--animate-duration-faster) var(--animate-function); }
 
 .banner-animation-grid .banner-tile:nth-of-type(4n) .banner-tile-shape,
 .banner-animation-grid .banner-tile:nth-of-type(8n + 3) .banner-tile-shape {
@@ -1443,13 +1457,17 @@ fill: oklch(from var(--color-brand) calc(l - 0.095) c h); }
 fill: oklch(from var(--color-brand) calc(l - 0.135) c h); }
 
 .banner-animation-grid .banner-tile:hover .banner-tile-shape {
-fill: var(--color-accent);
-opacity: 1;
-transition-delay: 0ms; }
+fill: var(--color-accent); }
 
-.banner-animation-grid .banner-tile.is-adjacent-cardinal .banner-tile-shape {
-fill: var(--color-accent);
-opacity: .5; }
+.banner-animation-grid .banner-tile.is-row-active .banner-tile-shape,
+.banner-animation-grid .banner-tile.is-col-active .banner-tile-shape,
+.banner-animation-grid .banner-tile.is-cross-active .banner-tile-shape {
+opacity: 0; }
+
+.banner-animation-grid .banner-tile.is-row-active .banner-tile-overlay-horizontal,
+.banner-animation-grid .banner-tile.is-col-active .banner-tile-overlay-vertical,
+.banner-animation-grid .banner-tile.is-cross-active .banner-tile-overlay-cross {
+opacity: 1; }
 
 /* banner-animation-alt */
 /* Secondary home banner:
@@ -1495,9 +1513,8 @@ pointer-events: auto;
 transform-box: fill-box;
 transform-origin: 60px 60px;
 transition:
-color var(--animate-duration-faster) var(--animate-function),
-opacity var(--animate-duration-faster) var(--animate-function);
-transition-delay: var(--banner-hover-delay, 0ms); }
+color 500ms var(--animate-function),
+opacity 500ms var(--animate-function); }
 
 .banner-animation-circles.is-animating .banner-circle-instance {
 animation-play-state: running; }
@@ -1510,16 +1527,10 @@ color: oklch(from var(--color-brand) calc(l - 0.095) c h); }
 .banner-animation-circles .banner-circle-grid > g:nth-of-type(8n + 5) > .banner-circle-instance {
 color: oklch(from var(--color-brand) calc(l - 0.135) c h); }
 
-.banner-animation-circles .banner-circle-grid > g > .banner-circle-instance:hover {
-animation-play-state: paused;
+.banner-animation-circles .banner-circle-grid > g > .banner-circle-instance.is-path-accent {
 color: var(--color-accent);
 opacity: 1;
-transition-delay: 0ms; }
-
-.banner-animation-circles .banner-circle-grid > g > .banner-circle-instance.is-adjacent-cardinal {
-animation-play-state: paused;
-color: var(--color-accent);
-opacity: .5; }
+transition-duration: 0ms; }
 
 .banner-animation-circles .banner-circle-grid > g:nth-of-type(2n) > .banner-circle-instance {
 animation-name: banner-circle-spin-ccw;
@@ -1535,7 +1546,7 @@ animation-duration: 16.25s;
 animation-delay: -2.1s; }
 
 .banner-animation-circles .banner-circle-grid > g:nth-of-type(5n) > .banner-circle-instance {
-animation-name: banner-circle-spin-ccw;
+animation-name: banner-circle-spin-ccw-alt;
 animation-duration: 31s;
 animation-delay: -15.7s; }
 
@@ -1548,7 +1559,7 @@ animation-duration: 27.5s;
 animation-delay: -19.1s; }
 
 .banner-animation-circles .banner-circle-grid > g:nth-of-type(9n + 4) > .banner-circle-instance {
-animation-name: banner-circle-spin-ccw;
+animation-name: banner-circle-spin-ccw-alt;
 animation-duration: 20.25s;
 animation-delay: -8.9s; }
 
@@ -1557,6 +1568,7 @@ animation-duration: 14.5s;
 animation-delay: -1.8s; }
 
 .banner-animation-circles .banner-circle-grid > g:nth-of-type(13n + 5) > .banner-circle-instance {
+animation-name: banner-circle-spin-cw-alt;
 animation-duration: 34s;
 animation-delay: -22.4s; }
 
@@ -1565,11 +1577,37 @@ animation-duration: 9.75s;
 animation-delay: -6.3s; }
 
 @keyframes banner-circle-spin-cw {
-from { transform: rotate(0deg); }
-to { transform: rotate(360deg); }
+0% { transform: rotate(0deg); }
+30% { transform: rotate(210deg); }
+42% { transform: rotate(210deg); }
+74% { transform: rotate(135deg); }
+86% { transform: rotate(135deg); }
+100% { transform: rotate(360deg); }
 }
 
 @keyframes banner-circle-spin-ccw {
-from { transform: rotate(0deg); }
-to { transform: rotate(-360deg); }
+0% { transform: rotate(0deg); }
+30% { transform: rotate(-210deg); }
+42% { transform: rotate(-210deg); }
+74% { transform: rotate(-135deg); }
+86% { transform: rotate(-135deg); }
+100% { transform: rotate(-360deg); }
+}
+
+@keyframes banner-circle-spin-cw-alt {
+0% { transform: rotate(0deg); }
+24% { transform: rotate(160deg); }
+38% { transform: rotate(160deg); }
+66% { transform: rotate(95deg); }
+78% { transform: rotate(95deg); }
+100% { transform: rotate(360deg); }
+}
+
+@keyframes banner-circle-spin-ccw-alt {
+0% { transform: rotate(0deg); }
+24% { transform: rotate(-160deg); }
+38% { transform: rotate(-160deg); }
+66% { transform: rotate(-95deg); }
+78% { transform: rotate(-95deg); }
+100% { transform: rotate(-360deg); }
 }

@@ -165,11 +165,11 @@ return;
 const rotationSteps = [0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300, 315, 330, 345];
 const tileCenterX = 125;
 const tileCenterY = 125;
-const segmentDuration = 1600;
-const segmentPause = 700;
-const cyclePause = 1000;
-const cycleLength = (segmentDuration * 3) + (segmentPause * 2) + cyclePause;
-const segmentOffsets = [0, segmentDuration + segmentPause, (segmentDuration * 2) + (segmentPause * 2)];
+const segmentCount = 6;
+const segmentDuration = 1800;
+const segmentStagger = 320;
+const cycleLength = ((segmentCount - 1) * segmentStagger) + segmentDuration;
+const segmentOffsets = Array.from({ length: segmentCount }, (_, index) => index * segmentStagger);
 const easeInOutSine = (value) => -(Math.cos(Math.PI * value) - 1) / 2;
 const reducedMotionLabel = "Animationen nicht verfügbar";
 
@@ -200,27 +200,14 @@ if (!tiles.length || !shapes.length) {
 return null;
 }
 
-const tileMap = new Map();
-tiles.forEach((tile) => {
-const col = Number(tile.dataset.col || 0);
-const row = Number(tile.dataset.row || 0);
-tileMap.set(row + ":" + col, tile);
-});
-
 let animationFrameId = 0;
 let lastCycleIndex = -1;
 let isRunning = false;
-const pausedItems = new Set();
+let activeTile = null;
+let activeLineTimeoutId = 0;
 
-const clearAdjacentHover = () => {
-tiles.forEach((tile) => {
-tile.classList.remove("is-adjacent-cardinal");
-tile.style.removeProperty("--banner-hover-delay");
-});
-};
-
-const setAdjacentHover = (activeTile) => {
-clearAdjacentHover();
+const activateTileLines = (tile) => {
+activeTile = tile;
 
 if (!activeTile) {
 return;
@@ -228,28 +215,53 @@ return;
 
 const activeCol = Number(activeTile.dataset.col || 0);
 const activeRow = Number(activeTile.dataset.row || 0);
-const adjacentTiles = [];
 
-[
-[activeRow - 1, activeCol],
-[activeRow, activeCol + 1],
-[activeRow + 1, activeCol],
-[activeRow, activeCol - 1]
-].forEach(([row, col]) => {
-const adjacentTile = tileMap.get(row + ":" + col);
+tiles.forEach((currentTile) => {
+const row = Number(currentTile.dataset.row || 0);
+const col = Number(currentTile.dataset.col || 0);
 
-if (adjacentTile) {
-adjacentTiles.push(adjacentTile);
+if (currentTile === activeTile) {
+currentTile.classList.add("is-cross-active");
+return;
 }
-});
 
-shuffle(adjacentTiles).forEach((tile, index) => {
-tile.style.setProperty("--banner-hover-delay", (500 + (index * 45)) + "ms");
-tile.classList.add("is-adjacent-cardinal");
+if (row === activeRow) {
+currentTile.classList.add("is-row-active");
+}
+
+if (col === activeCol) {
+currentTile.classList.add("is-col-active");
+}
 });
 };
 
-const items = shuffle(shapes).map((shape, index) => {
+const clearActiveLines = () => {
+if (activeLineTimeoutId) {
+window.clearTimeout(activeLineTimeoutId);
+activeLineTimeoutId = 0;
+}
+
+tiles.forEach((tile) => {
+tile.classList.remove("is-row-active", "is-col-active", "is-cross-active");
+});
+};
+
+const setActiveLines = (nextTile) => {
+const shouldClear = activeTile === nextTile;
+clearActiveLines();
+activeTile = null;
+
+if (shouldClear) {
+return;
+}
+
+activeLineTimeoutId = window.setTimeout(() => {
+activateTileLines(nextTile);
+activeLineTimeoutId = 0;
+}, 120);
+};
+
+const items = shapes.map((shape, index) => {
 const tile = shape.closest(".banner-tile");
 const col = Number(tile?.dataset.col || 0);
 const row = Number(tile?.dataset.row || 0);
@@ -261,7 +273,6 @@ currentAngle: 0,
 startAngle: 0,
 targetAngle: getNextAngle(0),
 segment: 0,
-isPaused: false,
 isResuming: false,
 resumeStartTime: 0,
 resumeDuration: 0,
@@ -271,15 +282,59 @@ row
 };
 });
 
-const itemByTile = new Map();
-items.forEach((item) => {
-itemByTile.set(item.tile, item);
-});
+const maxCol = Math.max(...items.map((item) => item.col));
+const maxRow = Math.max(...items.map((item) => item.row));
+const diagonalMax = maxCol + maxRow;
+const waveModes = [
+"left-to-right",
+"top-to-bottom",
+"diagonal-down",
+"right-to-left",
+"bottom-to-top",
+"diagonal-up"
+];
 
-const segmentSize = Math.ceil(items.length / 3);
-items.forEach((item, index) => {
-item.segment = Math.min(2, Math.floor(index / segmentSize));
+const toSegment = (value, maxValue) => {
+if (maxValue <= 0) {
+return 0;
+}
+
+return Math.min(segmentCount - 1, Math.floor((value / maxValue) * segmentCount));
+};
+
+const assignWaveSegments = (mode) => {
+items.forEach((item) => {
+let bandValue = item.col;
+let bandMax = maxCol;
+
+if (mode === "top-to-bottom") {
+bandValue = item.row;
+bandMax = maxRow;
+}
+
+if (mode === "diagonal-down") {
+bandValue = item.row + item.col;
+bandMax = diagonalMax;
+}
+
+if (mode === "right-to-left") {
+bandValue = maxCol - item.col;
+bandMax = maxCol;
+}
+
+if (mode === "bottom-to-top") {
+bandValue = maxRow - item.row;
+bandMax = maxRow;
+}
+
+if (mode === "diagonal-up") {
+bandValue = item.row + (maxCol - item.col);
+bandMax = diagonalMax;
+}
+
+item.segment = toSegment(bandValue, bandMax);
 });
+};
 
 const applyRotation = (item) => {
 if (Math.abs(item.currentAngle) < 0.01) {
@@ -295,82 +350,24 @@ const rotation = "rotate(" + item.currentAngle.toFixed(2) + " " + tileCenterX + 
 item.shape.setAttribute("transform", item.baseTransform ? item.baseTransform + " " + rotation : rotation);
 };
 
-const setItemPaused = (item, paused, now = performance.now()) => {
-if (!item) {
-return;
-}
-
-if (paused) {
-item.isPaused = true;
-item.isResuming = false;
-pausedItems.add(item);
-return;
-}
-
-if (!item.isPaused) {
-return;
-}
-
-item.isPaused = false;
-pausedItems.delete(item);
-
-const cycleTime = now % cycleLength;
-const segmentStart = segmentOffsets[item.segment];
-const segmentEnd = segmentStart + segmentDuration;
-
-if (cycleTime >= segmentStart && cycleTime <= segmentEnd) {
-item.startAngle = item.currentAngle;
-item.targetAngle = getNextAngle(item.currentAngle);
-item.resumeStartTime = now;
-item.resumeDuration = Math.max(300, segmentEnd - cycleTime);
-item.isResuming = true;
-}
-};
-
-const clearPausedItems = (now = performance.now()) => {
-Array.from(pausedItems).forEach((item) => {
-setItemPaused(item, false, now);
-});
-};
-
 tiles.forEach((tile) => {
-tile.addEventListener("pointerenter", () => {
-const now = performance.now();
-clearPausedItems(now);
-setAdjacentHover(tile);
-
-const row = Number(tile.dataset.row || 0);
-const col = Number(tile.dataset.col || 0);
-const relatedTiles = [
-tile,
-tileMap.get((row - 1) + ":" + col),
-tileMap.get(row + ":" + (col + 1)),
-tileMap.get((row + 1) + ":" + col),
-tileMap.get(row + ":" + (col - 1))
-].filter(Boolean);
-
-relatedTiles.forEach((relatedTile) => {
-setItemPaused(itemByTile.get(relatedTile), true, now);
-});
-});
-
-tile.addEventListener("pointerleave", () => {
-clearAdjacentHover();
-clearPausedItems(performance.now());
+tile.addEventListener("click", () => {
+setActiveLines(tile);
 });
 });
 
 const resetToBaseState = () => {
+assignWaveSegments(waveModes[0]);
+
 items.forEach((item) => {
 item.currentAngle = 0;
 item.startAngle = 0;
 item.targetAngle = getNextAngle(0);
-item.isPaused = false;
 item.isResuming = false;
 applyRotation(item);
 });
-pausedItems.clear();
-clearAdjacentHover();
+clearActiveLines();
+activeTile = null;
 lastCycleIndex = -1;
 };
 
@@ -384,11 +381,9 @@ const cycleTime = now % cycleLength;
 
 if (cycleIndex !== lastCycleIndex) {
 lastCycleIndex = cycleIndex;
-items.forEach((item) => {
-if (item.isPaused) {
-return;
-}
+assignWaveSegments(waveModes[cycleIndex % waveModes.length]);
 
+items.forEach((item) => {
 item.startAngle = item.targetAngle;
 item.targetAngle = getNextAngle(item.targetAngle);
 item.currentAngle = item.startAngle;
@@ -398,10 +393,6 @@ applyRotation(item);
 }
 
 items.forEach((item) => {
-if (item.isPaused) {
-return;
-}
-
 const segmentStart = segmentOffsets[item.segment];
 const segmentEnd = segmentStart + segmentDuration;
 
@@ -496,8 +487,8 @@ if (!isRunning) {
 return;
 }
 
-const duration = randomBetween(320, 900);
-const nextDelay = randomBetween(40, 720);
+const duration = randomBetween(720, 2025);
+const nextDelay = randomBetween(90, 1620);
 
 setWaitingState(item);
 
@@ -529,7 +520,7 @@ items.forEach((item) => {
 setWaitingState(item);
 item.timeoutId = window.setTimeout(() => {
 pulseElement(item);
-}, randomBetween(0, 900));
+}, randomBetween(0, 2025));
 });
 },
 stop() {
@@ -574,55 +565,79 @@ row
 })
 .filter(Boolean);
 
-const circleMap = new Map();
-circleInstances.forEach((item) => {
-circleMap.set(item.row + ":" + item.col, item);
-});
+let pathToken = 0;
+const pathTimeoutIds = new Set();
+const maxPathLength = 45;
+const pathStepDelay = 55;
+const pathHoldDuration = 500;
 
-const clearAdjacentHover = () => {
+const clearPath = () => {
+pathToken += 1;
+pathTimeoutIds.forEach((timeoutId) => {
+window.clearTimeout(timeoutId);
+});
+pathTimeoutIds.clear();
+
 circleInstances.forEach(({ instance }) => {
-instance.classList.remove("is-adjacent-cardinal");
-instance.style.removeProperty("--banner-hover-delay");
+instance.classList.remove("is-path-accent");
 });
 };
 
-const setAdjacentHover = (activeInstance) => {
-clearAdjacentHover();
+const snakePathItems = [];
+const totalRows = Math.max(...circleInstances.map((item) => item.row)) + 1;
+
+for (let row = 0; row < totalRows; row += 1) {
+const rowItems = circleInstances
+.filter((item) => item.row === row)
+.sort((a, b) => row % 2 === 0 ? a.col - b.col : b.col - a.col);
+
+snakePathItems.push(...rowItems);
+}
+
+const triggerPathFrom = (activeInstance) => {
+clearPath();
 
 if (!activeInstance) {
 return;
 }
 
-const activeCol = Number(activeInstance.dataset.col || 0);
-const activeRow = Number(activeInstance.dataset.row || 0);
-const adjacentInstances = [];
+const activeIndex = snakePathItems.findIndex((item) => item.instance === activeInstance);
 
-[
-[activeRow - 1, activeCol],
-[activeRow, activeCol + 1],
-[activeRow + 1, activeCol],
-[activeRow, activeCol - 1]
-].forEach(([row, col]) => {
-const adjacentItem = circleMap.get(row + ":" + col);
-
-if (adjacentItem) {
-adjacentInstances.push(adjacentItem.instance);
+if (activeIndex === -1) {
+return;
 }
-});
 
-shuffle(adjacentInstances).forEach((instance, index) => {
-instance.style.setProperty("--banner-hover-delay", (500 + (index * 45)) + "ms");
-instance.classList.add("is-adjacent-cardinal");
+const pathItems = snakePathItems.slice(activeIndex, activeIndex + maxPathLength);
+const activePathToken = pathToken;
+
+pathItems.forEach((item, index) => {
+const addTimeoutId = window.setTimeout(() => {
+if (activePathToken !== pathToken) {
+return;
+}
+
+item.instance.classList.add("is-path-accent");
+pathTimeoutIds.delete(addTimeoutId);
+
+const removeTimeoutId = window.setTimeout(() => {
+if (activePathToken !== pathToken) {
+return;
+}
+
+item.instance.classList.remove("is-path-accent");
+pathTimeoutIds.delete(removeTimeoutId);
+}, pathHoldDuration);
+
+pathTimeoutIds.add(removeTimeoutId);
+}, index * pathStepDelay);
+
+pathTimeoutIds.add(addTimeoutId);
 });
 };
 
 circleInstances.forEach(({ instance }) => {
-instance.addEventListener("pointerenter", () => {
-setAdjacentHover(instance);
-});
-
-instance.addEventListener("pointerleave", () => {
-clearAdjacentHover();
+instance.addEventListener("click", () => {
+triggerPathFrom(instance);
 });
 });
 
@@ -636,11 +651,11 @@ svg.classList.add("is-animating");
 },
 stop() {
 svg.classList.remove("is-animating");
-clearAdjacentHover();
+clearPath();
 },
 reset() {
 svg.classList.remove("is-animating");
-clearAdjacentHover();
+clearPath();
 }
 };
 };

@@ -10,5 +10,5 @@ paginationPrevText: 'Neuer'
 paginationNextText: 'Älter'
 paginationAnchor: '#post-list'
 permalink: 'news{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber }}{% endif %}/index.html'
-title: 'Unsere Neuigkeiten'
+title: 'Beiträge'
 ---
