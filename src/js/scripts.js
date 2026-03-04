@@ -144,6 +144,207 @@ toggle
 };
 }
 
+function initServiceGraphicAnimations() {
+const serviceFigures = Array.from(document.querySelectorAll(".service-graphic svg"));
+
+if (!serviceFigures.length) {
+return;
+}
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const groupSelectors = [".img-lines-green", ".img-lines-orange", ".img-lines-yellow", ".img-lines-blue"];
+const groupStagger = 1650;
+const minItemDelay = 120;
+const maxItemDelay = 420;
+const fadeDuration = 2100;
+const cyclePause = 2700;
+const maxIterations = 3;
+
+const shuffle = (items) => {
+const copy = [...items];
+
+for (let index = copy.length - 1; index > 0; index -= 1) {
+const randomIndex = Math.floor(Math.random() * (index + 1));
+[copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]];
+}
+
+return copy;
+};
+
+const createServiceGraphicAnimation = (svg) => {
+const groups = groupSelectors
+.map((selector) => svg.querySelector(selector))
+.filter(Boolean)
+.map((group, groupIndex) => ({
+groupIndex,
+items: Array.from(group.children).filter((item) => item instanceof SVGElement)
+}));
+
+if (!groups.length) {
+return null;
+}
+
+const timeoutIds = new Set();
+let running = false;
+let completedCycles = 0;
+
+const setStaticState = () => {
+groups.forEach(({ items }) => {
+items.forEach((item) => {
+item.style.opacity = "1";
+item.style.transition = "";
+});
+});
+};
+
+const clearTimers = () => {
+timeoutIds.forEach((timeoutId) => {
+window.clearTimeout(timeoutId);
+});
+timeoutIds.clear();
+};
+
+const queueTimeout = (callback, delay) => {
+const timeoutId = window.setTimeout(() => {
+timeoutIds.delete(timeoutId);
+callback();
+}, delay);
+
+timeoutIds.add(timeoutId);
+return timeoutId;
+};
+
+const runCycle = () => {
+if (!running || completedCycles >= maxIterations) {
+return;
+}
+
+completedCycles += 1;
+
+let maxDelay = 0;
+
+groups.forEach(({ items }) => {
+items.forEach((item) => {
+item.style.transition = "opacity 0ms linear";
+item.style.opacity = "0";
+});
+});
+
+window.requestAnimationFrame(() => {
+if (!running) {
+return;
+}
+
+groups.forEach(({ items, groupIndex }) => {
+const orderedItems = shuffle(items);
+let itemDelay = groupIndex * groupStagger;
+
+orderedItems.forEach((item) => {
+const revealDelay = itemDelay;
+maxDelay = Math.max(maxDelay, revealDelay);
+
+queueTimeout(() => {
+if (!running) {
+return;
+}
+
+item.style.transition = "opacity " + fadeDuration + "ms ease";
+item.style.opacity = "1";
+}, revealDelay);
+
+itemDelay += Math.round(minItemDelay + (Math.random() * (maxItemDelay - minItemDelay)));
+});
+});
+
+if (completedCycles < maxIterations) {
+queueTimeout(() => {
+runCycle();
+}, maxDelay + fadeDuration + cyclePause);
+} else {
+queueTimeout(() => {
+running = false;
+setStaticState();
+}, maxDelay + fadeDuration);
+}
+});
+};
+
+return {
+start() {
+if (running || prefersReducedMotion.matches) {
+return;
+}
+
+clearTimers();
+completedCycles = 0;
+running = true;
+runCycle();
+},
+stop() {
+running = false;
+completedCycles = 0;
+clearTimers();
+setStaticState();
+},
+reset() {
+running = false;
+completedCycles = 0;
+clearTimers();
+setStaticState();
+}
+};
+};
+
+const animations = serviceFigures
+.map((svg) => createServiceGraphicAnimation(svg))
+.filter(Boolean);
+
+if (!animations.length) {
+return;
+}
+
+const startAll = () => {
+animations.forEach((animation) => {
+animation.start();
+});
+};
+
+const stopAll = () => {
+animations.forEach((animation) => {
+animation.stop();
+});
+};
+
+if (!prefersReducedMotion.matches) {
+startAll();
+} else {
+stopAll();
+}
+
+if (typeof prefersReducedMotion.addEventListener === "function") {
+prefersReducedMotion.addEventListener("change", (event) => {
+if (event.matches) {
+stopAll();
+} else {
+startAll();
+}
+});
+}
+}
+
+const onReady = (callback) => {
+if (document.readyState === "loading") {
+document.addEventListener("DOMContentLoaded", callback, { once: true });
+return;
+}
+
+callback();
+};
+
+onReady(() => {
+initServiceGraphicAnimations();
+});
+
 window.Verkehrsteiner = window.Verkehrsteiner || {};
 window.Verkehrsteiner.createAnimationToggle = createAnimationToggle;
 })();

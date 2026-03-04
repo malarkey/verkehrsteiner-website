@@ -731,7 +731,8 @@ inline-size: 100%; }
 
 .service-graphic .img-lines-green > *,
 .service-graphic .img-lines-orange > *,
-.service-graphic .img-lines-yellow > * {
+.service-graphic .img-lines-yellow > *,
+.service-graphic .img-lines-blue > * {
 opacity: 1;
 transition: opacity 700ms ease;
 will-change: opacity; }

@@ -5,6 +5,7 @@
 <div class="layout" data-layout="sbrinz">
 
 <div>
+
 <h1>{{ title }}</h1>
 {% if main %}
 {{ main | safe }}
@@ -24,8 +25,14 @@
 {% for serviceItem in collections.services %}
 <article class="item-service">
 {% if serviceItem.data.image %}
-<figure>
-<a href="{{ serviceItem.url }}"><img src="/images/{{ serviceItem.data.image }}" alt="{{ serviceItem.data.name or serviceItem.data.title }}"></a>
+<figure class="service-graphic">
+<a href="{{ serviceItem.url }}">
+{% if ".svg" in serviceItem.data.image %}
+{% include "svgs/" ~ serviceItem.data.image %}
+{% else %}
+<img src="/images/{{ serviceItem.data.image }}" alt="{{ serviceItem.data.name or serviceItem.data.title }}">
+{% endif %}
+</a>
 </figure>
 {% endif %}
 <h2><a href="{{ serviceItem.url }}">{{ serviceItem.data.name or serviceItem.data.title }}</a></h2>
