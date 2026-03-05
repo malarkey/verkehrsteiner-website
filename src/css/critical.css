@@ -9,7 +9,7 @@
 * 3. The home page currently has two separate SVG animation systems:
 *    `.banner-animation-grid` and `.banner-animation-alt`. Their motion logic
 *    lives in `src/_includes/layouts/home.html`; the rules here only define the
-*    visual states those scripts animate between.
+*    visual state those scripts animate between.
 * 4. `figure-container` deliberately breaks out of the body gutter using
 *    `--page-gutter`. If page padding changes, update the gutter variable, not
 *    the breakout math.
@@ -1293,6 +1293,10 @@ grid-column: 1 / 4; }
 
 [data-layout="emmentaler"] > *:nth-child(2) {
 grid-column: 5 / -1; }
+
+[role="banner"] [data-layout="emmentaler"] > *:nth-child(2) {
+grid-column: 4 / -1;
+text-align: right; }
 
 [data-layout="fribourgeois"] > * {
 grid-column: span 2; }
