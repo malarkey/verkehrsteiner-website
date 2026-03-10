@@ -1,5 +1,5 @@
 ---
-image: 'img-service-5.svg'
+image: 'img-service-2.svg'
 layout: 'layouts/service.html'
 name: 'Sicherheit & Qualität – Vertrauen schaffen'
 eleventyComputed:
