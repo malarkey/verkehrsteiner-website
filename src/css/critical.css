@@ -222,6 +222,9 @@ position: absolute;
 white-space: nowrap;
 width: 1px; }
 
+.no-select {
+user-select: none; }
+
 /*
 * LAYOUT UTILITIES
 * Helper classes for common layout patterns
@@ -352,7 +355,8 @@ text-decoration: none; }
 color: var(--color-text-default);
 font-size: var(--font-size-xl);
 font-variation-settings: var(--font-regular-condensed);
-text-decoration: none; }
+text-decoration: none;
+white-space: nowrap; }
 
 .alt-tel:hover {
 text-decoration: none; }
@@ -451,7 +455,8 @@ font-variation-settings: var(--font-bold-normal);
 line-height: var(--lineheight-s);
 margin-inline: auto;
 max-inline-size: 40ch;
-text-align: center; }
+text-align: center;
+text-wrap: pretty; }
 
 blockquote svg {
 display: block;
@@ -648,7 +653,7 @@ padding: 0; }
 
 figure img {
 display: block;
-margin-block-end: var(--spacing-s); }
+margin-block-end: var(--spacing-xs); }
 
 figcaption {
 display: block;
@@ -1052,6 +1057,9 @@ margin-trim: block; }
 
 .alt-header > h1 {
 margin-block: 0 var(--spacing-s); }
+
+.alt-header > h1 + p {
+margin-block-start: -1rem; }
 
 .alt-header > ul {
 margin-block: 0; }

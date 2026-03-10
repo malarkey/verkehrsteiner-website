@@ -3,7 +3,7 @@ const defaultSiteData = {
   url: "http://localhost:8080",
   authorName: "Andy Clarke, Stuff &#38; Nonsense",
   authorEmail: "andy.clarke@stuffandnonsense.co.uk",
-  telephone: "31-537-12-00",
+  telephone: "+41 31 537 12 00",
   email: "info@verkehrsteiner.ch",
   linkedin: "https://www.linkedin.com/company/verkehrsteiner",
   siteID: "verkehrsteiner-ch",

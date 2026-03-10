@@ -45,12 +45,13 @@
 <div>
 <p data-align-h="end"><a href="/projects" class="btn" data-variant="s">&#8592; Alle projekte</a></p>
 
-
-<small>{% if projectTags.length %}
+{% if projectTags.length %}
+<small>
 {% for tagItem in projectTags %}
-<span class="alt-tag">{{ tagItem }}</span>
+<a href="/projects/tag/{{ tagItem | lower | replace(" ", "-") }}/" class="alt-tag">{{ tagItem }}</a>
 {% endfor %}
-{% endif %}</small>
+</small>
+{% endif %}
 
 {% if activityItems.length %}
 <h3>Auftraggeber*in</h3>

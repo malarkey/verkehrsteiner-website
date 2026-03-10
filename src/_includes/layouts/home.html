@@ -201,10 +201,37 @@ let animationFrameId = 0;
 let lastCycleIndex = -1;
 let isRunning = false;
 let activeTile = null;
-let activeLineTimeoutId = 0;
+let clearEffectTimeoutId = 0;
+let activeLineEntries = [];
+const lineTimeoutIds = new Set();
+const lineStepMs = 70;
+const lineFadeAfterMs = 3000;
+
+const clearLineTimers = () => {
+if (clearEffectTimeoutId) {
+window.clearTimeout(clearEffectTimeoutId);
+clearEffectTimeoutId = 0;
+}
+
+lineTimeoutIds.forEach((timeoutId) => {
+window.clearTimeout(timeoutId);
+});
+lineTimeoutIds.clear();
+};
+
+const queueLineTimeout = (callback, delay) => {
+const timeoutId = window.setTimeout(() => {
+lineTimeoutIds.delete(timeoutId);
+callback();
+}, delay);
+
+lineTimeoutIds.add(timeoutId);
+return timeoutId;
+};
 
 const activateTileLines = (tile) => {
 activeTile = tile;
+activeLineEntries = [];
 
 if (!activeTile) {
 return;
@@ -212,50 +239,105 @@ return;
 
 const activeCol = Number(activeTile.dataset.col || 0);
 const activeRow = Number(activeTile.dataset.row || 0);
+const lineTargets = [];
+
+activeTile.classList.add("is-cross-active");
+activeLineEntries.push({
+tile: activeTile,
+className: "is-cross-active",
+distance: 0,
+order: -1
+});
 
 tiles.forEach((currentTile) => {
 const row = Number(currentTile.dataset.row || 0);
 const col = Number(currentTile.dataset.col || 0);
 
 if (currentTile === activeTile) {
-currentTile.classList.add("is-cross-active");
 return;
 }
 
 if (row === activeRow) {
-currentTile.classList.add("is-row-active");
+lineTargets.push({
+tile: currentTile,
+className: "is-row-active",
+distance: Math.abs(col - activeCol),
+order: 0
+});
 }
 
 if (col === activeCol) {
-currentTile.classList.add("is-col-active");
+lineTargets.push({
+tile: currentTile,
+className: "is-col-active",
+distance: Math.abs(row - activeRow),
+order: 0
+});
 }
 });
+
+lineTargets
+.sort((a, b) => a.distance - b.distance)
+.forEach(({ tile: lineTile, className, distance }, order) => {
+activeLineEntries.push({
+tile: lineTile,
+className,
+distance,
+order
+});
+
+queueLineTimeout(() => {
+if (activeTile !== tile) {
+return;
+}
+
+lineTile.classList.add(className);
+}, distance * lineStepMs);
+});
+
+clearEffectTimeoutId = window.setTimeout(() => {
+if (activeTile === tile) {
+clearActiveLines({ reverse: true });
+}
+}, lineFadeAfterMs);
 };
 
-const clearActiveLines = () => {
-if (activeLineTimeoutId) {
-window.clearTimeout(activeLineTimeoutId);
-activeLineTimeoutId = 0;
+const clearActiveLines = ({ immediate = false, reverse = false } = {}) => {
+clearLineTimers();
+
+if (!immediate && reverse && activeLineEntries.length) {
+const entriesToClear = [...activeLineEntries].sort((a, b) => {
+if (b.distance !== a.distance) {
+return b.distance - a.distance;
+}
+
+return b.order - a.order;
+});
+
+entriesToClear.forEach((entry, index) => {
+queueLineTimeout(() => {
+entry.tile.classList.remove(entry.className);
+}, index * lineStepMs);
+});
+
+queueLineTimeout(() => {
+activeTile = null;
+activeLineEntries = [];
+}, (entriesToClear.length * lineStepMs) + 20);
+return;
 }
 
 tiles.forEach((tile) => {
 tile.classList.remove("is-row-active", "is-col-active", "is-cross-active");
 });
+
+activeTile = null;
+activeLineEntries = [];
 };
 
 const setActiveLines = (nextTile) => {
-const shouldClear = activeTile === nextTile;
-clearActiveLines();
-activeTile = null;
-
-if (shouldClear) {
-return;
-}
-
-activeLineTimeoutId = window.setTimeout(() => {
+clearActiveLines({ immediate: true });
 activateTileLines(nextTile);
-activeLineTimeoutId = 0;
-}, 120);
 };
 
 const items = shapes.map((shape, index) => {
