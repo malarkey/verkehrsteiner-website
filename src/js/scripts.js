@@ -152,7 +152,7 @@ return;
 }
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const groupSelectors = [".img-lines-green", ".img-lines-orange", ".img-lines-yellow", ".img-lines-blue"];
+const groupSelectors = [".img-lines-green", ".img-lines-orange", ".img-lines-yellow", ".img-lines-blue", ".img-lines-red"];
 const groupStagger = 1650;
 const minItemDelay = 120;
 const maxItemDelay = 420;

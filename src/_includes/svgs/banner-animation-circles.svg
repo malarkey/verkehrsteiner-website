@@ -75,10 +75,14 @@
 <symbol id="banner-circle-symbol-25" viewBox="480 360 120 120">
 <path class="banner-circle-25 banner-circle-shape" fill="currentColor" d="M540 360a60 60 0 1 1 0 120 60 60 0 0 1 0-120m0 15a45 45 0 1 0 0 90 45 45 0 0 0 0-90"/>
 </symbol>
+<symbol id="banner-circle-symbol-pacman" viewBox="0 0 120 120">
+<path class="banner-circle-pacman" fill="currentColor" d="M60 0c26.504 0 48.995 17.186 56.936 41.021L60 60l56.936 18.98C108.994 102.815 86.504 120 60 120 26.863 120 0 93.137 0 60S26.863 0 60 0"/>
+<circle cx="60" cy="30" r="12" fill="#120805"/>
+</symbol>
 </defs>
 
 <g class="banner-circle-grid" fill="none" fill-rule="evenodd">
-<g transform="translate(0 0)"><g class="banner-circle-instance banner-circle-instance-1"><use href="#banner-circle-symbol-6" width="120" height="120"/></g></g>
+<g transform="translate(0 0)"><g class="banner-circle-instance banner-circle-instance-1"><use href="#banner-circle-symbol-21" width="120" height="120"/></g></g>
 <g transform="translate(120 0)"><g class="banner-circle-instance banner-circle-instance-2"><use href="#banner-circle-symbol-22" width="120" height="120"/></g></g>
 <g transform="translate(240 0)"><g class="banner-circle-instance banner-circle-instance-3"><use href="#banner-circle-symbol-14" width="120" height="120"/></g></g>
 <g transform="translate(360 0)"><g class="banner-circle-instance banner-circle-instance-4"><use href="#banner-circle-symbol-9" width="120" height="120"/></g></g>

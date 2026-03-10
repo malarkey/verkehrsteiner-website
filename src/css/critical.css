@@ -669,10 +669,10 @@ margin-block-end: 0; }
 
 .figure-container {
 /* Full-bleed media wrapper: escapes body padding while keeping internal content aligned. */
-inline-size: calc(100% + (var(--page-gutter) * 2));
+/* inline-size: calc(100% + (var(--page-gutter) * 2)); */
 margin-block-end: var(--spacing-r);
-margin-inline: calc(var(--page-gutter) * -1);
-max-inline-size: none;
+/* margin-inline: calc(var(--page-gutter) * -1); */
+/* max-inline-size: none; */
 position: relative; }
 
 .figure-container .js-anim-toggle {
@@ -737,7 +737,8 @@ inline-size: 100%; }
 .service-graphic .img-lines-green > *,
 .service-graphic .img-lines-orange > *,
 .service-graphic .img-lines-yellow > *,
-.service-graphic .img-lines-blue > * {
+.service-graphic .img-lines-blue > *,
+.service-graphic .img-lines-red > * {
 opacity: 1;
 transition: opacity 700ms ease;
 will-change: opacity; }
@@ -1459,6 +1460,31 @@ inline-size: 100%; }
 .banner-animation-grid + .banner-animation-grid {
 margin-block-start: var(--space-m); }
 
+/* PACMAN */
+
+#banner-animation-pacman {
+display: block;
+inline-size: 100%; }
+
+#banner-animation-pacman #pacman path {
+fill: #fed500; }
+
+#banner-animation-pacman #pacman-walls path {
+fill: var(--color-base);
+stroke: var(--color-border);
+stroke-width: 2; }
+
+#banner-animation-pacman #pacman-dots circle {
+fill: var(--color-base);
+stroke: var(--color-border);
+stroke-width: 2; }
+
+#banner-animation-pacman #pacman.is-collision path {
+animation: pacman-collision-flash 180ms steps(2, end) infinite; }
+
+#banner-animation-pacman .pacman-ghost-base {
+fill: var(--color-accent); }
+
 .banner-animation-grid .banner-tile {
 cursor: pointer; }
 
@@ -1540,6 +1566,27 @@ opacity: 1; }
  * This keeps the 25 source shapes reusable while allowing each grid item to
  * have its own timing, direction, and hover state. */
 
+.banner-circles-stage {
+position: relative; }
+
+#banner-animation-circles {
+transition: opacity 300ms var(--animate-function); }
+
+.banner-circles-game {
+inset: 0;
+opacity: 0;
+pointer-events: none;
+position: absolute;
+transition: opacity 300ms var(--animate-function); }
+
+.banner-circles-stage.is-easter-active #banner-animation-circles {
+opacity: 0;
+pointer-events: none; }
+
+.banner-circles-stage.is-easter-active .banner-circles-game {
+opacity: 1;
+pointer-events: auto; }
+
 .banner-animation-circles {
 display: block;
 inline-size: 100%; }
@@ -1559,6 +1606,9 @@ transform-origin: 60px 60px;
 transition:
 color 500ms var(--animate-function),
 opacity 500ms var(--animate-function); }
+
+.banner-animation-circles .banner-circle-trigger-hit {
+cursor: pointer; }
 
 .banner-animation-circles.is-animating .banner-circle-instance {
 animation-play-state: running; }
@@ -1620,6 +1670,12 @@ animation-delay: -22.4s; }
 animation-duration: 9.75s;
 animation-delay: -6.3s; }
 
+.banner-animation-circles .banner-circle-instance.is-easter-trigger:is(:hover, :focus-visible),
+.banner-animation-circles .banner-circle-instance.is-easter-trigger.is-easter-preview {
+animation: none;
+color: #fed500;
+transform: rotate(0deg); }
+
 @keyframes banner-circle-spin-cw {
 0% { transform: rotate(0deg); }
 30% { transform: rotate(210deg); }
@@ -1654,4 +1710,11 @@ animation-delay: -6.3s; }
 66% { transform: rotate(-95deg); }
 78% { transform: rotate(-95deg); }
 100% { transform: rotate(-360deg); }
+}
+
+@keyframes pacman-collision-flash {
+0% { fill: #fed500; }
+49% { fill: #fed500; }
+50% { fill: #db1e0b; }
+100% { fill: #db1e0b; }
 }

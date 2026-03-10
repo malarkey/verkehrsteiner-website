@@ -75,7 +75,12 @@ class="js-banner-panel"
 role="tabpanel"
 aria-labelledby="banner-switch-circles"
 hidden>
+<div class="banner-circles-stage">
 {% include "svgs/banner-animation-circles.svg" %}
+<div class="banner-circles-game" aria-hidden="true">
+{% include "svgs/banner-animation-pacman.svg" %}
+</div>
+</div>
 </figure>
 
 <figure
@@ -130,12 +135,6 @@ E-mail
 {% endif %}
 </p>
 {% endif %}
-
-
-
-
-
-
 {% endblock %}
 
 {% include "partials/footer.html" %}
@@ -650,6 +649,8 @@ if (!svg) {
 return null;
 }
 
+const circlesStage = svg.closest(".banner-circles-stage");
+const circlesGame = circlesStage?.querySelector(".banner-circles-game");
 const circleCells = Array.from(svg.querySelectorAll(".banner-circle-grid > g"));
 const circleInstances = circleCells
 .map((cell, index) => {
@@ -674,12 +675,61 @@ row
 };
 })
 .filter(Boolean);
+const easterTrigger = circleInstances.find((item) => item.row === 0 && item.col === 0) || null;
+const easterTriggerUse = easterTrigger?.instance.querySelector("use") || null;
+const easterTriggerBaseHref = easterTriggerUse?.getAttribute("href") || "";
+const easterTriggerPacmanHref = "#banner-circle-symbol-pacman";
+const triggerHitSize = 120;
+let isEasterActive = false;
+let isRunning = false;
 
 let pathToken = 0;
 const pathTimeoutIds = new Set();
 const maxPathLength = 45;
 const pathStepDelay = 55;
 const pathHoldDuration = 500;
+
+const broadcastPacmanState = () => {
+window.dispatchEvent(new CustomEvent("banner:pacman-state", {
+detail: {
+active: isEasterActive,
+running: isRunning
+}
+}));
+};
+
+const setEasterPreview = (isPreview) => {
+if (isEasterActive || !easterTrigger || !easterTriggerUse) {
+return;
+}
+
+easterTrigger.instance.classList.toggle("is-easter-preview", isPreview);
+easterTriggerUse.setAttribute("href", isPreview ? easterTriggerPacmanHref : easterTriggerBaseHref);
+};
+
+const createTriggerHitArea = () => {
+if (!easterTrigger?.cell) {
+return null;
+}
+
+const existingHitArea = easterTrigger.cell.querySelector(".banner-circle-trigger-hit");
+if (existingHitArea) {
+return existingHitArea;
+}
+
+const hitArea = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+hitArea.setAttribute("class", "banner-circle-trigger-hit");
+hitArea.setAttribute("x", "0");
+hitArea.setAttribute("y", "0");
+hitArea.setAttribute("width", String(triggerHitSize));
+hitArea.setAttribute("height", String(triggerHitSize));
+hitArea.setAttribute("fill", "#000");
+hitArea.setAttribute("fill-opacity", "0");
+hitArea.setAttribute("pointer-events", "all");
+
+easterTrigger.cell.insertBefore(hitArea, easterTrigger.cell.firstChild);
+return hitArea;
+};
 
 const clearPath = () => {
 pathToken += 1;
@@ -745,27 +795,102 @@ pathTimeoutIds.add(addTimeoutId);
 });
 };
 
+const activateEasterEgg = () => {
+if (!circlesStage || !circlesGame || isEasterActive) {
+return;
+}
+
+isEasterActive = true;
+setEasterPreview(false);
+clearPath();
+svg.classList.remove("is-animating");
+circlesStage.classList.add("is-easter-active");
+circlesGame.setAttribute("aria-hidden", "false");
+broadcastPacmanState();
+};
+
+if (easterTrigger && easterTriggerUse) {
+const triggerHitArea = createTriggerHitArea();
+
+easterTrigger.instance.classList.add("is-easter-trigger");
+easterTrigger.instance.setAttribute("role", "button");
+easterTrigger.instance.setAttribute("tabindex", "0");
+easterTrigger.instance.setAttribute("aria-label", "Verstecktes Pacman-Spiel starten");
+
+if (triggerHitArea) {
+triggerHitArea.addEventListener("mouseenter", () => {
+setEasterPreview(true);
+});
+
+triggerHitArea.addEventListener("mouseleave", () => {
+setEasterPreview(false);
+});
+
+triggerHitArea.addEventListener("click", () => {
+activateEasterEgg();
+});
+}
+
+easterTrigger.instance.addEventListener("mouseenter", () => {
+setEasterPreview(true);
+});
+
+easterTrigger.instance.addEventListener("mouseleave", () => {
+setEasterPreview(false);
+});
+
+easterTrigger.instance.addEventListener("focusin", () => {
+setEasterPreview(true);
+});
+
+easterTrigger.instance.addEventListener("focusout", () => {
+setEasterPreview(false);
+});
+
+easterTrigger.instance.addEventListener("keydown", (event) => {
+if (event.key !== "Enter" && event.key !== " ") {
+return;
+}
+
+event.preventDefault();
+activateEasterEgg();
+});
+}
+
 circleInstances.forEach(({ instance }) => {
 instance.addEventListener("click", () => {
+if (instance === easterTrigger?.instance) {
+activateEasterEgg();
+return;
+}
+
 triggerPathFrom(instance);
 });
 });
 
 return {
 start() {
-if (prefersReducedMotion.matches) {
+isRunning = true;
+if (prefersReducedMotion.matches || isEasterActive) {
+svg.classList.remove("is-animating");
+broadcastPacmanState();
 return;
 }
 
 svg.classList.add("is-animating");
+broadcastPacmanState();
 },
 stop() {
+isRunning = false;
 svg.classList.remove("is-animating");
 clearPath();
+broadcastPacmanState();
 },
 reset() {
+isRunning = false;
 svg.classList.remove("is-animating");
 clearPath();
+broadcastPacmanState();
 }
 };
 };
@@ -902,6 +1027,450 @@ return;
 
 toggle.enable();
 toggle.start();
+});
+})();
+</script>
+
+<script>
+(() => {
+const svg = document.querySelector("#banner-animation-pacman");
+
+if (!svg) {
+return;
+}
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const circlesStage = svg.closest(".banner-circles-stage");
+const dotsGroup = svg.querySelector("#pacman-dots");
+const dotCircles = Array.from(dotsGroup?.querySelectorAll("circle") || []);
+const gridStep = 120;
+const ghostAvoidanceRadius = 240;
+
+if (!dotsGroup || !dotCircles.length) {
+return;
+}
+
+const transform = dotsGroup.getAttribute("transform") || "";
+const translateMatch = transform.match(/translate\(\s*([-.\d]+)(?:[\s,]+([-.\d]+))?\s*\)/);
+const dotsOffsetX = translateMatch ? Number(translateMatch[1]) : 0;
+const dotsOffsetY = translateMatch ? Number(translateMatch[2] ?? 0) : 0;
+
+const keyFor = (x, y) => Math.round(x) + "," + Math.round(y);
+
+const dotsByKey = new Map();
+const nodes = dotCircles.map((dot) => {
+const x = Number(dot.getAttribute("cx")) + dotsOffsetX;
+const y = Number(dot.getAttribute("cy")) + dotsOffsetY;
+const key = keyFor(x, y);
+const node = { key, x, y };
+dotsByKey.set(key, dot);
+return node;
+});
+
+const nodesByKey = new Map(nodes.map((node) => [node.key, node]));
+const graph = new Map();
+
+nodes.forEach((node) => {
+const neighborKeys = [
+keyFor(node.x + gridStep, node.y),
+keyFor(node.x - gridStep, node.y),
+keyFor(node.x, node.y + gridStep),
+keyFor(node.x, node.y - gridStep)
+].filter((neighborKey) => nodesByKey.has(neighborKey));
+
+graph.set(node.key, neighborKeys);
+});
+
+const nearestNodeKey = (x, y) => {
+let nearest = nodes[0];
+let nearestDistance = Infinity;
+
+nodes.forEach((node) => {
+const distance = Math.abs(node.x - x) + Math.abs(node.y - y);
+if (distance < nearestDistance) {
+nearestDistance = distance;
+nearest = node;
+}
+});
+
+return nearest.key;
+};
+
+const getActorPosition = (actor) => {
+const fromNode = nodesByKey.get(actor.currentKey);
+
+if (!fromNode) {
+return { x: 0, y: 0 };
+}
+
+if (!actor.targetKey) {
+return { x: fromNode.x, y: fromNode.y };
+}
+
+const toNode = nodesByKey.get(actor.targetKey);
+
+if (!toNode) {
+return { x: fromNode.x, y: fromNode.y };
+}
+
+return {
+x: fromNode.x + ((toNode.x - fromNode.x) * actor.progress),
+y: fromNode.y + ((toNode.y - fromNode.y) * actor.progress)
+};
+};
+
+const chooseNextNode = (actor, pacmanPosition = null) => {
+const neighbors = graph.get(actor.currentKey) || [];
+
+if (!neighbors.length) {
+return null;
+}
+
+const nonBacktrackNeighbors = actor.previousKey
+? neighbors.filter((neighborKey) => neighborKey !== actor.previousKey)
+: neighbors;
+
+const pool = nonBacktrackNeighbors.length ? nonBacktrackNeighbors : neighbors;
+
+if (actor.isGhost && pacmanPosition) {
+const currentNode = nodesByKey.get(actor.currentKey);
+
+if (currentNode) {
+const currentDistanceToPacman = Math.hypot(
+currentNode.x - pacmanPosition.x,
+currentNode.y - pacmanPosition.y
+);
+
+if (currentDistanceToPacman <= ghostAvoidanceRadius) {
+let bestDistance = -1;
+let bestNeighborKeys = [];
+
+pool.forEach((neighborKey) => {
+const neighborNode = nodesByKey.get(neighborKey);
+
+if (!neighborNode) {
+return;
+}
+
+const distance = Math.hypot(
+neighborNode.x - pacmanPosition.x,
+neighborNode.y - pacmanPosition.y
+);
+
+if (distance > bestDistance) {
+bestDistance = distance;
+bestNeighborKeys = [neighborKey];
+return;
+}
+
+if (distance === bestDistance) {
+bestNeighborKeys.push(neighborKey);
+}
+});
+
+if (bestNeighborKeys.length) {
+const bestIndex = Math.floor(Math.random() * bestNeighborKeys.length);
+return bestNeighborKeys[bestIndex];
+}
+}
+}
+}
+
+const nextIndex = Math.floor(Math.random() * pool.length);
+return pool[nextIndex];
+};
+
+const createActor = (selector, speed) => {
+const element = svg.querySelector(selector);
+
+if (!element) {
+return null;
+}
+
+const box = element.getBBox();
+if (!box.width && !box.height) {
+return null;
+}
+
+const baseCenterX = box.x + (box.width / 2);
+const baseCenterY = box.y + (box.height / 2);
+const currentKey = nearestNodeKey(baseCenterX, baseCenterY);
+
+return {
+baseCenterX,
+baseCenterY,
+currentKey,
+element,
+facingLeft: false,
+isGhost: selector.includes("ghost"),
+previousKey: null,
+progress: 0,
+speed,
+targetKey: null
+};
+};
+
+const actorConfigs = [
+{ selector: "#pacman", speed: 195 },
+{ selector: "#pacman-ghost-blinky", speed: 165 },
+{ selector: "#pacman-ghost-clyde", speed: 145 },
+{ selector: "#pacman-ghost-inky", speed: 155 },
+{ selector: "#pacman-ghost-pinky", speed: 150 }
+];
+let actors = [];
+let pacman = null;
+let actorsReady = false;
+const pacmanGhostAdjacentDistance = 145;
+const pacmanGhostCollisionDistance = 72;
+const pacmanReverseCooldownSeconds = 0.22;
+let pacmanReverseCooldown = 0;
+
+const eatDot = (key) => {
+const dot = dotsByKey.get(key);
+
+if (!dot || dot.dataset.eaten === "true") {
+return;
+}
+
+dot.dataset.eaten = "true";
+dot.style.transition = "opacity 180ms linear";
+dot.style.opacity = "0";
+};
+
+const initializeActors = () => {
+if (actorsReady) {
+return actors.length > 0;
+}
+
+actors = actorConfigs
+.map(({ selector, speed }) => createActor(selector, speed))
+.filter(Boolean);
+
+if (!actors.length) {
+return false;
+}
+
+pacman = actors.find((actor) => actor.element.id === "pacman") || null;
+
+if (pacman) {
+eatDot(pacman.currentKey);
+}
+
+actors.forEach((actor) => {
+const pacmanPosition = pacman && actor.isGhost ? getActorPosition(pacman) : null;
+actor.targetKey = chooseNextNode(actor, pacmanPosition);
+});
+
+actorsReady = true;
+return true;
+};
+
+const getNearestGhostDistance = () => {
+if (!actorsReady || !pacman) {
+return Infinity;
+}
+
+const pacmanPosition = getActorPosition(pacman);
+
+return actors
+.filter((actor) => actor.isGhost)
+.reduce((nearestDistance, ghost) => {
+const ghostPosition = getActorPosition(ghost);
+const distance = Math.hypot(
+ghostPosition.x - pacmanPosition.x,
+ghostPosition.y - pacmanPosition.y
+);
+
+return Math.min(nearestDistance, distance);
+}, Infinity);
+};
+
+const syncPacmanCollisionState = () => {
+if (!pacman || !pacman.element) {
+return;
+}
+
+const isCollision = getNearestGhostDistance() <= pacmanGhostCollisionDistance;
+pacman.element.classList.toggle("is-collision", isCollision);
+};
+
+const maybeReversePacman = () => {
+if (!actorsReady || !pacman || !pacman.targetKey || pacmanReverseCooldown > 0) {
+return;
+}
+
+const nearestGhostDistance = getNearestGhostDistance();
+
+if (nearestGhostDistance > pacmanGhostAdjacentDistance) {
+return;
+}
+
+const originalCurrentKey = pacman.currentKey;
+const originalTargetKey = pacman.targetKey;
+
+pacman.currentKey = originalTargetKey;
+pacman.targetKey = originalCurrentKey;
+pacman.previousKey = originalTargetKey;
+pacman.progress = 1 - pacman.progress;
+pacmanReverseCooldown = pacmanReverseCooldownSeconds;
+};
+
+const updateActor = (actor, deltaSeconds) => {
+const pacmanPosition = pacman && actor.isGhost ? getActorPosition(pacman) : null;
+
+if (!actor.targetKey) {
+actor.targetKey = chooseNextNode(actor, pacmanPosition);
+if (!actor.targetKey) {
+return;
+}
+}
+
+let fromNode = nodesByKey.get(actor.currentKey);
+let toNode = nodesByKey.get(actor.targetKey);
+
+if (!fromNode || !toNode) {
+return;
+}
+
+const segmentLength = Math.hypot(toNode.x - fromNode.x, toNode.y - fromNode.y) || 1;
+actor.progress += (actor.speed * deltaSeconds) / segmentLength;
+
+while (actor.progress >= 1) {
+actor.progress -= 1;
+actor.previousKey = actor.currentKey;
+actor.currentKey = actor.targetKey;
+
+if (actor === pacman) {
+eatDot(actor.currentKey);
+}
+
+actor.targetKey = chooseNextNode(actor, pacmanPosition);
+
+if (!actor.targetKey && actor.previousKey) {
+actor.targetKey = actor.previousKey;
+}
+
+if (!actor.targetKey) {
+actor.progress = 0;
+break;
+}
+
+fromNode = nodesByKey.get(actor.currentKey);
+toNode = nodesByKey.get(actor.targetKey);
+
+if (!fromNode || !toNode) {
+break;
+}
+}
+
+if (!fromNode || !toNode) {
+return;
+}
+
+if (actor === pacman) {
+const directionX = toNode.x - fromNode.x;
+const directionY = toNode.y - fromNode.y;
+
+if (Math.abs(directionX) > Math.abs(directionY) && directionX !== 0) {
+actor.facingLeft = directionX < 0;
+}
+}
+
+const x = fromNode.x + ((toNode.x - fromNode.x) * actor.progress);
+const y = fromNode.y + ((toNode.y - fromNode.y) * actor.progress);
+const translateX = x - actor.baseCenterX;
+const translateY = y - actor.baseCenterY;
+
+if (actor === pacman && actor.facingLeft) {
+const flipPivotX = (actor.baseCenterX * 2).toFixed(2);
+actor.element.setAttribute(
+"transform",
+"translate(" + translateX.toFixed(2) + " " + translateY.toFixed(2) + ") translate(" + flipPivotX + " 0) scale(-1 1)"
+);
+} else {
+actor.element.setAttribute("transform", "translate(" + translateX.toFixed(2) + " " + translateY.toFixed(2) + ")");
+}
+};
+
+let animationFrameId = 0;
+let previousTime = 0;
+let shouldRun = false;
+
+const tick = (now) => {
+if (!previousTime) {
+previousTime = now;
+}
+
+const deltaSeconds = Math.min((now - previousTime) / 1000, 0.05);
+previousTime = now;
+pacmanReverseCooldown = Math.max(0, pacmanReverseCooldown - deltaSeconds);
+
+maybeReversePacman();
+
+actors.forEach((actor) => {
+updateActor(actor, deltaSeconds);
+});
+
+syncPacmanCollisionState();
+
+animationFrameId = window.requestAnimationFrame(tick);
+};
+
+const start = () => {
+if (animationFrameId || prefersReducedMotion.matches || !shouldRun) {
+return;
+}
+
+if (!initializeActors()) {
+return;
+}
+
+previousTime = 0;
+animationFrameId = window.requestAnimationFrame(tick);
+};
+
+const stop = () => {
+if (!animationFrameId) {
+if (pacman?.element) {
+pacman.element.classList.remove("is-collision");
+}
+return;
+}
+
+window.cancelAnimationFrame(animationFrameId);
+animationFrameId = 0;
+
+if (pacman?.element) {
+pacman.element.classList.remove("is-collision");
+}
+};
+
+const syncPlayback = () => {
+if (shouldRun && !prefersReducedMotion.matches) {
+start();
+return;
+}
+
+stop();
+};
+
+if (typeof prefersReducedMotion.addEventListener === "function") {
+prefersReducedMotion.addEventListener("change", () => {
+syncPlayback();
+});
+}
+
+window.addEventListener("banner:pacman-state", (event) => {
+const details = event.detail || {};
+const isActive = Boolean(details.active);
+const isRunning = Boolean(details.running);
+shouldRun = isActive && isRunning;
+
+if (circlesStage) {
+circlesStage.classList.toggle("is-easter-active", isActive);
+}
+
+syncPlayback();
 });
 })();
 </script>
